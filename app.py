@@ -6,127 +6,140 @@ import os
 
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 
-from blog_assistant.analyzer import blueprint_to_brief
-from blog_assistant.pipeline import analyze_keyword
-from blog_assistant.writer import RefusedError, WriteRequest, stream_post
+from blog_assistant.pipeline import add_reference
+from blog_assistant.references import SOURCES, ReferenceStore
+from blog_assistant.scraper import post_from_text
+from blog_assistant.thumbnail import render_html, render_page
+from blog_assistant.writer import RefusedError, WriteRequest, char_count, draft_to_markdown, plan_thumbnails, write_draft
 
-st.set_page_config(page_title="네이버 블로그 글쓰기 비서", page_icon="✍️", layout="wide")
-st.title("✍️ 네이버 블로그 상위노출 글쓰기 비서")
-st.caption("키워드 상위노출 글과 홈판 인기글을 분석해서, 그 패턴대로 새 원고를 써 드립니다.")
+st.set_page_config(page_title="블로그 글쓰기 비서", page_icon="✍️", layout="wide")
+st.title("✍️ 비즈니스·경제 블로그 비서")
+st.caption("상위노출·홈판 글을 레퍼런스로 쌓고 → 키워드를 주면 홈판 썸네일 안과 2,000자 이내 원고를 만듭니다.")
 
 with st.sidebar:
     st.header("API 키")
-    naver_id = st.text_input("NAVER_CLIENT_ID", value=os.environ.get("NAVER_CLIENT_ID", ""))
-    naver_secret = st.text_input("NAVER_CLIENT_SECRET", value=os.environ.get("NAVER_CLIENT_SECRET", ""), type="password")
-    anthropic_key = st.text_input("ANTHROPIC_API_KEY", value=os.environ.get("ANTHROPIC_API_KEY", ""), type="password")
-    for k, v in {"NAVER_CLIENT_ID": naver_id, "NAVER_CLIENT_SECRET": naver_secret, "ANTHROPIC_API_KEY": anthropic_key}.items():
+    for name, secret in (("ANTHROPIC_API_KEY", True), ("NAVER_CLIENT_ID", False), ("NAVER_CLIENT_SECRET", True)):
+        v = st.text_input(name, value=os.environ.get(name, ""), type="password" if secret else "default")
         if v:
-            os.environ[k] = v
-    st.markdown("네이버 키 발급: [developers.naver.com](https://developers.naver.com/apps) → 검색 API")
+            os.environ[name] = v
+    st.caption("네이버 키는 '검색 상위글 실시간 분석'에만 필요합니다.")
 
-col1, col2 = st.columns([2, 1])
-with col1:
-    keyword = st.text_input("메인 키워드", placeholder="예: 제주도 흑돼지 맛집")
-with col2:
-    top_n = st.slider("분석할 상위 글 수", 3, 30, 10)
+store = ReferenceStore()
+tab_add, tab_list, tab_write = st.tabs(["① 레퍼런스 추가", "② 레퍼런스 보기", "③ 원고·썸네일"])
 
-homefeed = st.text_area(
-    "홈판/인기글 URL (선택, 한 줄에 하나)",
-    placeholder="네이버 블로그 홈·주제별 인기글에서 본 비슷한 주제의 글 주소를 붙여 넣으면 함께 분석합니다.",
-    height=90,
-)
-use_search = st.checkbox("네이버 검색 상위 글 자동 수집", value=True)
+with tab_add:
+    c1, c2, c3 = st.columns([2, 1, 1])
+    kw = c1.text_input("키워드", key="ref_kw", placeholder="예: 금리 인하")
+    source = c2.radio("노출 위치", SOURCES, horizontal=True)
+    rank = c3.number_input("시작 순위 (모르면 0)", 0, 100, 0)
+    note = st.text_input("메모 (선택)", placeholder="예: 크리에이터 어드바이저 유입 1위, 경제 주제판 노출")
+    mode = st.radio("입력 방식", ["URL", "본문 붙여넣기"], horizontal=True,
+                    help="URL로 수집이 안 되면(비공개·차단) 글을 복사해 붙여 넣으세요.")
+    with_insight = st.checkbox("Claude로 노출 이유 분석 (썸네일 포함)", value=True)
 
-with st.expander("글 설정", expanded=True):
-    c1, c2 = st.columns(2)
-    post_type = c1.selectbox("글 유형", ["정보+후기형", "내돈내산 후기", "정보성(가이드/총정리)", "맛집/카페 리뷰", "여행 코스", "제품 비교/추천"])
-    tone = c2.selectbox("말투", ["친근한 존댓말(~요체)", "전문가 느낌 존댓말(~습니다체)", "편한 반말 일기체"])
-    notes = st.text_area(
-        "내 실제 경험/정보 메모 (중요!)",
-        placeholder="방문 날짜, 가격, 위치, 장단점, 느낌 등. 실제 경험이 많을수록 D.I.A. 로직에서 유리하고, 비워 두면 [직접 입력] 칸으로 남겨 둡니다.",
-        height=120,
-    )
-    extra = st.text_input("추가 요청 (선택)", placeholder="예: 주차 정보 꼭 넣어줘, 아이 동반 관점으로")
-    c3, c4 = st.columns(2)
-    sponsored = c3.checkbox("협찬/광고 글")
-    effort = c4.select_slider("작성 품질(생각 깊이)", ["low", "medium", "high", "xhigh"], value="high")
+    if mode == "URL":
+        urls = st.text_area("블로그 URL (한 줄에 하나, 순위 순서대로)", height=140)
+        if st.button("추가·분석", type="primary", disabled=not kw):
+            lines = [u.strip() for u in urls.splitlines() if u.strip()]
+            for i, url in enumerate(lines):
+                with st.spinner(f"[{i + 1}/{len(lines)}] {url}"):
+                    try:
+                        path = add_reference(kw, source, url=url, rank=(rank + i) if rank else None,
+                                             note=note, with_insight=with_insight, store=store)
+                        st.success(f"저장: {path.name}")
+                    except Exception as e:
+                        st.error(f"{url}: {e}")
+    else:
+        title = st.text_input("글 제목")
+        url = st.text_input("URL (선택)")
+        body = st.text_area("본문 (소제목은 '## '로 시작, 사진 자리는 [사진] 한 줄)", height=260)
+        images = st.number_input("본문 이미지 수 (위에 [사진]을 안 넣었다면)", 0, 100, 0)
+        if st.button("추가·분석", type="primary", disabled=not (kw and title and body)):
+            with st.spinner("분석 중…"):
+                try:
+                    post = post_from_text(title, body, url=url, image_count=images)
+                    path = add_reference(kw, source, post=post, rank=rank or None, note=note,
+                                         with_insight=with_insight, store=store)
+                    st.success(f"저장: {path.name}")
+                except Exception as e:
+                    st.error(str(e))
 
-analyze_btn, write_btn = st.columns(2)
-do_analyze = analyze_btn.button("1️⃣ 상위글 분석", use_container_width=True)
-do_write = write_btn.button("2️⃣ 분석 + 원고 작성", type="primary", use_container_width=True)
+with tab_list:
+    refs = store.all()
+    if not refs:
+        st.info("아직 레퍼런스가 없습니다. ① 탭에서 추가하세요.")
+    else:
+        flt = st.text_input("키워드로 찾기")
+        if flt:
+            refs = store.related(flt, limit=1000)
+        st.dataframe(pd.DataFrame([{
+            "키워드": r["keyword"], "위치": r["source"], "순위": r.get("rank"), "제목": r["title"],
+            "글자수": r["stats"].get("char_count"), "이미지": r["stats"].get("image_count"),
+            "분석": "✓" if r.get("insight") else "", "URL": r["url"],
+        } for r in refs]), hide_index=True, use_container_width=True,
+            column_config={"URL": st.column_config.LinkColumn()})
+        for r in refs[:30]:
+            ins = r.get("insight")
+            if not ins:
+                continue
+            with st.expander(f"[{r['source']}] {r['keyword']} · {r['title']}"):
+                if r.get("thumbnail_url"):
+                    st.image(r["thumbnail_url"], width=200)
+                st.markdown("**노출 이유**\n" + "\n".join(f"- {x}" for x in ins["why_exposed"]))
+                st.markdown(f"**검색 의도**: {ins['search_intent']}\n\n**제목**: {ins['title_analysis']}\n\n"
+                            f"**도입부**: {ins['intro_hook']}\n\n**구성**: {ins['structure_analysis']}\n\n"
+                            f"**시의성**: {ins['timeliness']}")
+                th = ins["thumbnail"]
+                if th["seen"]:
+                    st.markdown(f"**썸네일**: 「{th['text_on_image']}」 · {th['layout']} · {th['colors']} · "
+                                f"{th['typography']} → {th['why_it_works']}")
+                st.markdown("**약점(이길 틈)**\n" + "\n".join(f"- {x}" for x in ins["weaknesses"]))
+                st.markdown("**적용할 규칙**\n" + "\n".join(f"- {x}" for x in ins["reusable_lessons"]))
 
-if (do_analyze or do_write) and not keyword.strip():
-    st.warning("키워드를 입력해 주세요.")
-    st.stop()
+with tab_write:
+    c1, c2 = st.columns([3, 1])
+    keyword = c1.text_input("메인 키워드", key="write_kw", placeholder="예: 금리 인하 대출 갈아타기")
+    limit = c2.number_input("최대 글자 수(공백 포함)", 800, 5000, 2000, step=100)
+    notes = st.text_area("내 관점·경험·꼭 넣을 사실", height=110,
+                         placeholder="예: 30대 직장인, 변동금리 주담대 3억. 은행 상담 받아본 내용, 중도상환수수료 1.2%…")
+    extra = st.text_input("추가 요청 (선택)")
+    related = store.related(keyword, limit=12) if keyword else []
+    st.caption(f"참고할 레퍼런스: {len(related)}개 " + (f"(같은 키워드 {sum(r['keyword'] == keyword for r in related)}개)" if keyword else ""))
 
-if do_analyze or (do_write and st.session_state.get("keyword") != keyword):
-    status = st.status("수집·분석 중…", expanded=True)
-    try:
-        bp, collected = analyze_keyword(
-            keyword.strip(),
-            top_n=top_n,
-            extra_urls=homefeed.splitlines(),
-            use_search=use_search,
-            on_progress=status.write,
-        )
-    except Exception as e:
-        status.update(label="수집 실패", state="error")
-        st.error(str(e))
-        st.stop()
-    st.session_state.update(keyword=keyword, blueprint=bp, errors=collected.errors)
-    status.update(label=f"분석 완료: {len(collected.posts)}개 글", state="complete", expanded=False)
+    if st.button("원고 + 썸네일 만들기", type="primary", disabled=not keyword):
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            st.error("ANTHROPIC_API_KEY가 필요합니다 (사이드바).")
+            st.stop()
+        try:
+            with st.spinner("원고 작성 중… (분량 초과 시 자동으로 줄입니다)"):
+                draft = write_draft(WriteRequest(keyword, notes, extra, int(limit)), related)
+            with st.spinner("썸네일 안 만드는 중…"):
+                plan = plan_thumbnails(keyword, draft, related)
+        except RefusedError as e:
+            st.error(str(e))
+            st.stop()
+        st.session_state.update(draft=draft, plan=plan, draft_kw=keyword)
 
-bp = st.session_state.get("blueprint") if st.session_state.get("keyword") == keyword else None
+    if st.session_state.get("draft") and st.session_state.get("draft_kw") == keyword:
+        draft, plan = st.session_state["draft"], st.session_state["plan"]
+        st.subheader("🖼 홈판 썸네일 안")
+        cols = st.columns(len(plan.ideas))
+        for col, idea in zip(cols, plan.ideas):
+            with col:
+                components.html(render_html(idea, size=300), height=310)
+                st.markdown(f"**{idea.concept}**\n\n이미지: {idea.visual}\n\n색: 배경 `{idea.background}` · 글자 "
+                            f"`{idea.text_color}` · 강조 `{idea.accent_color}`\n\n근거: {idea.rationale}")
+        st.markdown("\n".join(f"- {t}" for t in plan.tips))
+        st.download_button("썸네일 시안 HTML", render_page(plan.ideas, draft.title), file_name=f"{keyword}_썸네일.html")
 
-for url, err in st.session_state.get("errors", []):
-    st.caption(f"⚠️ 건너뜀: {url} — {err}")
-
-if bp is not None:
-    st.subheader("📊 분석 결과")
-    m = st.columns(5)
-    m[0].metric("권장 글자 수", f"{bp.target_chars:,}자")
-    m[1].metric("권장 이미지", f"{bp.target_images}장")
-    m[2].metric("키워드 반복", f"{bp.target_keyword_count}회")
-    m[3].metric("소제목", f"{bp.target_headings}개")
-    m[4].metric("제목에 키워드", f"{int(bp.keyword_in_title_ratio * 100)}%")
-
-    t1, t2, t3 = st.tabs(["글별 상세", "연관 키워드·제목 패턴", "요약 브리프"])
-    with t1:
-        df = pd.DataFrame(
-            [
-                {
-                    "제목": s.title, "글자수": s.char_count, "이미지": s.image_count, "소제목": s.heading_count,
-                    "키워드": s.keyword_count, "1000자당": s.keyword_density, "문단평균": s.avg_paragraph_len,
-                    "동영상": s.video_count, "URL": s.url,
-                }
-                for s in bp.posts
-            ]
-        )
-        st.dataframe(df, use_container_width=True, hide_index=True, column_config={"URL": st.column_config.LinkColumn()})
-    with t2:
-        a, b = st.columns(2)
-        a.markdown("**공통 연관 키워드** (등장한 글 수)")
-        a.dataframe(pd.DataFrame(bp.related_keywords, columns=["단어", "글 수"]), hide_index=True)
-        b.markdown("**제목 패턴**")
-        b.dataframe(pd.DataFrame(bp.title_patterns, columns=["패턴", "글 수"]), hide_index=True)
-    with t3:
-        st.code(blueprint_to_brief(bp), language="markdown")
-
-if do_write:
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        st.error("ANTHROPIC_API_KEY가 필요합니다 (사이드바).")
-        st.stop()
-    if bp is None:
-        st.info("분석 데이터 없이 일반 상위노출 기준으로 작성합니다.")
-    st.subheader("📝 원고")
-    req = WriteRequest(keyword.strip(), post_type, tone, notes, extra, sponsored)
-    try:
-        text = st.write_stream(stream_post(req, bp, effort=effort))
-    except RefusedError as e:
-        st.error(str(e))
-        st.stop()
-    st.session_state["draft"] = text
-
-if st.session_state.get("draft"):
-    st.download_button("원고 다운로드 (.md)", st.session_state["draft"], file_name=f"{keyword or 'post'}.md")
+        with_space, no_space = char_count(draft.body)
+        st.subheader("📝 원고")
+        st.caption(f"공백 포함 {with_space}자 / 공백 제외 {no_space}자 (한도 {limit}자)")
+        st.markdown(f"### {draft.title}")
+        st.markdown(draft.body)
+        st.markdown(" ".join("#" + h.lstrip("#") for h in draft.hashtags))
+        with st.expander("제목 후보 · 직접 채울 항목 · 적용한 규칙"):
+            st.markdown(draft_to_markdown(draft).split("---", 1)[1])
+        st.download_button("원고 다운로드 (.md)", draft_to_markdown(draft), file_name=f"{keyword}.md")

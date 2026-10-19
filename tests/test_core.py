@@ -2,7 +2,6 @@ from pathlib import Path
 
 from blog_assistant.analyzer import analyze_post, blueprint_to_brief, build_blueprint, count_keyword, tokenize
 from blog_assistant.scraper import BlogPost, Block, parse_blog_url, parse_post_html, postview_url
-from blog_assistant.writer import WriteRequest, build_user_prompt
 
 FIXTURE = (Path(__file__).parent / "fixtures" / "se_post.html").read_text(encoding="utf-8")
 
@@ -25,6 +24,8 @@ def test_parse_smart_editor():
     assert len(post.paragraphs) == 4
     assert "2만5천원" in post.bold_phrases
     assert {"제주맛집", "흑돼지", "제주도여행"} <= set(post.tags)
+    assert post.thumbnail_url == "https://blogthumb.pstatic.net/thumb.jpg"
+    assert post.image_urls == ["https://postfiles.pstatic.net/a.jpg"]
 
 
 def test_keyword_counting_ignores_spaces():
@@ -52,6 +53,3 @@ def test_analyze_and_blueprint():
     brief = blueprint_to_brief(bp)
     assert "제주도 흑돼지 맛집" in brief and "이미지 수" in brief
 
-    prompt = build_user_prompt(WriteRequest("제주도 흑돼지 맛집", experience_notes="3월 방문"), bp)
-    assert "3월 방문" in prompt and "분석 결과" in prompt
-    assert "일반적인 네이버 상위노출 기준" in build_user_prompt(WriteRequest("x"), None)

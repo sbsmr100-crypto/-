@@ -68,3 +68,32 @@ def analyze_keyword(keyword: str, **kwargs) -> tuple[Blueprint | None, CollectRe
     collected = collect_posts(keyword, **kwargs)
     blueprint = build_blueprint(collected.posts, keyword) if collected.posts else None
     return blueprint, collected
+
+
+def add_reference(
+    keyword: str,
+    source: str,
+    url: str = "",
+    post: BlogPost | None = None,
+    rank: int | None = None,
+    note: str = "",
+    with_insight: bool = True,
+    store=None,
+    effort: str = "high",
+):
+    """레퍼런스 한 편 추가: (수집) → 지표 → Claude 노출 이유 분석 → 저장. 저장 경로 반환.
+
+    post를 주면 수집을 건너뛴다(직접 붙여 넣은 글).
+    """
+    from .analyzer import analyze_post
+    from .insights import analyze_reference
+    from .references import ReferenceStore
+
+    store = store or ReferenceStore()
+    if post is None:
+        post = fetch_post(url)
+        if not post.blocks:
+            raise RuntimeError("본문을 찾지 못했습니다(비공개/삭제 글일 수 있음)")
+    stats = analyze_post(post, keyword)
+    insight = analyze_reference(post, stats, keyword, source, rank, note, effort=effort) if with_insight else None
+    return store.add(post, stats, keyword, source, rank, note, insight)

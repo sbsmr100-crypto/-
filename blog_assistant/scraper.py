@@ -36,6 +36,8 @@ class BlogPost:
     blocks: list[Block] = field(default_factory=list)
     tags: list[str] = field(default_factory=list)
     bold_phrases: list[str] = field(default_factory=list)
+    image_urls: list[str] = field(default_factory=list)
+    thumbnail_url: str = ""  # 대표이미지(og:image) = 홈판/검색 결과에 보이는 썸네일
 
     @property
     def paragraphs(self) -> list[str]:
@@ -188,4 +190,40 @@ def parse_post_html(html: str, url: str = "") -> BlogPost:
         if m.group(1) not in tags:
             tags.append(m.group(1))
 
-    return BlogPost(url=url, title=title, blocks=blocks, tags=tags, bold_phrases=bold)
+    image_urls: list[str] = []
+    if container is not None:
+        for img in container.select("img"):
+            src = img.get("data-lazy-src") or img.get("src") or ""
+            if src.startswith("http") and "sticker" not in src and src not in image_urls:
+                image_urls.append(src)
+    og_img = soup.select_one('meta[property="og:image"]')
+    thumbnail = (og_img.get("content") or "").strip() if og_img else ""
+
+    return BlogPost(
+        url=url,
+        title=title,
+        blocks=blocks,
+        tags=tags,
+        bold_phrases=bold,
+        image_urls=image_urls,
+        thumbnail_url=thumbnail or (image_urls[0] if image_urls else ""),
+    )
+
+
+def post_from_text(title: str, body: str, url: str = "", image_count: int = 0) -> BlogPost:
+    """네이버 접속이 막힌 환경용: 직접 복사해 붙인 제목/본문으로 BlogPost를 만든다.
+    '## '나 '### '로 시작하는 줄은 소제목, '[사진]' 줄은 이미지로 본다."""
+    blocks: list[Block] = []
+    for line in body.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith("#") and not _HASHTAG_RE.match(line):
+            blocks.append(Block("heading", line.lstrip("# ").strip()))
+        elif line in ("[사진]", "[이미지]"):
+            blocks.append(Block("image"))
+        else:
+            blocks.append(Block("text", line))
+    blocks.extend(Block("image") for _ in range(image_count))
+    tags = list(dict.fromkeys(m.group(1) for m in _HASHTAG_RE.finditer(body)))
+    return BlogPost(url=url, title=title.strip(), blocks=blocks, tags=tags)
