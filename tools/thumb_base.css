@@ -13,3 +13,7 @@ body { margin: 0; padding: 20px; background: #ddd; display: flex; flex-wrap: wra
 .tag { display: inline-block; font-weight: 900; font-size: 48px; padding: 10px 28px; border-radius: 14px; }
 .hl { padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .stroke { -webkit-text-stroke: 14px #111; paint-order: stroke fill; }
+
+/* 워터마크: 캡처 요소에 class="wm" div를 넣으면 우측 하단에 표시 */
+.wm { position: absolute; right: 30px; bottom: 18px; font: 900 34px 'Noto Sans KR', sans-serif; letter-spacing: 0;
+  color: rgba(255,255,255,.85); text-shadow: 0 0 6px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.6); z-index: 10; }

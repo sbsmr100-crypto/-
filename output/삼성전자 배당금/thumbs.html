@@ -85,7 +85,7 @@
 </div>
 
 <!-- 최종 3: 감정·상황형 -->
-<div class="canvas" data-out="thumb3.png" id="t3">
+<div class="canvas" data-out="thumb3.png" id="t3" data-wm="dark">
   <div class="copy" style="top:110px;color:#111">
     <div class="sub" style="font-size:62px">삼전 배당 알림</div>
     <div class="headline" style="font-size:150px;margin-top:10px">이번엔<br><span class="hl" style="background:#e63946;color:#fff">커피값</span>이<br>아니다</div>
@@ -97,5 +97,15 @@
 const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
 put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
 put('t1','bg1svg');put('t2','bg3svg');put('t3','bg2svg');
+</script>
+<script>
+document.querySelectorAll('[data-out]').forEach(el=>{
+  if(/^bg\d/.test(el.dataset.out)) return;
+  if(getComputedStyle(el).position==='static') el.style.position='relative';
+  const m=getComputedStyle(el).backgroundColor.match(/\d+/g)||[255,255,255];
+  const opaque=m.length<4||+m[3]>0;  // 투명 배경(SVG로 칠한 캔버스)은 data-wm으로 지정
+  const light=el.dataset.wm==='dark'||(opaque&&(0.299*m[0]+0.587*m[1]+0.114*m[2])>150);
+  el.insertAdjacentHTML('beforeend','<div class="wm"'+(light?' style="color:rgba(17,17,17,.75);text-shadow:none"':'')+'>@NTL</div>');
+});
 </script>
 </body></html>

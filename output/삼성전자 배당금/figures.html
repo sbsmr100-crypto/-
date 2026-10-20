@@ -3,7 +3,7 @@
 .fig{width:1080px;height:1080px;background:#fff;color:#111;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
 .t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
 .s{font-size:36px;color:#555;font-weight:500;margin-top:14px}
-.src{position:absolute;left:80px;right:80px;bottom:50px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
 .y{color:#e0a800}.r{color:#e63946}.n{color:#1f4fbf}
 </style></head><body>
 
@@ -90,4 +90,14 @@
   </div>
   <div class="src" style="color:#7fae8c;border-color:#1f4a31">지급일은 이사회 공시 후 확정 · 2026.10.20 기준</div>
 </div>
+<script>
+document.querySelectorAll('[data-out]').forEach(el=>{
+  if(/^bg\d/.test(el.dataset.out)) return;
+  if(getComputedStyle(el).position==='static') el.style.position='relative';
+  const m=getComputedStyle(el).backgroundColor.match(/\d+/g)||[255,255,255];
+  const opaque=m.length<4||+m[3]>0;  // 투명 배경(SVG로 칠한 캔버스)은 data-wm으로 지정
+  const light=el.dataset.wm==='dark'||(opaque&&(0.299*m[0]+0.587*m[1]+0.114*m[2])>150);
+  el.insertAdjacentHTML('beforeend','<div class="wm"'+(light?' style="color:rgba(17,17,17,.75);text-shadow:none"':'')+'>@NTL</div>');
+});
+</script>
 </body></html>
