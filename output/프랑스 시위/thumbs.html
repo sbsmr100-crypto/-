@@ -1,0 +1,102 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#120c16"/><stop offset=".6" stop-color="#3a1414"/><stop offset="1" stop-color="#b8461b"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#ff7a1a" stop-opacity=".9"/><stop offset="1" stop-color="#ff7a1a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#sky)"/>
+  <rect width="1080" height="1080" fill="url(#glow)"/>
+  <g fill="#555" fill-opacity=".35">
+    <ellipse cx="260" cy="760" rx="260" ry="90"/><ellipse cx="760" cy="720" rx="300" ry="110"/><ellipse cx="520" cy="640" rx="220" ry="80"/>
+  </g>
+  <!-- 에펠탑 실루엣 -->
+  <g fill="#0b0708" transform="translate(760,170)">
+    <polygon points="0,0 8,0 10,60 -2,60"/>
+    <polygon points="-6,60 16,60 40,330 -30,330"/>
+    <polygon points="-40,330 50,330 70,380 -60,380"/>
+    <polygon points="-60,380 70,380 150,760 90,760 30,560 -20,560 -80,760 -140,760"/>
+    <rect x="-80" y="540" width="170" height="26"/>
+  </g>
+  <!-- 도시 실루엣 -->
+  <path d="M0 900 L0 820 60 820 60 780 140 780 140 840 220 840 220 760 300 760 300 850 380 850 380 800 470 800 470 870 560 870 560 790 650 790 650 860 1080 860 1080 1080 0 1080Z" fill="#0b0708"/>
+  <!-- 불꽃 -->
+  <g fill="#ff8c1a"><path d="M150 900 q20-70 0-120 q50 40 40 120Z"/><path d="M400 900 q30-90 5-150 q60 60 40 150Z"/><path d="M620 900 q15-60 -5-100 q45 35 35 100Z"/></g>
+  <g fill="#ffd27a"><path d="M160 900 q10-40 0-70 q25 30 18 70Z"/><path d="M412 900 q15-50 0-85 q30 40 20 85Z"/><path d="M628 900 q8-35 -2-60 q22 25 18 60Z"/></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#eaf3ff"/>
+  <circle cx="930" cy="140" r="240" fill="#cfe2ff"/>
+  <g fill="#fff"><ellipse cx="200" cy="170" rx="120" ry="40"/><ellipse cx="270" cy="150" rx="80" ry="45"/></g>
+  <!-- 비행기 -->
+  <g transform="translate(820,250) rotate(-20)" fill="#1f4fbf">
+    <rect x="-90" y="-14" width="200" height="28" rx="14"/><polygon points="-10,-10 40,-10 -20,-90 -45,-90"/><polygon points="-10,10 40,10 -20,90 -45,90"/><polygon points="-85,-8 -60,-8 -95,-45 -110,-45"/>
+  </g>
+  <!-- 캐리어 -->
+  <g transform="translate(590,520)">
+    <rect x="70" y="-70" width="120" height="80" rx="20" fill="none" stroke="#111" stroke-width="18"/>
+    <rect x="0" y="0" width="260" height="380" rx="36" fill="#ff6b3d" stroke="#111" stroke-width="10"/>
+    <rect x="60" y="30" width="22" height="320" rx="11" fill="#d9481d"/><rect x="178" y="30" width="22" height="320" rx="11" fill="#d9481d"/>
+    <circle cx="50" cy="400" r="24" fill="#111"/><circle cx="210" cy="400" r="24" fill="#111"/>
+  </g>
+  <!-- 경고 표지 -->
+  <g transform="translate(830,700)">
+    <polygon points="90,0 180,160 0,160" fill="#ffd400" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+    <rect x="80" y="50" width="20" height="60" rx="8" fill="#111"/><circle cx="90" cy="132" r="12" fill="#111"/>
+  </g>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#0a1430"/>
+  <rect x="0" y="0" width="360" height="1080" fill="#1f4fbf" fill-opacity=".12"/>
+  <rect x="720" y="0" width="360" height="1080" fill="#e63946" fill-opacity=".12"/>
+  <g stroke="#fff" stroke-opacity=".07" stroke-width="2">
+    <line x1="0" y1="300" x2="1080" y2="300"/><line x1="0" y1="500" x2="1080" y2="500"/><line x1="0" y1="700" x2="1080" y2="700"/><line x1="0" y1="900" x2="1080" y2="900"/>
+  </g>
+  <polyline points="60,930 220,900 360,910 500,860 640,870 760,760 860,640 1000,420" fill="none" stroke="#ff4d4d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="1010,360 1040,450 960,430" fill="#ff4d4d"/>
+  <g transform="translate(860,170)">
+    <circle r="110" fill="#ffd400" stroke="#c99700" stroke-width="10"/>
+    <text y="48" text-anchor="middle" font-size="140" font-weight="900" fill="#a37800" font-family="Noto Sans KR">€</text>
+  </g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:120px;right:330px">
+    <span class="tag" style="background:#ff7a1a;color:#111">프랑스 시위</span>
+    <div class="headline" style="color:#fff;margin-top:34px;font-size:150px;text-shadow:0 6px 24px #000">55만 명<br><span style="color:#ffb347">거리로</span></div>
+    <div class="sub" style="color:#fff;margin-top:26px;display:inline-block;background:#000a;padding:8px 18px;border-radius:12px">노란 조끼 이후 최악</div>
+  </div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:150px;right:420px;color:#111">
+    <div class="sub" style="font-size:56px;color:#1f4fbf">시위 중인데</div>
+    <div class="headline" style="font-size:150px;margin-top:14px">파리<br>가도<br><span class="hl" style="background:#ff6b3d;color:#fff">될까?</span></div>
+  </div>
+  <div class="copy" style="bottom:90px;right:auto"><span class="tag" style="background:#111;color:#ffd400">통금·루브르·파업 체크</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:150px;color:#fff">
+    <div class="sub" style="font-size:56px;color:#9db4ff">프랑스 시위 그 후</div>
+    <div class="headline" style="font-size:150px;margin-top:14px;text-shadow:0 6px 24px #0a1430">내 돈도<br><span style="color:#ff6b6b">흔들린다</span></div>
+  </div>
+  <div class="copy" style="bottom:110px;right:auto"><span class="tag" style="background:#ffd400;color:#0a1430">국채 금리 하루 +0.13%p</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>

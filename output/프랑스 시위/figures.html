@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#111;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
+.s{font-size:36px;color:#555;font-weight:500;margin-top:14px}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.row{display:flex;gap:36px;align-items:center}
+.dot{width:72px;height:72px;border-radius:50%;flex:none}
+.d{font-size:34px;font-weight:700}.e{font-size:42px;font-weight:900}
+.card{background:#f4f5f7;border-radius:24px;padding:22px 34px;display:flex;align-items:center;gap:28px}
+.ic{width:84px;height:84px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:48px;flex:none;color:#fff;font-weight:900}
+</style></head><body>
+
+<!-- 1. 확산 타임라인 -->
+<div class="fig" data-out="fig1_timeline.png" style="background:#1a1210;color:#fff">
+  <div class="t">교실에서 시작해<br><span style="color:#ff7a3d">파리 통금</span>까지</div>
+  <div style="position:absolute;left:115px;top:350px;bottom:200px;width:8px;background:#4a2f26;border-radius:4px"></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:grid;gap:30px">
+    <div class="row"><div class="dot" style="background:#8a6a5e"></div><div><div class="d" style="color:#d9b8aa">9월 18일 · 크레테유</div><div class="e">고교생 시위 시작 (교사 부족·과밀 학급)</div></div></div>
+    <div class="row"><div class="dot" style="background:#c47a55"></div><div><div class="d" style="color:#d9b8aa">10월 6일</div><div class="e">전국 25만 명 (정부 추산)</div></div></div>
+    <div class="row"><div class="dot" style="background:#ff7a3d;box-shadow:0 0 0 12px #ff7a3d44"></div><div><div class="d" style="color:#ff9d6b">10월 17일</div><div class="e">55만 명 · 생활비·유가 시위로 확산</div></div></div>
+    <div class="row"><div class="dot" style="background:#e63946"></div><div><div class="d" style="color:#ffb3b9">10월 18~19일</div><div class="e">파리 등 부분 야간 통행금지</div></div></div>
+  </div>
+  <div class="src" style="color:#a08578;border-color:#3a2620">출처: 알자지라·CNN·뉴스핌 등 보도 종합 · 2026.10.20 기준</div>
+</div>
+
+<!-- 2. 참가자 규모 -->
+<div class="fig" data-out="fig2_crowd.png">
+  <div class="t">한 달 만에<br>시위 규모 <span style="color:#e63946">2배 이상</span></div>
+  <div class="s">전국 시위 참가자 수</div>
+  <svg width="920" height="560" style="position:absolute;left:80px;top:330px" font-family="Noto Sans KR">
+    <line x1="0" y1="500" x2="920" y2="500" stroke="#ccc" stroke-width="3"/>
+    <rect x="90" y="340" width="200" height="160" rx="10" fill="#9aa4b2"/>
+    <text x="190" y="320" text-anchor="middle" font-size="50" font-weight="900">25만</text>
+    <text x="190" y="550" text-anchor="middle" font-size="34" fill="#555">10월 6일</text>
+    <rect x="390" y="148" width="200" height="352" rx="10" fill="#e63946"/>
+    <text x="490" y="128" text-anchor="middle" font-size="56" font-weight="900" fill="#e63946">55만</text>
+    <text x="490" y="550" text-anchor="middle" font-size="34" fill="#555">10월 17일</text>
+    <rect x="690" y="0" width="200" height="500" rx="10" fill="none" stroke="#e63946" stroke-width="5" stroke-dasharray="16 10"/>
+    <text x="790" y="230" text-anchor="middle" font-size="50" font-weight="900" fill="#e63946">80만</text>
+    <text x="790" y="285" text-anchor="middle" font-size="30" fill="#777">주최 측 주장</text>
+    <text x="790" y="550" text-anchor="middle" font-size="34" fill="#555">10월 17일</text>
+  </svg>
+  <div class="src">막대는 정부 추산(점선은 주최 측 주장) · 출처: 언론 보도 종합 · 2026.10.20 기준</div>
+</div>
+
+<!-- 3. 여행자 체크리스트 -->
+<div class="fig" data-out="fig3_travel.png" style="background:#eef4ff">
+  <div class="t">파리 여행 전<br><span style="color:#1f4fbf">꼭 확인할 4가지</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:300px;display:grid;gap:18px">
+    <div class="card" style="background:#fff"><div class="ic" style="background:#e63946">🌙</div><div><div class="e" style="font-size:38px">부분 야간 통행금지</div><div style="font-size:28px;color:#666">숙소 위치가 대상 지역인지 확인</div></div></div>
+    <div class="card" style="background:#fff"><div class="ic" style="background:#1f4fbf">🏛</div><div><div class="e" style="font-size:38px">루브르 11월 1일까지 사전 예약제</div><div style="font-size:28px;color:#666">예약 없이 가면 입장 못 할 수 있음</div></div></div>
+    <div class="card" style="background:#fff"><div class="ic" style="background:#f59f00">🚇</div><div><div class="e" style="font-size:38px">시위 당일 지하철역 폐쇄</div><div style="font-size:28px;color:#666">관광지 주변 역 25곳 닫힌 적 있음</div></div></div>
+    <div class="card" style="background:#fff"><div class="ic" style="background:#2b8a3e">✈</div><div><div class="e" style="font-size:38px">항공·교통 파업 일정</div><div style="font-size:28px;color:#666">11월 5일 전국 파업 예고</div></div></div>
+  </div>
+  <div class="src" style="border-color:#d6e0f5">출처: 아주경제·뉴스핌·헤럴드경제 보도 · 2026.10.20 기준</div>
+</div>
+
+<!-- 4. 국채 금리 -->
+<div class="fig" data-out="fig4_yield.png" style="background:#0a1a3c;color:#fff">
+  <div class="t">나라 빌리는 돈 이자<br><span style="color:#ffd400">프랑스가 더 비싸졌다</span></div>
+  <div class="s" style="color:#b9c7ea">10년 만기 국채 금리 (10월 19일)</div>
+  <svg width="920" height="520" style="position:absolute;left:80px;top:360px" font-family="Noto Sans KR">
+    <line x1="0" y1="420" x2="920" y2="420" stroke="#2c4378" stroke-width="3"/>
+    <rect x="120" y="180" width="260" height="240" rx="10" fill="#5b8cff"/>
+    <text x="250" y="160" text-anchor="middle" font-size="58" font-weight="900" fill="#fff">3.45%</text>
+    <text x="250" y="470" text-anchor="middle" font-size="36" fill="#b9c7ea">독일</text>
+    <rect x="540" y="80" width="260" height="340" rx="10" fill="#ffd400"/>
+    <text x="670" y="60" text-anchor="middle" font-size="58" font-weight="900" fill="#ffd400">약 4.9%</text>
+    <text x="670" y="250" text-anchor="middle" font-size="38" font-weight="900" fill="#0a1a3c">하루 +0.13%p</text>
+    <text x="670" y="470" text-anchor="middle" font-size="36" fill="#b9c7ea">프랑스</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:870px;text-align:center"><span class="tag" style="background:#e63946;color:#fff;font-size:40px">두 나라 금리 차, 유로존 위기 이후 최대</span></div>
+  <div class="src" style="color:#8ea2d6;border-color:#23386b">출처: 로이터·CNBC 보도 · 장중 수치라 시점별 차이 있음 · 2026.10.19</div>
+</div>
+
+<!-- 5. 앞으로 일정 -->
+<div class="fig" data-out="fig5_schedule.png" style="background:#fff6d6">
+  <div class="t">앞으로 2주,<br><span style="color:#e63946">이 날짜</span>를 보세요</div>
+  <div style="position:absolute;left:80px;right:80px;top:340px;display:grid;gap:26px">
+    <div class="card" style="background:#fff;border:4px solid #111"><div style="font-family:'Black Han Sans';font-size:64px;width:230px">10.23</div><div><div class="e">무디스 신용등급 검토</div><div style="font-size:30px;color:#666">강등 시 국채 금리 추가 상승 우려</div></div></div>
+    <div class="card" style="background:#fff;border:4px solid #111"><div style="font-family:'Black Han Sans';font-size:64px;width:230px">10.29</div><div><div class="e">유럽중앙은행(ECB) 회의</div><div style="font-size:30px;color:#666">유로화 방향을 가를 변수</div></div></div>
+    <div class="card" style="background:#e63946;color:#fff;border:4px solid #111"><div style="font-family:'Black Han Sans';font-size:64px;width:230px">11.5</div><div><div class="e">노동조합 전국 파업</div><div style="font-size:30px;color:#ffd9dc">교통·관광 일정 차질 가능</div></div></div>
+  </div>
+  <div class="src">출처: 아주경제·애드미럴스 등 보도 종합 · 일정은 변경될 수 있음</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
