@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.coin{fill:#f5c518;stroke:#c99700;stroke-width:6}
+</style></head><body>
+
+<!-- 배경 SVG 정의 -->
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1a3c"/><stop offset="1" stop-color="#14306b"/></linearGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <g stroke="#ffffff" stroke-opacity=".07" stroke-width="2">
+    <line x1="0" y1="270" x2="1080" y2="270"/><line x1="0" y1="540" x2="1080" y2="540"/><line x1="0" y1="810" x2="1080" y2="810"/>
+  </g>
+  <g fill="#1f4fbf" fill-opacity=".55">
+    <rect x="120" y="860" width="110" height="120" rx="10"/><rect x="290" y="830" width="110" height="150" rx="10"/>
+    <rect x="460" y="800" width="110" height="180" rx="10"/>
+  </g>
+  <rect x="630" y="430" width="140" height="550" rx="12" fill="#ffd400"/>
+  <rect x="820" y="330" width="140" height="650" rx="12" fill="#ffd400" fill-opacity=".85"/>
+  <polyline points="170,840 340,810 510,780 700,400 890,300" fill="none" stroke="#ff4d4d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="890,240 950,320 860,330" fill="#ff4d4d"/>
+  <g transform="translate(780,0)"><ellipse cx="160" cy="180" rx="70" ry="70" class="coin"/><text x="160" y="205" text-anchor="middle" font-size="70" font-weight="900" fill="#c99700" font-family="Noto Sans KR">₩</text></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#fff6d6"/>
+  <circle cx="900" cy="170" r="260" fill="#ffd84d" fill-opacity=".55"/>
+  <circle cx="120" cy="980" r="220" fill="#ffd84d" fill-opacity=".45"/>
+  <!-- 달력 -->
+  <g transform="translate(600,560) rotate(8)">
+    <rect x="0" y="0" width="400" height="380" rx="30" fill="#fff" stroke="#111" stroke-width="10"/>
+    <rect x="0" y="0" width="400" height="100" rx="30" fill="#e63946" stroke="#111" stroke-width="10"/>
+    <rect x="70" y="-40" width="26" height="80" rx="13" fill="#111"/><rect x="304" y="-40" width="26" height="80" rx="13" fill="#111"/>
+    <g fill="#ddd"><rect x="40" y="140" width="60" height="50" rx="8"/><rect x="130" y="140" width="60" height="50" rx="8"/><rect x="220" y="140" width="60" height="50" rx="8"/><rect x="310" y="140" width="50" height="50" rx="8"/>
+    <rect x="40" y="220" width="60" height="50" rx="8"/><rect x="130" y="220" width="60" height="50" rx="8"/><rect x="310" y="220" width="50" height="50" rx="8"/>
+    <rect x="40" y="300" width="60" height="50" rx="8"/><rect x="130" y="300" width="60" height="50" rx="8"/><rect x="220" y="300" width="60" height="50" rx="8"/></g>
+    <circle cx="250" cy="245" r="48" fill="none" stroke="#e63946" stroke-width="12"/>
+  </g>
+  <!-- 동전 더미 -->
+  <g>
+    <ellipse cx="200" cy="820" rx="110" ry="34" class="coin"/><ellipse cx="200" cy="790" rx="110" ry="34" class="coin"/>
+    <ellipse cx="200" cy="760" rx="110" ry="34" class="coin"/><ellipse cx="200" cy="730" rx="110" ry="34" class="coin"/>
+    <ellipse cx="350" cy="860" rx="90" ry="28" class="coin"/><ellipse cx="350" cy="835" rx="90" ry="28" class="coin"/>
+  </g>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><radialGradient id="g3" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#14532d"/><stop offset="1" stop-color="#062314"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g3)"/>
+  <g opacity=".9">
+    <g transform="translate(80,120) rotate(-18)"><rect width="300" height="150" rx="14" fill="#a7d7a0" stroke="#3f7a3a" stroke-width="6"/><circle cx="150" cy="75" r="42" fill="none" stroke="#3f7a3a" stroke-width="6"/></g>
+    <g transform="translate(760,80) rotate(22)"><rect width="300" height="150" rx="14" fill="#a7d7a0" stroke="#3f7a3a" stroke-width="6"/><circle cx="150" cy="75" r="42" fill="none" stroke="#3f7a3a" stroke-width="6"/></g>
+    <g transform="translate(40,880) rotate(12)"><rect width="300" height="150" rx="14" fill="#a7d7a0" stroke="#3f7a3a" stroke-width="6"/><circle cx="150" cy="75" r="42" fill="none" stroke="#3f7a3a" stroke-width="6"/></g>
+    <g transform="translate(780,860) rotate(-14)"><rect width="300" height="150" rx="14" fill="#a7d7a0" stroke="#3f7a3a" stroke-width="6"/><circle cx="150" cy="75" r="42" fill="none" stroke="#3f7a3a" stroke-width="6"/></g>
+  </g>
+  <!-- 영수증 -->
+  <g transform="translate(330,250)">
+    <path d="M0 0 H420 V560 l-35 25 -35 -25 -35 25 -35 -25 -35 25 -35 -25 -35 25 -35 -25 -35 25 -35 -25 -35 25 -35 -25 Z" fill="#ffffff" fill-opacity=".1" stroke="#ffffff" stroke-opacity=".25" stroke-width="4"/>
+  </g>
+  <g fill="#f5c518" fill-opacity=".25"><circle cx="980" cy="560" r="40"/><circle cx="100" cy="560" r="30"/><circle cx="540" cy="1010" r="26"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<!-- 최종 1: 숫자형 -->
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:120px">
+    <span class="tag" style="background:#ff4d4d;color:#fff">삼성전자 3분기 배당</span>
+    <div class="headline" style="color:#fff;margin-top:36px;font-size:150px;white-space:nowrap;text-shadow:0 8px 0 #0a1a3c,0 0 30px #0a1a3c">주당<br><span style="color:#ffd400">4,600원?</span></div>
+    <div class="sub" style="color:#fff;margin-top:30px;display:inline-block;background:#0a1a3ccc;padding:8px 18px;border-radius:12px">2분기 374원 → 10배 넘게</div>
+  </div>
+</div>
+
+<!-- 최종 2: 질문·계산형 -->
+<div class="canvas" data-out="thumb2.png" id="t2">
+  <div class="copy" style="top:310px;left:200px;right:200px;text-align:center;color:#fff">
+    <div style="font-weight:900;font-size:44px;color:#c9f0c2">세금 떼고 계산</div>
+    <div class="headline" style="font-size:130px;margin-top:20px;white-space:nowrap;text-shadow:0 0 30px #062314">100주면<br><span style="color:#f5c518">얼마?</span></div>
+  </div>
+  <div class="copy" style="bottom:120px;text-align:center"><span class="tag" style="background:#f5c518;color:#062314;font-size:56px">삼전 배당 세후 38만원대</span></div>
+</div>
+
+<!-- 최종 3: 감정·상황형 -->
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:110px;color:#111">
+    <div class="sub" style="font-size:62px">삼전 배당 알림</div>
+    <div class="headline" style="font-size:150px;margin-top:10px">이번엔<br><span class="hl" style="background:#e63946;color:#fff">커피값</span>이<br>아니다</div>
+  </div>
+  <div class="copy" style="bottom:90px;right:auto"><span class="tag" style="background:#111;color:#ffd84d">11월 입금 예상</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg3svg');put('t3','bg2svg');
+</script>
+</body></html>
