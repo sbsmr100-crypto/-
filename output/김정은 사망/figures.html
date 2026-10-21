@@ -1,0 +1,83 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#111;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
+.s{font-size:36px;color:#555;font-weight:500;margin-top:14px}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.step{display:flex;align-items:center;gap:28px;background:#fff;border-radius:22px;padding:16px 30px}
+.num{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:900 38px 'Noto Sans KR';color:#fff;flex:none}
+.e{font-size:40px;font-weight:900}.m{font-size:28px;color:#666;margin-top:4px}
+.arrow{text-align:center;font-size:26px;color:#999;line-height:1}
+</style></head><body>
+
+<!-- 1. 확산 경로 -->
+<div class="fig" data-out="fig1_spread.png" style="background:#f1f3f5">
+  <div class="t">사망설은<br><span style="color:#e63946">이렇게 퍼졌다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:290px;display:grid;gap:6px">
+    <div class="step"><div class="num" style="background:#495057">1</div><div><div class="e">해외 SNS 게시글</div><div class="m">중국 반체제 인사 X 계정 · 출처 미공개</div></div></div>
+    <div class="arrow">▼</div>
+    <div class="step"><div class="num" style="background:#868e96">2</div><div><div class="e">해외 매체·커뮤니티로 확산</div><div class="m">"뇌출혈", "시신 이송" 등 자극적 문구</div></div></div>
+    <div class="arrow">▼</div>
+    <div class="step"><div class="num" style="background:#e63946">3</div><div><div class="e">국내 검색량 급증</div><div class="m">주말 사이 온라인 확산</div></div></div>
+    <div class="arrow">▼</div>
+    <div class="step"><div class="num" style="background:#1f4fbf">4</div><div><div class="e">북한 매체, 공개활동 사진 보도</div><div class="m">10월 20일 · 촬영 시점은 미확인</div></div></div>
+  </div>
+  <div class="src">출처: 머니투데이·뉴데일리·뉴스위크 등 보도 종합 · 2026.10.21 기준</div>
+</div>
+
+<!-- 2. 주장 vs 확인 -->
+<div class="fig" data-out="fig2_factcheck.png" style="background:#111;color:#fff">
+  <div class="t">주장 vs<br><span style="color:#51cf66">확인된 사실</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:flex;gap:30px">
+    <div style="flex:1;background:#2b1a1c;border:4px solid #e63946;border-radius:26px;padding:34px">
+      <div style="font:900 44px 'Noto Sans KR';color:#ff8787">✕ 주장</div>
+      <div style="font-size:34px;line-height:1.6;margin-top:22px">뇌출혈로 사망<br>베이징 병원 이송<br>시신 북한으로 이송<br>중국군 평양 파견</div>
+      <div style="margin-top:26px;font-size:28px;color:#ffb3b3">→ 모두 근거 미공개</div>
+    </div>
+    <div style="flex:1;background:#14281a;border:4px solid #51cf66;border-radius:26px;padding:34px">
+      <div style="font:900 44px 'Noto Sans KR';color:#8ce99a">✓ 확인</div>
+      <div style="font-size:34px;line-height:1.6;margin-top:22px">10.20 북한 매체<br>전시회 방문 사진 공개<br>한국 당국<br>"금시초문"</div>
+      <div style="margin-top:26px;font-size:28px;color:#b2f2bb">※ 사진 촬영일은 미확인</div>
+    </div>
+  </div>
+  <div class="src" style="color:#888;border-color:#333">출처: 조선중앙TV 보도, 연합뉴스·머니투데이 등 · 2026.10.21 기준</div>
+</div>
+
+<!-- 3. 건강 리스크 -->
+<div class="fig" data-out="fig3_health.png" style="background:#fff6d6">
+  <div class="t">사망설이<br><span style="color:#e63946">반복되는 이유</span></div>
+  <div class="s">국가정보원 국회 보고(2026년 9월) 등</div>
+  <div style="position:absolute;left:80px;right:80px;top:370px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div style="background:#fff;border:4px solid #111;border-radius:26px;padding:36px;text-align:center"><div style="font-size:32px;color:#666;font-weight:700">체중</div><div style="font-family:'Black Han Sans';font-size:84px;color:#e63946;white-space:nowrap">140kg대</div><div style="font-size:28px;color:#666">초고도 비만</div></div>
+    <div style="background:#fff;border:4px solid #111;border-radius:26px;padding:36px;text-align:center"><div style="font-size:32px;color:#666;font-weight:700">나이</div><div style="font-family:'Black Han Sans';font-size:84px;white-space:nowrap">만 42세</div><div style="font-size:28px;color:#666">1984년생</div></div>
+    <div style="grid-column:1/3;background:#111;color:#fff;border-radius:26px;padding:30px 36px;font-size:38px;font-weight:900;text-align:center">북한 의료진의 <span style="color:#ffd400">특별 관리</span> 대상</div>
+  </div>
+  <div class="src">출처: 국가정보원 국회 보고 관련 보도(매일신문 등) · 2026.10.21 기준</div>
+</div>
+
+<!-- 4. 2020년 타임라인 -->
+<div class="fig" data-out="fig4_2020.png" style="background:#0f1e33;color:#fff">
+  <div class="t">2020년에도<br><span style="color:#ffd400">20일 만에 등장</span>했다</div>
+  <div style="position:absolute;left:115px;top:350px;bottom:200px;width:8px;background:#28426b;border-radius:4px"></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:grid;gap:30px">
+    <div style="display:flex;gap:36px;align-items:center"><div style="width:72px;height:72px;border-radius:50%;background:#5c7cab;flex:none"></div><div><div style="font-size:32px;color:#a5b9d9;font-weight:700">4월 11일</div><div class="e">마지막 공개활동</div></div></div>
+    <div style="display:flex;gap:36px;align-items:center"><div style="width:72px;height:72px;border-radius:50%;background:#5c7cab;flex:none"></div><div><div style="font-size:32px;color:#a5b9d9;font-weight:700">4월 15일</div><div class="e">김일성 생일 참배 불참</div></div></div>
+    <div style="display:flex;gap:36px;align-items:center"><div style="width:72px;height:72px;border-radius:50%;background:#e63946;flex:none"></div><div><div style="font-size:32px;color:#ffb3b9;font-weight:700">4월 20일 무렵</div><div class="e">"수술 후 위중" 보도 → 사망설 확산</div></div></div>
+    <div style="display:flex;gap:36px;align-items:center"><div style="width:72px;height:72px;border-radius:50%;background:#ffd400;flex:none;box-shadow:0 0 0 12px #ffd40044"></div><div><div style="font-size:32px;color:#ffd400;font-weight:700">5월 1일</div><div class="e">비료공장 준공식에 직접 등장</div></div></div>
+  </div>
+  <div class="src" style="color:#7d93b8;border-color:#28426b">출처: 2020년 국내외 언론 보도 종합</div>
+</div>
+
+<!-- 5. 판별 체크리스트 -->
+<div class="fig" data-out="fig5_check.png" style="background:#eef4ff">
+  <div class="t">북한 루머<br><span style="color:#1f4fbf">거르는 4가지 질문</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:300px;display:grid;gap:16px">
+    <div class="step"><div class="num" style="background:#1f4fbf">1</div><div><div class="e">출처가 실명·기관인가?</div><div class="m">"소식통에 따르면"만 있다면 주의</div></div></div>
+    <div class="step"><div class="num" style="background:#1f4fbf">2</div><div><div class="e">정부·정보당국이 확인했나?</div><div class="m">국정원·통일부 공식 입장 확인</div></div></div>
+    <div class="step"><div class="num" style="background:#1f4fbf">3</div><div><div class="e">북한 매체의 공개활동 날짜는?</div><div class="m">사진 촬영일과 보도일은 다를 수 있음</div></div></div>
+    <div class="step"><div class="num" style="background:#1f4fbf">4</div><div><div class="e">주요 언론이 교차 보도하나?</div><div class="m">SNS 한 곳에서만 돈다면 '설'일 가능성</div></div></div>
+  </div>
+  <div class="src" style="border-color:#d6e0f5">놀란 마음에 주식·환전을 서두르지 마세요 · 2026.10.21</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
