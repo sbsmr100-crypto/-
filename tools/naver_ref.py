@@ -1,7 +1,7 @@
 """키워드로 네이버를 직접 검색해 레퍼런스(검색 상위글 + 블로그 홈 주제판 노출글)를 수집·요약한다.
 
 사용: python3 tools/naver_ref.py "키워드" [--top 10] [--dirs 33,31] [--pages 10]
-결과: output/<키워드>/refs.json (글별 지표), output/<키워드>/refs.md (요약 리포트)
+결과: output/<키워드>/refs.json (글별 지표), output/<키워드>/refs.md (요약 리포트 — 검색 상위 기준, 홈판은 참고)
 
 - 검색 상위: search.naver.com 블로그 탭 순위 그대로.
 - 홈판: 블로그 홈 '주제별 보기'(section.blog.naver.com) 최신 노출 목록에서 키워드가 들어간 글.
@@ -110,6 +110,7 @@ def analyze_post(url: str, keyword: str) -> dict:
         "mate": "네이버 메이트" in (date_el.get_text() if date_el else ""),
         "feedmaker": any("피드메이커" in (c or "") for c in cats),
         "chars": len(re.sub(r"\s", "", text)),
+        "chars_ws": len(re.sub(r"[ \t]*\n[ \t\u200b]*", " ", text).replace("\u200b", "").strip()),
         "paras": len(paras), "avg_para": round(sum(map(len, paras)) / max(1, len(paras)), 1),
         "images": comps.get("image", 0) + comps.get("imageStrip", 0),
         "quotes": comps.get("quotation", 0), "tables": comps.get("table", 0),
@@ -130,35 +131,49 @@ def analyze_post(url: str, keyword: str) -> dict:
     }
 
 
-def summarize(keyword: str, search: list[dict], home: list[dict]) -> str:
-    def med(rows, k):
-        v = [r[k] for r in rows if isinstance(r.get(k), (int, float))]
-        return int(statistics.median(v)) if v else "-"
+def _title_patterns(rows: list[dict]) -> list[str]:
+    pats = {"질문형(?)": r"\?", "따옴표 인용": r"[\"“”'‘’]", "숫자 포함": r"\d", "말줄임(…/..)": r"…|\.\.",
+            "총정리·정리": r"정리", "사실일까·진실": r"사실|진실|팩트", "반전(그런데·뜻밖)": r"그런데|반전|뜻밖|알고 보니"}
+    return [f"{k} {sum(bool(re.search(v, r['title'])) for r in rows)}/{len(rows)}" for k, v in pats.items()]
 
-    allp = search + [h for h in home if h.get("chars") is not None]
-    lines = [f"# 레퍼런스: {keyword}", f"수집: {dt.datetime.now():%Y-%m-%d %H:%M} · 검색 상위 {len(search)}개 · 블로그 홈 주제판 노출 {len(home)}개", ""]
-    if allp:
-        lines += ["## 공통 지표 (중앙값)",
-                  f"- 글자수(공백 제외) {med(allp, 'chars')} · 이미지 {med(allp, 'images')} · 인용구 소제목 {med(allp, 'quotes')} · 표 {med(allp, 'tables')} · 평균 문단 길이 {med(allp, 'avg_para')}자",
-                  f"- 본문 키워드 반복 {med(allp, 'kw_count')}회 · 제목 맨 앞 키워드 {sum(p['kw_in_title_front'] for p in allp)}/{len(allp)}",
-                  f"- 네이버 메이트 {sum(p['mate'] for p in allp)}/{len(allp)} · 피드메이커 {sum(p['feedmaker'] for p in allp)}/{len(allp)} · 공식 블로그 {sum(bool(p['blog']['official']) for p in allp)}/{len(allp)}",
+
+def summarize(keyword: str, search: list[dict], home: list[dict]) -> str:
+    def stat(rows, k):
+        v = sorted(r[k] for r in rows if isinstance(r.get(k), (int, float)))
+        return f"{int(statistics.median(v))} (범위 {v[0]}~{v[-1]})" if v else "-"
+
+    lines = [f"# 레퍼런스: {keyword}",
+             f"수집: {dt.datetime.now():%Y-%m-%d %H:%M} · 검색 상위 {len(search)}개(분석 기준) · 참고: 블로그 홈 주제판 노출 {len(home)}개", ""]
+    if search:
+        top3 = search[:3]
+        tag_freq = collections.Counter(t for p in search for t in p["tags"]).most_common(15)
+        head_words = collections.Counter(w for p in search for h in p["headings"] for w in re.findall(r"[가-힣A-Za-z0-9]{2,}", h)
+                                         if w not in keyword.split()).most_common(20)
+        lines += ["## 검색 상위 공통 지표 (중앙값, 괄호는 범위)",
+                  f"- 글자수 공백 제외 {stat(search, 'chars')} · 공백 포함 {stat(search, 'chars_ws')}",
+                  f"- 상위 3개 글자수(공백 포함): {', '.join(str(p['chars_ws']) for p in top3)}",
+                  f"- 이미지 {stat(search, 'images')} · 인용구 {stat(search, 'quotes')} · 표 {stat(search, 'tables')} · 링크카드 {stat(search, 'links')} · 평균 문단 {stat(search, 'avg_para')}자",
+                  f"- 본문 키워드 반복 {stat(search, 'kw_count')} · 제목 맨 앞 키워드 {sum(p['kw_in_title_front'] for p in search)}/{len(search)}",
+                  f"- 블로그 이웃 수 {stat([p['blog'] for p in search], 'subscribers')} · 일 방문자 {stat([p['blog'] for p in search], 'day_visitors')}",
+                  f"- 배지: 메이트 {sum(p['mate'] for p in search)} · 피드메이커 {sum(p['feedmaker'] for p in search)} · 공식 {sum(bool(p['blog']['official']) for p in search)}",
+                  f"- 제목 패턴: {' · '.join(_title_patterns(search))}",
+                  f"- 자주 쓴 태그: {', '.join(f'{t}({n})' for t, n in tag_freq)}",
+                  f"- 소제목 빈출 단어: {', '.join(f'{w}({n})' for w, n in head_words)}",
                   ""]
-    for name, rows in (("검색 상위", search), ("블로그 홈 주제판 노출", home)):
+    for name, rows in (("검색 상위 (순위순)", search), ("참고: 블로그 홈 주제판 노출", home)):
         lines.append(f"## {name}")
         if not rows:
             lines += ["(없음)", ""]
             continue
-        lines += ["| # | 제목 | 블로그(이웃/일방문) | 글자 | 이미지 | 소제목 | 공감·댓글 | 배지 |", "|---|---|---|---|---|---|---|---|"]
+        lines += ["| # | 제목 | 블로그(이웃/일방문) | 글자(공백포함) | 이미지 | 소제목 | 공감·댓글 | 배지 |", "|---|---|---|---|---|---|---|---|"]
         for i, p in enumerate(rows, 1):
-            if p.get("chars") is None:
-                continue
             b = p["blog"]
             badge = " ".join(x for x, ok in (("메이트", p["mate"]), ("피드메이커", p["feedmaker"]), ("공식", b["official"])) if ok)
-            lines.append(f"| {i} | [{p['title'][:40]}]({p['url']}) | {b['name']} ({b['subscribers']}/{b['day_visitors']}) | {p['chars']} | {p['images']} | {p['quotes']} | {p['likes']}·{p['comments']} | {badge} |")
+            lines.append(f"| {i} | [{p['title'][:40]}]({p['url']}) | {b['name']} ({b['subscribers']}/{b['day_visitors']}) | {p['chars_ws']} | {p['images']} | {p['quotes']} | {p['likes']}·{p['comments']} | {badge} |")
         lines.append("")
+        if rows is home:
+            continue
         for i, p in enumerate(rows, 1):
-            if p.get("chars") is None:
-                continue
             lines += [f"**{i}. {p['title']}** ({p['date']})",
                       f"- 소제목: {' | '.join(p['headings']) or '-'}",
                       f"- 도입: {p['intro']}",
@@ -173,6 +188,7 @@ def main() -> None:
     ap.add_argument("--top", type=int, default=10)
     ap.add_argument("--dirs", default="33,31")
     ap.add_argument("--pages", type=int, default=10)
+    ap.add_argument("--no-home", action="store_true", help="블로그 홈 주제판 수집 생략(빠름)")
     a = ap.parse_args()
     out = ROOT / "output" / a.keyword
     out.mkdir(parents=True, exist_ok=True)
@@ -185,7 +201,7 @@ def main() -> None:
             print("skip", url, e, file=sys.stderr)
         time.sleep(0.5)
     home = []
-    for h in home_feed(a.keyword, [int(d) for d in a.dirs.split(",")], a.pages):
+    for h in ([] if a.no_home else home_feed(a.keyword, [int(d) for d in a.dirs.split(",")], a.pages)):
         try:
             home.append({**analyze_post(h["url"], a.keyword), "home_page": h["page"], "home_dir": h["dir"]})
         except Exception as e:

@@ -9,6 +9,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2858,
+   "chars_ws": 3569,
    "paras": 79,
    "avg_para": 44.1,
    "images": 4,
@@ -41,8 +42,8 @@
     "name": "세상은 왜 이럴까?",
     "dir": "사회·정치",
     "subscribers": 5,
-    "day_visitors": 18,
-    "total_visitors": 473,
+    "day_visitors": 19,
+    "total_visitors": 474,
     "official": false
    },
    "posting": {
@@ -64,6 +65,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 3142,
+   "chars_ws": 3981,
    "paras": 93,
    "avg_para": 42.0,
    "images": 8,
@@ -108,8 +110,8 @@
     "name": "경제야 위험해",
     "dir": "비즈니스·경제",
     "subscribers": 5464,
-    "day_visitors": 475,
-    "total_visitors": 453169,
+    "day_visitors": 491,
+    "total_visitors": 453185,
     "official": false
    },
    "posting": {
@@ -135,6 +137,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 1889,
+   "chars_ws": 2407,
    "paras": 79,
    "avg_para": 24.8,
    "images": 1,
@@ -172,8 +175,8 @@
     "name": "AI, 교육정책, 입시문제 함께 고민 토닥 베어",
     "dir": "교육·학문",
     "subscribers": 67,
-    "day_visitors": 25,
-    "total_visitors": 28506,
+    "day_visitors": 27,
+    "total_visitors": 28508,
     "official": false
    },
    "posting": {
@@ -203,6 +206,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2475,
+   "chars_ws": 3167,
    "paras": 175,
    "avg_para": 17.3,
    "images": 6,
@@ -232,8 +236,8 @@
     "name": "Giroomi 경제 한입",
     "dir": "비즈니스·경제",
     "subscribers": 2106,
-    "day_visitors": 134,
-    "total_visitors": 470715,
+    "day_visitors": 137,
+    "total_visitors": 470718,
     "official": false
    },
    "posting": {
@@ -251,10 +255,11 @@
    "url": "https://blog.naver.com/bassomon/224448004461",
    "blogId": "bassomon",
    "title": "북한 김정은 사망설 확산, 사실일까? 중국 반체제 인사부터 인도·미국 언론까지 소문의 진원지 총정리",
-   "date": "15시간 전",
+   "date": "16시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 2225,
+   "chars_ws": 2882,
    "paras": 98,
    "avg_para": 28.5,
    "images": 6,
@@ -289,8 +294,8 @@
     "name": "bassomon",
     "dir": "일상·생각",
     "subscribers": 2624,
-    "day_visitors": 108,
-    "total_visitors": 102437,
+    "day_visitors": 114,
+    "total_visitors": 102443,
     "official": false
    },
    "posting": {
@@ -309,17 +314,18 @@
       2
      ]
     ],
-    "avg_likes_recent": 18.6
+    "avg_likes_recent": 18.7
    }
   },
   {
    "url": "https://blog.naver.com/waterdesignlab/224447771867",
    "blogId": "waterdesignlab",
    "title": "김정은 사망설, 중국에서 숨졌다? 10월 20일 공개된 사진에 반전",
-   "date": "18시간 전",
+   "date": "19시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 1867,
+   "chars_ws": 2398,
    "paras": 73,
    "avg_para": 32.0,
    "images": 4,
@@ -354,8 +360,8 @@
     "name": "Water Design Lab",
     "dir": "교육·학문",
     "subscribers": 93,
-    "day_visitors": 74,
-    "total_visitors": 22092,
+    "day_visitors": 80,
+    "total_visitors": 22098,
     "official": false
    },
    "posting": {
@@ -385,6 +391,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2350,
+   "chars_ws": 3050,
    "paras": 120,
    "avg_para": 24.7,
    "images": 3,
@@ -443,6 +450,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2398,
+   "chars_ws": 3075,
    "paras": 136,
    "avg_para": 22.0,
    "images": 1,
@@ -484,8 +492,8 @@
     "name": "~오늘도수고했엉~",
     "dir": "일상·생각",
     "subscribers": 25,
-    "day_visitors": 73,
-    "total_visitors": 2390,
+    "day_visitors": 78,
+    "total_visitors": 2395,
     "official": false
    },
    "posting": {
@@ -515,6 +523,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 3706,
+   "chars_ws": 4772,
    "paras": 204,
    "avg_para": 21.7,
    "images": 2,
@@ -566,8 +575,8 @@
     "name": "라리야 경제브리핑",
     "dir": "비즈니스·경제",
     "subscribers": 2062,
-    "day_visitors": 1332,
-    "total_visitors": 1367963,
+    "day_visitors": 1382,
+    "total_visitors": 1368013,
     "official": false
    },
    "posting": {
@@ -597,6 +606,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2470,
+   "chars_ws": 3169,
    "paras": 99,
    "avg_para": 30.1,
    "images": 4,
@@ -634,8 +644,8 @@
     "name": "따스한 햇살향기",
     "dir": "일상·생각",
     "subscribers": 4367,
-    "day_visitors": 304,
-    "total_visitors": 363516,
+    "day_visitors": 312,
+    "total_visitors": 363524,
     "official": false
    },
    "posting": {
@@ -667,6 +677,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2173,
+   "chars_ws": 2795,
    "paras": 127,
    "avg_para": 21.2,
    "images": 10,
@@ -692,15 +703,15 @@
     "시사이슈",
     "궁그미"
    ],
-   "likes": 61,
+   "likes": 62,
    "comments": 6,
    "intro": "“김정은이 사망했다고?” / 최근 해외 SNS를 중심으로 북한 김정은 국무위원장이 / 뇌출혈로 쓰러져 사망했다는 주장이 퍼지면서 관심이 쏠리고 있습니다. / ​",
    "blog": {
     "name": "궁그미의 생활탐구",
     "dir": "스타·연예인",
-    "subscribers": 1044,
-    "day_visitors": 291,
-    "total_visitors": 38051,
+    "subscribers": 1049,
+    "day_visitors": 299,
+    "total_visitors": 38059,
     "official": false
    },
    "posting": {
@@ -708,7 +719,7 @@
     "top_categories": [
      [
       "이슈",
-      12
+      13
      ],
      [
       "연예",
@@ -719,77 +730,20 @@
       6
      ]
     ],
-    "avg_likes_recent": 115.8
+    "avg_likes_recent": 112.5
    },
-   "home_page": 1,
-   "home_dir": 31
-  },
-  {
-   "url": "https://blog.naver.com/akkad25/224448181204",
-   "blogId": "akkad25",
-   "title": "김정은 사망설 전말은? 무슨 일이 있었나, 북한 최고지도자 신변 이상설의 진실 쉽게 정리",
-   "date": "12시간 전",
-   "mate": false,
-   "feedmaker": false,
-   "chars": 2373,
-   "paras": 129,
-   "avg_para": 22.0,
-   "images": 3,
-   "quotes": 0,
-   "tables": 0,
-   "videos": 0,
-   "links": 1,
-   "headings": [
-    "* 핵심 내용 3가지 * ​ ​",
-    "⭐ 핵심 한 줄 ⭐",
-    "❓ Q&A",
-    "💬 독자 질문"
-   ],
-   "kw_count": 7,
-   "kw_in_title_front": true,
-   "tags": [
-    "김정은사망설",
-    "김정은",
-    "김정은건강이상설",
-    "김여정",
-    "북한뉴스",
-    "북한정세",
-    "국제뉴스",
-    "사망설전말",
-    "아카드Ark"
-   ],
-   "likes": null,
-   "comments": 1,
-   "intro": "​ / ​ / 안녕하세요! / 아카드 Arkad7입니다.",
-   "blog": {
-    "name": "아카드의 부와 지혜를 향한 철학",
-    "dir": "비즈니스·경제",
-    "subscribers": 3971,
-    "day_visitors": 342,
-    "total_visitors": 77513,
-    "official": false
-   },
-   "posting": {
-    "per_day": 5.3,
-    "top_categories": [
-     [
-      "지식ㆍ동향",
-      30
-     ]
-    ],
-    "avg_likes_recent": 32.2
-   },
-   "home_page": 1,
+   "home_page": 2,
    "home_dir": 31
   },
   {
    "url": "https://blog.naver.com/yetural-/224448171804",
    "blogId": "yetural-",
    "title": "김정은 사망설 전 세계 확산…그런데 하루 전 딸 김주애와 나타났다?",
-   "date": "12시간 전",
+   "date": "13시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 2920,
+   "chars_ws": 3699,
    "paras": 126,
    "avg_para": 25.8,
    "images": 7,
@@ -832,8 +786,8 @@
     "name": "루 에디트 | 피플 & 스토리",
     "dir": "스타·연예인",
     "subscribers": 1116,
-    "day_visitors": 295,
-    "total_visitors": 687791,
+    "day_visitors": 303,
+    "total_visitors": 687799,
     "official": false
    },
    "posting": {
@@ -846,7 +800,7 @@
     ],
     "avg_likes_recent": 2.2
    },
-   "home_page": 1,
+   "home_page": 3,
    "home_dir": 31
   },
   {
@@ -857,6 +811,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 1670,
+   "chars_ws": 2168,
    "paras": 45,
    "avg_para": 47.6,
    "images": 7,
@@ -882,15 +837,15 @@
     "북한김정은사망설",
     "stevekim"
    ],
-   "likes": 9,
+   "likes": 1,
    "comments": 3,
    "intro": "​ / 최근 김정은 북한 국무위원장이 뇌출혈로 쓰러져 사망했다는 소문이 해외 소셜미디어와 외신을 통해 빠르게 확산하고 있어요. / 중국 베이징의 병원으로 긴급 이송됐다는 주장부터 여동생 김여정의 권력 장악설까지 다양한 이야기가 퍼지고 있어요. 하지만 현재까지 사망설을 뒷받침하는 객관적인 증거는 확인되지 않았어요. / 북한 관영매체가 김 위원장의 최근 공개 활동 사진을 공개하면서, 이번 소문의 실체에 관심이 집중되고 있어요. 현재까지 알려진 김정은 사망설에 대해 상세하게 정리해 드릴게요.",
    "blog": {
     "name": "IT와 경제 이야기",
     "dir": "IT·컴퓨터",
     "subscribers": 1754,
-    "day_visitors": 233,
-    "total_visitors": 1238360,
+    "day_visitors": 248,
+    "total_visitors": 1238375,
     "official": false
    },
    "posting": {
@@ -903,17 +858,18 @@
     ],
     "avg_likes_recent": 5.4
    },
-   "home_page": 2,
+   "home_page": 4,
    "home_dir": 31
   },
   {
    "url": "https://blog.naver.com/bassomon/224448004461",
    "blogId": "bassomon",
    "title": "북한 김정은 사망설 확산, 사실일까? 중국 반체제 인사부터 인도·미국 언론까지 소문의 진원지 총정리",
-   "date": "15시간 전",
+   "date": "16시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 2225,
+   "chars_ws": 2882,
    "paras": 98,
    "avg_para": 28.5,
    "images": 6,
@@ -948,8 +904,8 @@
     "name": "bassomon",
     "dir": "일상·생각",
     "subscribers": 2624,
-    "day_visitors": 108,
-    "total_visitors": 102437,
+    "day_visitors": 114,
+    "total_visitors": 102443,
     "official": false
    },
    "posting": {
@@ -968,19 +924,20 @@
       2
      ]
     ],
-    "avg_likes_recent": 18.6
+    "avg_likes_recent": 18.7
    },
-   "home_page": 2,
+   "home_page": 4,
    "home_dir": 31
   },
   {
    "url": "https://blog.naver.com/yunys4303/224448001628",
    "blogId": "yunys4303",
    "title": "김정은 뇌출혈 사망설 확산…북한, 김정은 활동사진 공개…만약 사망 시 권력 승계는?",
-   "date": "15시간 전",
+   "date": "16시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 2906,
+   "chars_ws": 3752,
    "paras": 122,
    "avg_para": 30.1,
    "images": 8,
@@ -1017,8 +974,8 @@
     "name": "가브리엘’s 이슈리뷰",
     "dir": "스타·연예인",
     "subscribers": 2786,
-    "day_visitors": 805,
-    "total_visitors": 4548661,
+    "day_visitors": 822,
+    "total_visitors": 4548678,
     "official": false
    },
    "posting": {
@@ -1039,7 +996,7 @@
     ],
     "avg_likes_recent": 3.8
    },
-   "home_page": 2,
+   "home_page": 4,
    "home_dir": 31
   },
   {
@@ -1050,6 +1007,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 3195,
+   "chars_ws": 4092,
    "paras": 220,
    "avg_para": 17.9,
    "images": 5,
@@ -1111,17 +1069,18 @@
     ],
     "avg_likes_recent": 5.1
    },
-   "home_page": 3,
+   "home_page": 5,
    "home_dir": 31
   },
   {
    "url": "https://blog.naver.com/underwind-/224447854793",
    "blogId": "underwind-",
    "title": "김정은 사망설 사실 확인, 소문의 출처와 북한 정세 전망",
-   "date": "17시간 전",
+   "date": "18시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 3112,
+   "chars_ws": 4086,
    "paras": 69,
    "avg_para": 58.7,
    "images": 6,
@@ -1156,8 +1115,8 @@
     "name": "정책인사이트",
     "dir": "비즈니스·경제",
     "subscribers": 4760,
-    "day_visitors": 126,
-    "total_visitors": 724038,
+    "day_visitors": 132,
+    "total_visitors": 724044,
     "official": false
    },
    "posting": {
@@ -1178,7 +1137,7 @@
     ],
     "avg_likes_recent": 10.6
    },
-   "home_page": 3,
+   "home_page": 5,
    "home_dir": 31
   },
   {
@@ -1189,6 +1148,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 1729,
+   "chars_ws": 2203,
    "paras": 85,
    "avg_para": 25.4,
    "images": 5,
@@ -1238,8 +1198,8 @@
     "name": "검은기록",
     "dir": "방송",
     "subscribers": 92,
-    "day_visitors": 118,
-    "total_visitors": 68845,
+    "day_visitors": 120,
+    "total_visitors": 68847,
     "official": false
    },
    "posting": {
@@ -1260,7 +1220,7 @@
     ],
     "avg_likes_recent": 2.2
    },
-   "home_page": 3,
+   "home_page": 5,
    "home_dir": 31
   },
   {
@@ -1271,6 +1231,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 5684,
+   "chars_ws": 7341,
    "paras": 430,
    "avg_para": 16.0,
    "images": 11,
@@ -1320,8 +1281,8 @@
     "name": "아직 청춘이야",
     "dir": "방송",
     "subscribers": 1516,
-    "day_visitors": 173,
-    "total_visitors": 785070,
+    "day_visitors": 182,
+    "total_visitors": 785079,
     "official": false
    },
    "posting": {
@@ -1342,7 +1303,7 @@
     ],
     "avg_likes_recent": 4.6
    },
-   "home_page": 3,
+   "home_page": 5,
    "home_dir": 31
   },
   {
@@ -1353,6 +1314,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 4329,
+   "chars_ws": 5575,
    "paras": 120,
    "avg_para": 45.5,
    "images": 10,
@@ -1379,9 +1341,9 @@
    "blog": {
     "name": "핫이슈채널",
     "dir": "사회·정치",
-    "subscribers": 127,
-    "day_visitors": 1955,
-    "total_visitors": 272754,
+    "subscribers": 129,
+    "day_visitors": 2023,
+    "total_visitors": 272822,
     "official": false
    },
    "posting": {
@@ -1394,7 +1356,7 @@
     ],
     "avg_likes_recent": 0.2
    },
-   "home_page": 4,
+   "home_page": 6,
    "home_dir": 31
   },
   {
@@ -1405,6 +1367,7 @@
    "mate": true,
    "feedmaker": false,
    "chars": 1536,
+   "chars_ws": 1987,
    "paras": 77,
    "avg_para": 20.8,
    "images": 7,
@@ -1431,8 +1394,8 @@
     "name": "건축 성공 플래너의 건축이야기",
     "dir": "인테리어·DIY",
     "subscribers": 6028,
-    "day_visitors": 184,
-    "total_visitors": 1021973,
+    "day_visitors": 190,
+    "total_visitors": 1021979,
     "official": false
    },
    "posting": {
@@ -1453,7 +1416,7 @@
     ],
     "avg_likes_recent": 10.8
    },
-   "home_page": 5,
+   "home_page": 7,
    "home_dir": 31
   },
   {
@@ -1464,6 +1427,7 @@
    "mate": false,
    "feedmaker": false,
    "chars": 2036,
+   "chars_ws": 2600,
    "paras": 92,
    "avg_para": 27.4,
    "images": 7,
@@ -1521,8 +1485,8 @@
     "name": "알짜 저장소",
     "dir": "취미",
     "subscribers": 2919,
-    "day_visitors": 364,
-    "total_visitors": 90049,
+    "day_visitors": 371,
+    "total_visitors": 90056,
     "official": false
    },
    "posting": {
@@ -1541,19 +1505,20 @@
       4
      ]
     ],
-    "avg_likes_recent": 77.7
+    "avg_likes_recent": 77.9
    },
-   "home_page": 5,
+   "home_page": 7,
    "home_dir": 31
   },
   {
    "url": "https://blog.naver.com/ibpms/224447509965",
    "blogId": "ibpms",
    "title": "“김정은 사망했다?” 또 터진 북한 최고지도자 사망설…출처는 중국인, 김여정 권력 장악설까지",
-   "date": "22시간 전",
+   "date": "23시간 전",
    "mate": false,
    "feedmaker": false,
    "chars": 2324,
+   "chars_ws": 2975,
    "paras": 119,
    "avg_para": 24.5,
    "images": 8,
@@ -1586,9 +1551,9 @@
    "blog": {
     "name": "민군's 인물트렌드",
     "dir": "방송",
-    "subscribers": 3658,
-    "day_visitors": 220,
-    "total_visitors": 2758807,
+    "subscribers": 3659,
+    "day_visitors": 227,
+    "total_visitors": 2758814,
     "official": false
    },
    "posting": {
@@ -1609,7 +1574,7 @@
     ],
     "avg_likes_recent": 12.1
    },
-   "home_page": 6,
+   "home_page": 8,
    "home_dir": 31
   }
  ]
