@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><radialGradient id="g1" cx=".7" cy=".7" r=".8"><stop offset="0" stop-color="#3b0a0c"/><stop offset="1" stop-color="#0c0c0d"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <g stroke="#fff" stroke-opacity=".06" stroke-width="2"><line x1="0" y1="640" x2="1080" y2="640"/><line x1="0" y1="800" x2="1080" y2="800"/><line x1="0" y1="960" x2="1080" y2="960"/></g>
+  <!-- 이익 막대 하락 -->
+  <rect x="600" y="560" width="150" height="420" rx="12" fill="#555"/>
+  <rect x="800" y="800" width="150" height="180" rx="12" fill="#e82127"/>
+  <path d="M690 520 Q800 560 860 760" fill="none" stroke="#e82127" stroke-width="12" stroke-linecap="round"/>
+  <polygon points="840,770 890,770 868,815" fill="#e82127"/>
+  <!-- 상승 화살표 (주가) -->
+  <polyline points="600,340 690,280 780,305 900,150" fill="none" stroke="#51cf66" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="920,120 935,190 870,170" fill="#51cf66"/>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f4f5f7"/>
+  <rect x="560" y="0" width="520" height="1080" fill="#ffecec"/>
+  <rect x="560" y="0" width="0" height="1080"/>
+  <g transform="translate(700,330)"><circle r="120" fill="#51cf66"/><polyline points="-55,0 -15,45 60,-40" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g transform="translate(880,700)"><circle r="120" fill="#e82127"/><line x1="-45" y1="-45" x2="45" y2="45" stroke="#fff" stroke-width="26" stroke-linecap="round"/><line x1="45" y1="-45" x2="-45" y2="45" stroke="#fff" stroke-width="26" stroke-linecap="round"/></g>
+  <text x="700" y="510" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="44" fill="#2b8a3e">예상 상회</text>
+  <text x="880" y="880" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="44" fill="#c92a2a">이익 반토막</text>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1428"/><stop offset="1" stop-color="#1b2c4d"/></linearGradient></defs>
+  <rect width="1080" height="1080" fill="url(#road)"/>
+  <!-- 도로 원근 -->
+  <polygon points="700,520 780,520 1080,1080 380,1080" fill="#22324f"/>
+  <g fill="#ffd43b"><rect x="733" y="560" width="14" height="50"/><rect x="730" y="660" width="20" height="80"/><rect x="726" y="800" width="28" height="120"/><rect x="722" y="980" width="36" height="100"/></g>
+  <!-- 자율주행 센서 원 -->
+  <g fill="none" stroke="#4dabf7" stroke-width="5"><circle cx="740" cy="520" r="120" stroke-opacity=".6"/><circle cx="740" cy="520" r="210" stroke-opacity=".35"/><circle cx="740" cy="520" r="300" stroke-opacity=".18"/></g>
+  <!-- 차량 뒷모습 -->
+  <g transform="translate(600,820)"><rect x="0" y="0" width="280" height="110" rx="40" fill="#e9ecef"/><rect x="30" y="-60" width="220" height="80" rx="30" fill="#ced4da"/><rect x="20" y="40" width="60" height="20" rx="8" fill="#e82127"/><rect x="200" y="40" width="60" height="20" rx="8" fill="#e82127"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:130px;right:520px;color:#fff">
+    <div class="sub" style="font-size:52px;color:#ff8787;white-space:nowrap">테슬라 3분기 실적</div>
+    <div class="headline" style="font-size:140px;margin-top:10px;white-space:nowrap">영업이익<br><span style="color:#ff4d4d">-56%</span></div>
+  </div>
+  <div class="copy" style="top:600px;right:auto"><span class="tag" style="background:#51cf66;color:#0c0c0d;font-size:50px">그런데 주가는 올랐다?</span></div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:150px;right:540px;color:#111">
+    <span class="tag" style="background:#111;color:#fff">테슬라 3분기</span>
+    <div class="headline" style="font-size:130px;margin-top:30px;white-space:nowrap">좋은<br>실적<br><span class="hl" style="background:#e82127;color:#fff">일까?</span></div>
+  </div>
+  <div class="copy" style="bottom:100px;right:auto"><span class="tag" style="background:#111;color:#fff">숫자 5개로 판단해 봤다</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:140px;color:#fff">
+    <div class="sub" style="font-size:52px;color:#74c0fc">테슬라 3분기 숨은 숫자</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap">FSD 구독<br><span style="color:#ffd43b">+67%</span></div>
+  </div>
+  <div class="copy" style="top:620px;right:auto"><span class="tag" style="background:#ffd43b;color:#0a1428;font-size:46px">차 대신 소프트웨어로 번다</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
