@@ -1,0 +1,89 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs>
+    <radialGradient id="lux" cx=".72" cy=".6" r=".7"><stop offset="0" stop-color="#3a3020"/><stop offset="1" stop-color="#0f0d0a"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dc9a"/><stop offset=".5" stop-color="#c9a54c"/><stop offset="1" stop-color="#8a6d2a"/></linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#lux)"/>
+  <!-- 크림 단지 -->
+  <g transform="translate(560,560)">
+    <ellipse cx="200" cy="360" rx="260" ry="40" fill="#000" fill-opacity=".5"/>
+    <rect x="-40" y="60" width="480" height="300" rx="40" fill="#f6f1e6"/>
+    <rect x="-40" y="60" width="480" height="40" fill="#e6dcc6"/>
+    <rect x="-60" y="-40" width="520" height="120" rx="30" fill="url(#gold)"/>
+    <rect x="-60" y="10" width="520" height="12" fill="#fff" fill-opacity=".35"/>
+    <circle cx="200" cy="220" r="60" fill="none" stroke="#c9a54c" stroke-width="6"/>
+  </g>
+  <g fill="#f3dc9a"><circle cx="520" cy="420" r="5"/><circle cx="1010" cy="470" r="4"/><circle cx="940" cy="360" r="3"/><circle cx="600" cy="520" r="3"/></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f7f3ea"/>
+  <!-- 저울 -->
+  <g transform="translate(800,650) scale(.85)" stroke="#111" stroke-width="12" fill="none" stroke-linecap="round">
+    <line x1="0" y1="-260" x2="0" y2="300"/><line x1="-120" y1="300" x2="120" y2="300"/>
+    <line x1="-230" y1="-180" x2="230" y2="-140"/>
+    <line x1="-230" y1="-180" x2="-300" y2="0"/><line x1="-230" y1="-180" x2="-160" y2="0"/>
+    <line x1="230" y1="-140" x2="160" y2="40"/><line x1="230" y1="-140" x2="300" y2="40"/>
+  </g>
+  <g transform="translate(800,650) scale(.85)">
+    <path d="M-320 0 Q-230 80 -140 0Z" fill="#51cf66" stroke="#111" stroke-width="10"/>
+    <path d="M140 40 Q230 120 320 40Z" fill="#e63946" stroke="#111" stroke-width="10"/>
+    <circle cx="0" cy="-260" r="22" fill="#111"/>
+  </g>
+  <text x="590" y="600" font-family="Noto Sans KR" font-weight="900" font-size="44" fill="#2b8a3e">사실</text>
+  <text x="910" y="640" font-family="Noto Sans KR" font-weight="900" font-size="44" fill="#c92a2a">주장</text>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#14110d"/>
+  <defs><linearGradient id="gold3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dc9a"/><stop offset="1" stop-color="#8a6d2a"/></linearGradient></defs>
+  <!-- 금이 간 왕관 -->
+  <g transform="translate(560,540)">
+    <path d="M0 260 L40 0 L150 130 L240 -40 L330 130 L440 0 L480 260 Z" fill="url(#gold3)" stroke="#5c4818" stroke-width="8"/>
+    <rect x="0" y="260" width="480" height="70" rx="12" fill="url(#gold3)" stroke="#5c4818" stroke-width="8"/>
+    <polyline points="250,-20 225,90 270,150 230,250 260,330" fill="none" stroke="#14110d" stroke-width="14" stroke-linejoin="round"/>
+    <circle cx="40" cy="0" r="18" fill="#e63946"/><circle cx="240" cy="-40" r="20" fill="#e63946"/><circle cx="440" cy="0" r="18" fill="#e63946"/>
+  </g>
+  <g stroke="#e63946" stroke-width="6" stroke-linecap="round" opacity=".7"><line x1="820" y1="420" x2="860" y2="380"/><line x1="850" y1="450" x2="910" y2="440"/><line x1="580" y1="430" x2="540" y2="390"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:130px;right:300px;color:#fff">
+    <div class="sub" style="font-size:54px;color:#c9a54c">오가닉포에버</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap"><span style="color:#f3dc9a">300만원</span><br>크림 브랜드</div>
+  </div>
+  <div class="copy" style="top:590px;right:auto"><span class="tag" style="background:#e63946;color:#fff;font-size:52px">지금 무슨 일이?</span></div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:140px;right:420px;color:#111">
+    <span class="tag" style="background:#111;color:#fff">오가닉포에버 논란</span>
+    <div class="headline" style="font-size:140px;margin-top:30px;white-space:nowrap">불매까지<br><span class="hl" style="background:#e63946;color:#fff">왜?</span></div>
+  </div>
+  <div class="copy" style="bottom:100px;right:auto"><span class="tag" style="background:#c9a54c;color:#111">사실과 주장 나눠 봤다</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:150px;color:#fff">
+    <div class="sub" style="font-size:54px;color:#c9a54c">초고가 화장품의 시험대</div>
+    <div class="headline" style="font-size:160px;margin-top:10px">오너<br><span style="color:#e63946">리스크</span></div>
+  </div>
+  <div class="copy" style="bottom:110px;right:auto"><span class="tag" style="background:#f3dc9a;color:#14110d">오가닉포에버 대표 수사 중</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
