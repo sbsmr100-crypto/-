@@ -2,21 +2,17 @@
 
 <template id="bg1svg">
 <svg class="bg" viewBox="0 0 1080 1080">
-  <defs><radialGradient id="r1" cx=".75" cy=".55" r=".7"><stop offset="0" stop-color="#4a0d14"/><stop offset="1" stop-color="#0d0a0b"/></radialGradient></defs>
+  <defs><radialGradient id="r1" cx=".7" cy=".6" r=".8"><stop offset="0" stop-color="#3a0b12"/><stop offset="1" stop-color="#0d0a0b"/></radialGradient></defs>
   <rect width="1080" height="1080" fill="url(#r1)"/>
-  <!-- 휴대폰 -->
-  <g transform="translate(640,300) rotate(8)">
-    <rect width="330" height="620" rx="46" fill="#1b1b1f" stroke="#444" stroke-width="8"/>
-    <rect x="22" y="60" width="286" height="500" rx="18" fill="#26262c"/>
-    <rect x="50" y="100" width="230" height="70" rx="16" fill="#e63946"/>
-    <rect x="50" y="190" width="200" height="60" rx="16" fill="#3a3a44"/>
-    <rect x="50" y="270" width="230" height="60" rx="16" fill="#3a3a44"/>
-    <rect x="50" y="350" width="170" height="60" rx="16" fill="#e63946" fill-opacity=".7"/>
-    <rect x="50" y="430" width="220" height="60" rx="16" fill="#3a3a44"/>
+  <g stroke="#fff" stroke-opacity=".06" stroke-width="2"><line x1="0" y1="560" x2="1080" y2="560"/><line x1="0" y1="720" x2="1080" y2="720"/><line x1="0" y1="880" x2="1080" y2="880"/></g>
+  <g fill="#e63946" fill-opacity=".35"><rect x="560" y="600" width="50" height="160"/><rect x="640" y="640" width="50" height="190"/><rect x="720" y="700" width="50" height="170"/><rect x="800" y="760" width="50" height="180"/><rect x="880" y="820" width="50" height="160"/></g>
+  <polyline points="80,760 260,740 420,780 560,750 680,820 800,880 960,960" fill="none" stroke="#ff4d4d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="1020,1000 990,920 930,990" fill="#ff4d4d"/>
+  <g transform="translate(820,110) rotate(10)">
+    <rect width="180" height="320" rx="28" fill="#1b1b1f" stroke="#444" stroke-width="6"/>
+    <rect x="18" y="40" width="144" height="250" rx="12" fill="#26262c"/>
+    <rect x="32" y="62" width="116" height="40" rx="10" fill="#e63946"/><rect x="32" y="116" width="100" height="34" rx="10" fill="#3a3a44"/><rect x="32" y="164" width="116" height="34" rx="10" fill="#3a3a44"/>
   </g>
-  <!-- 말풍선 -->
-  <g fill="#ffffff" fill-opacity=".08"><ellipse cx="560" cy="200" rx="120" ry="60"/><ellipse cx="980" cy="200" rx="90" ry="46"/><ellipse cx="560" cy="960" rx="150" ry="60"/></g>
-  <g font-family="Noto Sans KR" font-weight="900" fill="#e63946" fill-opacity=".85"><text x="900" y="290" font-size="90">!</text><text x="590" y="560" font-size="70" fill="#fff" fill-opacity=".3">?</text></g>
 </svg></template>
 
 <template id="bg2svg">
@@ -57,11 +53,11 @@
 <div class="canvas" data-out="bg3.png" id="b3"></div>
 
 <div class="canvas" data-out="thumb1.png" id="t1">
-  <div class="copy" style="top:180px;right:440px;color:#fff">
-    <div class="sub" style="font-size:54px;color:#ff8787">김정은</div>
-    <div class="headline" style="font-size:160px;margin-top:10px">또<br><span style="color:#e63946">사망설</span></div>
-    <div class="sub" style="margin-top:34px;display:inline-block;background:#fff;color:#111;padding:10px 20px;border-radius:12px;white-space:nowrap">북한은 사진으로 반박</div>
+  <div class="copy" style="top:130px;right:330px;color:#fff">
+    <div class="sub" style="font-size:54px;color:#ff8787">김정은 사망설 탓?</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap">코스피<br><span style="color:#ff4d4d">-4.76%</span></div>
   </div>
+  <div class="copy" style="top:560px;right:auto"><span class="tag" style="background:#fff;color:#111;font-size:52px">진짜 원인은 따로 있다</span></div>
 </div>
 
 <div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
@@ -77,7 +73,7 @@
     <div class="sub" style="font-size:54px;color:#9db4ff">2020년 김정은 사망설</div>
     <div class="headline" style="font-size:150px;margin-top:10px"><span style="color:#ffd400">20일</span> 만에<br>나타났다</div>
   </div>
-  <div class="copy" style="bottom:110px;right:auto"><span class="tag" style="background:#e63946;color:#fff">이번엔?</span></div>
+  <div class="copy" style="bottom:110px;right:auto"><span class="tag" style="background:#e63946;color:#fff">이번엔 하루 만에 사진 공개</span></div>
 </div>
 
 <script>
