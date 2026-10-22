@@ -1,0 +1,128 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#111;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
+.s{font-size:34px;color:#666;font-weight:500;margin-top:14px}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.blue{color:#0866ff}.red{color:#e03131}
+.card{border-radius:22px;padding:24px 30px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+.row{display:flex;align-items:center}
+</style></head><body>
+
+<!-- 1. 실적 vs 예상 -->
+<div class="fig" data-out="fig1_beat.png">
+  <div class="t">메타 3분기,<br><span class="blue">매출은 넘고</span> <span class="red">이익은 미달</span></div>
+  <div class="s">실적 vs 시장 예상</div>
+  <div style="position:absolute;left:80px;right:80px;top:340px;display:grid;gap:14px">
+    <div class="card row" style="background:#eef4ff;padding:16px 30px"><div style="font-size:36px;font-weight:900;width:250px">매출</div><div style="flex:1;font-size:30px;color:#777">예상 633.3억</div><div class="big" style="font-size:56px">646억$</div><div style="font-size:40px;margin-left:18px">✅</div></div>
+    <div class="card row" style="background:#eef4ff;padding:16px 30px"><div style="font-size:36px;font-weight:900;width:250px">4Q 가이던스</div><div style="flex:1;font-size:30px;color:#777">예상 736.8억</div><div class="big" style="font-size:56px">730~760억$</div><div style="font-size:40px;margin-left:18px">✅</div></div>
+    <div class="card row" style="background:#fff0f0;padding:16px 30px"><div style="font-size:36px;font-weight:900;width:250px">EPS</div><div style="flex:1;font-size:30px;color:#777">예상 5.89$</div><div class="big red" style="font-size:56px">3.83$</div><div style="font-size:40px;margin-left:18px">❌</div></div>
+    <div class="card row" style="background:#fff0f0;padding:16px 30px"><div style="font-size:36px;font-weight:900;width:250px">영업이익</div><div style="flex:1;font-size:30px;color:#777">예상 186.6억</div><div class="big red" style="font-size:56px">129.9억$</div><div style="font-size:40px;margin-left:18px">❌</div></div>
+    <div class="card row" style="background:#fff0f0;padding:16px 30px"><div style="font-size:36px;font-weight:900;width:250px">순이익</div><div style="flex:1;font-size:30px;color:#777">예상 154.4억</div><div class="big red" style="font-size:56px">98.6억$</div><div style="font-size:40px;margin-left:18px">❌</div></div>
+  </div>
+  <div class="src">출처: 메타 플랫폼스 2026년 3분기 실적 발표(10.21 현지시간) · 단위 달러</div>
+</div>
+
+<!-- 2. 합의금 제외 -->
+<div class="fig" data-out="fig2_oneoff.png" style="background:#111;color:#fff">
+  <div class="t">합의금 99억 달러를<br><span style="color:#4dabf7">빼고 보면?</span></div>
+  <svg width="920" height="490" style="position:absolute;left:80px;top:320px" font-family="Noto Sans KR">
+    <text x="0" y="40" font-size="34" font-weight="900" fill="#aaa">영업이익률</text>
+    <rect x="0" y="62" width="200" height="56" rx="10" fill="#e03131"/><text x="220" y="104" font-size="40" font-weight="900" fill="#ff8787">20% 발표</text>
+    <rect x="0" y="128" width="354" height="56" rx="10" fill="#4dabf7"/><text x="374" y="170" font-size="40" font-weight="900" fill="#74c0fc">약 35% 합의금 제외</text>
+    <rect x="0" y="194" width="400" height="56" rx="10" fill="#444"/><text x="420" y="236" font-size="36" font-weight="900" fill="#aaa">40% 전년 3분기</text>
+    <text x="0" y="330" font-size="34" font-weight="900" fill="#aaa">EPS (달러)</text>
+    <rect x="0" y="352" width="311" height="56" rx="10" fill="#e03131"/><text x="331" y="394" font-size="40" font-weight="900" fill="#ff8787">3.83 발표</text>
+    <rect x="0" y="418" width="601" height="56" rx="10" fill="#4dabf7"/><text x="621" y="460" font-size="40" font-weight="900" fill="#74c0fc">7.40 제외</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:830px"><span class="tag" style="background:#4dabf7;color:#111;font-size:40px">시장 예상 EPS 5.89$ → 제외 시 26% 상회</span></div>
+  <div class="src" style="color:#777;border-color:#333">영업이익률 35%는 합의금 단순 가산 계산 · EPS 7.40$는 회사 발표 · 출처: 메타 3분기 실적</div>
+</div>
+
+<!-- 3. 광고 분해 -->
+<div class="fig" data-out="fig3_ads.png">
+  <div class="t">광고 매출 +26%,<br><span class="blue">단가가 더 올랐다</span></div>
+  <div class="s">광고 매출 630.6억 달러 = 노출 × 단가</div>
+  <div style="position:absolute;left:80px;right:80px;top:350px;display:flex;gap:14px;align-items:center;text-align:center">
+    <div class="card" style="flex:1;padding:24px 10px;background:#eef4ff"><div style="font-size:30px;font-weight:900;color:#555">광고 노출 수</div><div class="big blue" style="font-size:72px">+10%</div></div>
+    <div class="big" style="font-size:54px;color:#999">×</div>
+    <div class="card" style="flex:1;padding:24px 10px;background:#0866ff;color:#fff"><div style="font-size:30px;font-weight:900">광고당 가격</div><div class="big" style="font-size:72px">+14%</div></div>
+    <div class="big" style="font-size:54px;color:#999">≒</div>
+    <div class="card" style="flex:1;padding:24px 10px;background:#f4f5f7"><div style="font-size:30px;font-weight:900;color:#555">광고 매출</div><div class="big" style="font-size:72px">+26%</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:640px;display:flex;gap:20px">
+    <div class="card" style="flex:1;background:#f4f5f7"><div style="font-size:28px;color:#666;font-weight:700">일일 활성 사용자(DAP)</div><div class="big" style="font-size:58px">36.4억 명 <span style="font-size:34px;color:#888">+3%</span></div></div>
+    <div class="card" style="flex:1;background:#f4f5f7"><div style="font-size:28px;color:#666;font-weight:700">사용자 1명당 분기 매출</div><div class="big" style="font-size:58px">≈17.7$ <span style="font-size:34px;color:#0866ff">+22%</span></div></div>
+  </div>
+  <div class="src">사용자당 매출 = 총매출 ÷ DAP 단순 계산(전년 ≈14.5$) · 출처: 메타 3분기 실적</div>
+</div>
+
+<!-- 4. 현금흐름 -->
+<div class="fig" data-out="fig4_cash.png" style="background:#0b1e33;color:#fff">
+  <div class="t">번 돈보다 쓴 돈이 많다,<br><span style="color:#ff8787">FCF 마이너스</span></div>
+  <svg width="920" height="330" style="position:absolute;left:80px;top:330px" font-family="Noto Sans KR">
+    <text x="0" y="40" font-size="32" font-weight="900" fill="#9fb3cc">영업현금흐름</text>
+    <rect x="260" y="8" width="610" height="50" rx="10" fill="#51cf66"/><text x="280" y="46" font-size="36" font-weight="900" fill="#0b1e33">327.9억$</text>
+    <text x="0" y="120" font-size="32" font-weight="900" fill="#9fb3cc">자본지출</text>
+    <rect x="260" y="88" width="650" height="50" rx="10" fill="#ffa94d"/><text x="280" y="126" font-size="36" font-weight="900" fill="#0b1e33">349.1억$</text>
+    <text x="0" y="210" font-size="32" font-weight="900" fill="#9fb3cc">잉여현금흐름</text>
+    <text x="260" y="214" font-size="64" font-weight="900" fill="#ff8787" font-family="Black Han Sans">-21.2억$</text>
+    <text x="0" y="300" font-size="30" fill="#9fb3cc">2026년 CapEx 가이던스 1,350억~1,450억$ (2025년 약 722억$의 2배)</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:700px;display:flex;gap:20px">
+    <div class="card" style="flex:1;background:#14304f"><div style="font-size:28px;color:#9fb3cc">현금·유가증권</div><div class="big" style="font-size:54px">824.5억$</div></div>
+    <div class="card" style="flex:1;background:#14304f"><div style="font-size:28px;color:#9fb3cc">장기부채</div><div class="big" style="font-size:54px">809.2억$</div></div>
+    <div class="card" style="flex:1;background:#5c1a1a"><div style="font-size:28px;color:#ffc9c9">순현금</div><div class="big" style="font-size:54px">≈15억$</div></div>
+  </div>
+  <div class="src" style="color:#7d93b0;border-color:#23405f">순현금 = 현금·유가증권 - 장기부채 단순 계산 · 출처: 메타 3분기 실적, 2025년 4분기 실적</div>
+</div>
+
+<!-- 5. MUSE -->
+<div class="fig" data-out="fig5_muse.png" style="background:#f3f0ff">
+  <div class="t">MUSE 출시 6주,<br><span style="color:#6741d9">숫자로 본 초기 성적</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666;font-weight:700">AI 에이전트 설정 (미·캐)</div><div class="big" style="font-size:74px;color:#6741d9">1,000만+</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666;font-weight:700">설정자 중 매일 사용</div><div class="big" style="font-size:74px;color:#6741d9">약 25%</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666;font-weight:700">활성 이용자 쇼핑 활용</div><div class="big" style="font-size:74px;color:#6741d9">25%+</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666;font-weight:700">평균 구매 금액</div><div class="big" style="font-size:74px;color:#6741d9">200$+</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:740px;display:flex;gap:16px;flex-wrap:wrap">
+    <span class="tag" style="background:#6741d9;color:#fff;font-size:34px">일간 이용률 스레드 초기의 2배+</span>
+    <span class="tag" style="background:#111;color:#fff;font-size:34px">과제: 컴퓨팅 효율 10배↑</span>
+  </div>
+  <div class="src">출처: 메타 3분기 어닝콜(저커버그 발언) · 회사 제시 수치</div>
+</div>
+
+<!-- 6. 부문별 -->
+<div class="fig" data-out="fig6_segment.png">
+  <div class="t">버는 곳과 <span class="red">잃는 곳</span></div>
+  <div class="s">부문별 3분기 매출·영업이익</div>
+  <div style="position:absolute;left:80px;right:80px;top:300px;display:grid;gap:22px">
+    <div class="card" style="background:#eef4ff"><div style="font-size:34px;font-weight:900">패밀리 오브 앱스 <span style="font-size:26px;color:#666">페이스북·인스타·왓츠앱</span></div>
+      <div class="row" style="margin-top:12px;gap:40px"><div><div style="font-size:26px;color:#666">매출</div><div class="big" style="font-size:64px">641.6억$</div></div><div><div style="font-size:26px;color:#666">영업이익</div><div class="big blue" style="font-size:64px">+171.2억$</div></div></div></div>
+    <div class="card" style="background:#fff0f0"><div style="font-size:34px;font-weight:900">리얼리티 랩스 <span style="font-size:26px;color:#666">VR·AR·스마트글래스</span></div>
+      <div class="row" style="margin-top:12px;gap:40px"><div><div style="font-size:26px;color:#666">매출</div><div class="big" style="font-size:64px">4.43억$</div></div><div><div style="font-size:26px;color:#666">영업손실</div><div class="big red" style="font-size:64px">-41.3억$</div></div></div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:800px;display:flex;gap:16px;flex-wrap:wrap">
+    <span class="tag" style="background:#111;color:#fff;font-size:34px">직원 66,775명 (-15%)</span>
+    <span class="tag" style="background:#0866ff;color:#fff;font-size:34px">클래스 C 1:1 배당 · 2027.1</span>
+  </div>
+  <div class="src">출처: 메타 플랫폼스 2026년 3분기 실적 발표</div>
+</div>
+
+<!-- 7. 성적표 -->
+<div class="fig" data-out="fig7_score.png" style="background:#fffbea">
+  <div class="t">애널리스트 시선<br><span style="color:#e67700">3분기 성적표</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:290px;display:grid;gap:10px">
+    <div class="card row" style="background:#fff;padding:8px 30px"><div style="flex:1;font-size:34px;font-weight:900">매출 성장 <span style="font-size:26px;color:#777">+26%, 예상 상회</span></div><div class="big" style="font-size:54px;color:#1f7a3a">A</div></div>
+    <div class="card row" style="background:#fff;padding:8px 30px"><div style="flex:1;font-size:34px;font-weight:900">광고 경쟁력 <span style="font-size:26px;color:#777">단가 +14%</span></div><div class="big" style="font-size:54px;color:#1f7a3a">A</div></div>
+    <div class="card row" style="background:#fff;padding:8px 30px"><div style="flex:1;font-size:34px;font-weight:900">가이던스 <span style="font-size:26px;color:#777">4Q 중간값 상회</span></div><div class="big" style="font-size:54px;color:#1f7a3a">B+</div></div>
+    <div class="card row" style="background:#fff;padding:8px 30px"><div style="flex:1;font-size:34px;font-weight:900">이익의 질 <span style="font-size:26px;color:#777">합의금 착시, 제외해도 마진↓</span></div><div class="big" style="font-size:54px;color:#e67700">C</div></div>
+    <div class="card row" style="background:#fff;padding:8px 30px"><div style="flex:1;font-size:34px;font-weight:900">현금흐름 <span style="font-size:26px;color:#777">FCF -21.2억, 순현금≈0</span></div><div class="big" style="font-size:54px;color:#e03131">D</div></div>
+    <div class="card row" style="background:#fff;padding:8px 30px"><div style="flex:1;font-size:34px;font-weight:900">AI 성장 스토리 <span style="font-size:26px;color:#777">MUSE PMF, 수익화 전</span></div><div class="big" style="font-size:54px;color:#1f7a3a">B+</div></div>
+  </div>
+  <div class="src">필자 평가(정보 제공용, 투자 권유 아님) · 근거: 메타 3분기 실적·어닝콜</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
