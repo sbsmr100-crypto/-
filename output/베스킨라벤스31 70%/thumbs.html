@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f0287d"/>
+  <g fill="#fff" fill-opacity=".08"><circle cx="120" cy="120" r="60"/><circle cx="980" cy="200" r="40"/><circle cx="200" cy="980" r="50"/><circle cx="560" cy="60" r="24"/></g>
+  <!-- 패밀리 통 2개 -->
+  <g transform="translate(600,560)">
+    <path d="M0 40 L30 400 L230 400 L260 40 Z" fill="#fff"/><rect x="-10" y="0" width="280" height="56" rx="14" fill="#4a2a1a"/>
+    <g fill="#ff9ec4"><circle cx="70" cy="180" r="26"/><circle cx="190" cy="230" r="20"/><circle cx="120" cy="300" r="22"/></g>
+  </g>
+  <g transform="translate(860,640) scale(.8)">
+    <path d="M0 40 L30 400 L230 400 L260 40 Z" fill="#ffe0ec"/><rect x="-10" y="0" width="280" height="56" rx="14" fill="#8a5a44"/>
+  </g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#fff5f9"/>
+  <!-- 시계 10시 -->
+  <g transform="translate(780,380)">
+    <circle r="230" fill="#fff" stroke="#4a2a1a" stroke-width="22"/>
+    <g stroke="#4a2a1a" stroke-width="10" stroke-linecap="round"><line x1="0" y1="-200" x2="0" y2="-176"/><line x1="200" y1="0" x2="176" y2="0"/><line x1="0" y1="200" x2="0" y2="176"/><line x1="-200" y1="0" x2="-176" y2="0"/></g>
+    <line x1="0" y1="0" x2="-104" y2="-60" stroke="#4a2a1a" stroke-width="20" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#f0287d" stroke-width="14" stroke-linecap="round"/>
+    <circle r="18" fill="#f0287d"/>
+  </g>
+  <!-- 줄 선 사람 점 -->
+  <g fill="#f0287d"><circle cx="600" cy="820" r="26"/><circle cx="680" cy="820" r="26" fill-opacity=".8"/><circle cx="760" cy="820" r="26" fill-opacity=".6"/><circle cx="840" cy="820" r="26" fill-opacity=".45"/><circle cx="920" cy="820" r="26" fill-opacity=".3"/><circle cx="1000" cy="820" r="26" fill-opacity=".18"/></g>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1f14"/><stop offset="1" stop-color="#6b3a26"/></linearGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g3)"/>
+  <!-- 콘 아이스크림 -->
+  <g transform="translate(800,520)">
+    <polygon points="-90,140 90,140 0,470" fill="#e0a96d"/>
+    <g stroke="#b97a3e" stroke-width="6"><line x1="-60" y1="190" x2="40" y2="400"/><line x1="60" y1="190" x2="-40" y2="400"/></g>
+    <circle cx="0" cy="110" r="105" fill="#ff9ec4"/><circle cx="-60" cy="20" r="90" fill="#7b4a2d"/><circle cx="60" cy="10" r="90" fill="#fff3d6"/><circle cx="0" cy="-90" r="90" fill="#ffd166"/>
+    <g fill="#3a1f14"><circle cx="-70" cy="0" r="10"/><circle cx="-40" cy="50" r="8"/></g>
+  </g>
+  <g fill="#ffd166" fill-opacity=".5"><polygon points="560,300 570,330 600,330 576,348 585,378 560,360 535,378 544,348 520,330 550,330"/><polygon points="1000,160 1006,178 1024,178 1010,190 1015,208 1000,196 985,208 990,190 976,178 994,178"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:120px;color:#fff">
+    <div class="sub" style="font-size:52px;color:#ffe0ec">베스킨라빈스 쿠폰 2장이면</div>
+    <div class="headline" style="font-size:140px;margin-top:10px;white-space:nowrap">패밀리 2통<br><span style="color:#4a2a1a">25,200원</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#4a2a1a;color:#fff;font-size:46px">70% + 40% 따로 쓰기</span></div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:140px;right:420px;color:#2b1a12">
+    <span class="tag" style="background:#4a2a1a;color:#fff">배라 70% 마지막 날</span>
+    <div class="headline" style="font-size:128px;margin-top:30px;white-space:nowrap">310명<br><span class="hl" style="background:#f0287d;color:#fff">못 들면?</span></div>
+  </div>
+  <div class="copy" style="top:900px;right:auto"><span class="tag" style="background:#2b1a12;color:#fff;font-size:44px">10월 말까지 남는 할인 4가지</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:130px;color:#fff">
+    <div class="sub" style="font-size:52px;color:#ffd166">베스킨라빈스 40주년</div>
+    <div class="headline" style="font-size:140px;margin-top:10px;white-space:nowrap">엄마는<br>외계인<br><span style="color:#ff9ec4">돌아왔다</span></div>
+  </div>
+  <div class="copy" style="top:830px;right:auto"><span class="tag" style="background:#ff9ec4;color:#3a1f14;font-size:44px">추억의 맛 4종 재출시</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
