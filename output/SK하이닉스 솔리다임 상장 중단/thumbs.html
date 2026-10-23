@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><radialGradient id="g1" cx=".72" cy=".65" r=".8"><stop offset="0" stop-color="#3a0b10"/><stop offset="1" stop-color="#0d0d0f"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <!-- 상장 종(벨) + X -->
+  <g transform="translate(790,700)">
+    <path d="M-150 120 Q-150 -120 0 -150 Q150 -120 150 120 L180 170 L-180 170 Z" fill="#c9a227"/>
+    <rect x="-200" y="165" width="400" height="30" rx="15" fill="#a8851c"/>
+    <circle cx="0" cy="220" r="34" fill="#a8851c"/>
+    <rect x="-14" y="-200" width="28" height="60" rx="10" fill="#a8851c"/>
+  </g>
+  <g transform="translate(790,640)" stroke="#ea002c" stroke-width="44" stroke-linecap="round">
+    <line x1="-230" y1="-230" x2="230" y2="230"/><line x1="230" y1="-230" x2="-230" y2="230"/>
+  </g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f4f5f7"/>
+  <rect x="600" y="0" width="480" height="1080" fill="#fff"/>
+  <!-- 위/아래 화살표 -->
+  <g transform="translate(880,330)"><circle r="120" fill="#e6fcf5"/><polygon points="0,-90 80,10 30,10 30,90 -30,90 -30,10 -80,10" fill="#12b886"/></g>
+  <g transform="translate(900,760)"><circle r="130" fill="#fff0f0"/><polygon points="0,90 80,-10 30,-10 30,-90 -30,-90 -30,-10 -80,-10" fill="#ea002c"/></g>
+  <text x="880" y="500" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="40" fill="#087f5b">희석 우려 해소</text>
+  <text x="900" y="940" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="40" fill="#c92a2a">공장 자금 숙제</text>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#101826"/>
+  <g stroke="#2a3a55" stroke-width="8"><line x1="80" y1="860" x2="1000" y2="860"/></g>
+  <g>
+    <circle cx="150" cy="860" r="34" fill="#5c6f8f"/><circle cx="380" cy="860" r="34" fill="#ea002c"/>
+    <circle cx="610" cy="860" r="34" fill="#5c6f8f"/><circle cx="800" cy="860" r="34" fill="#5c6f8f"/>
+    <circle cx="960" cy="860" r="44" fill="#fff"/><circle cx="960" cy="860" r="64" fill="none" stroke="#ea002c" stroke-width="8"/>
+  </g>
+  <!-- 하락 그래프 -->
+  <polyline points="640,430 700,410 760,470 830,500 900,570 980,600" fill="none" stroke="#ea002c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#ea002c" fill-opacity=".25"><rect x="640" y="430" width="40" height="300"/><rect x="720" y="480" width="40" height="250"/><rect x="800" y="520" width="40" height="210"/><rect x="880" y="580" width="40" height="150"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:130px;right:380px;color:#fff">
+    <div class="sub" style="font-size:50px;color:#ff8a80;white-space:nowrap">SK하이닉스 솔리다임</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap">상장<br><span style="color:#ff3b4f">접었다</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#fff;color:#111;font-size:52px">주주가 이겼다?</span></div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:150px;right:500px;color:#111">
+    <span class="tag" style="background:#111;color:#fff;white-space:nowrap">솔리다임 상장 중단</span>
+    <div class="headline" style="font-size:125px;margin-top:30px;white-space:nowrap">하이닉스<br><span class="hl" style="background:#ea002c;color:#fff">호재일까?</span></div>
+  </div>
+  <div class="copy" style="bottom:110px;right:auto"><span class="tag" style="background:#ffd43b;color:#111">주가에 남은 숙제 3가지</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:130px;right:500px;color:#fff">
+    <div class="sub" style="font-size:50px;color:#9db4ff;white-space:nowrap">솔리다임 IPO</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap"><span style="color:#ff3b4f">80일</span> 만에<br>철회</div>
+  </div>
+  <div class="copy" style="top:620px;right:auto"><span class="tag" style="background:#fff;color:#101826;font-size:46px">8.5 공시 → 10.23 중단</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
