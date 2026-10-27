@@ -1,0 +1,110 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#111;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
+.s{font-size:32px;color:#666;font-weight:500;margin-top:14px}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.blue{color:#1f4fbf}.red{color:#ea002c}
+.card{border-radius:22px;padding:22px 28px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+.e{font-size:36px;font-weight:900}.m{font-size:26px;color:#666;margin-top:4px}
+</style></head><body>
+
+<!-- 1. 합계 -->
+<div class="fig" data-out="fig1_total.png">
+  <div class="t">주주환원<br><span class="red">210조+α</span> 구성</div>
+  <div class="s">보도 기준 · 단위 조 원</div>
+  <svg width="920" height="600" style="position:absolute;left:80px;top:320px" font-family="Noto Sans KR"><g transform="translate(0,40)">
+    <!-- 1조 = 4.4px, 바닥 y=520 -->
+    <!-- SK하이닉스 -->
+    <rect x="120" y="344" width="220" height="176" fill="#ffb3bf"/><text x="230" y="440" text-anchor="middle" font-size="28" font-weight="900">기존 소각 40</text>
+    <rect x="120" y="212" width="220" height="132" fill="#ff6b81"/><text x="230" y="286" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">자사주 30</text>
+    <rect x="120" y="80" width="220" height="132" fill="#ea002c"/><text x="230" y="154" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">배당 30</text>
+    <text x="230" y="60" text-anchor="middle" font-size="40" font-weight="900" fill="#ea002c">약 100조</text>
+    <text x="230" y="556" text-anchor="middle" font-size="32" font-weight="900">SK하이닉스</text>
+    <!-- 삼성전자 -->
+    <rect x="560" y="388" width="220" height="132" fill="#1f4fbf"/><text x="670" y="462" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">배당 30</text>
+    <rect x="560" y="36" width="220" height="352" fill="#9db4ff"/><text x="670" y="200" text-anchor="middle" font-size="28" font-weight="900">추가 80</text><text x="670" y="236" text-anchor="middle" font-size="22" fill="#333">(자사주 중심 예상)</text>
+    <text x="670" y="20" text-anchor="middle" font-size="40" font-weight="900" fill="#1f4fbf">최대 110조</text>
+    <text x="670" y="556" text-anchor="middle" font-size="32" font-weight="900">삼성전자</text>
+    <line x1="60" y1="520" x2="860" y2="520" stroke="#ccc" stroke-width="3"/>
+  </g></svg>
+  <div class="src">출처: 한국경제(2026.10.27) 업계 인용 보도 · 공식 발표 전 수치</div>
+</div>
+
+<!-- 2. SK하이닉스 -->
+<div class="fig" data-out="fig2_skh.png" style="background:#fff5f6">
+  <div class="t">SK하이닉스 100조,<br><span class="red">돈은 어디서?</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="card" style="background:#fff"><div class="m" style="margin:0">올해 FCF 전망</div><div class="big red" style="font-size:62px">180~240조</div><div class="m">FCF 50% 이상 환원 방침</div></div>
+    <div class="card" style="background:#fff"><div class="m" style="margin:0">키옥시아 지분 매각 차익</div><div class="big red" style="font-size:62px">약 20조</div><div class="m">세전 · 배당 재원 투입</div></div>
+  </div>
+  <svg width="920" height="230" style="position:absolute;left:80px;top:600px" font-family="Noto Sans KR">
+    <text x="0" y="40" font-size="30" font-weight="900">주주환원 규모 비교</text>
+    <text x="0" y="110" font-size="28" fill="#666">지난해</text><rect x="150" y="80" width="105" height="44" rx="8" fill="#ccc"/><text x="270" y="112" font-size="30" font-weight="900">14.3조</text>
+    <text x="0" y="190" font-size="28" fill="#666">이번</text><rect x="150" y="160" width="660" height="44" rx="8" fill="#ea002c"/><text x="830" y="194" font-size="34" font-weight="900" fill="#ea002c">약 7배</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:860px;font-size:28px;font-weight:700;color:#c92a2a">※ 성과급용 자사주 10조는 주주환원과 별도</div>
+  <div class="src">출처: 한국경제(2026.10.27) · 증권가 전망치</div>
+</div>
+
+<!-- 3. 삼성전자 -->
+<div class="fig" data-out="fig3_sec.png" style="background:#f3f6fd">
+  <div class="t">삼성전자 110조,<br><span class="blue">2단계로 나온다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:flex;gap:18px">
+    <div class="card" style="flex:1;background:#1f4fbf;color:#fff"><div style="font-size:28px;font-weight:700;opacity:.85">1단계 · 10/29 이사회</div><div class="big" style="font-size:70px">배당 30조</div><div style="font-size:26px;opacity:.85">3분기 특별배당</div></div>
+    <div class="card" style="flex:1;background:#fff;border:4px solid #1f4fbf"><div style="font-size:28px;font-weight:700;color:#1f4fbf">2단계 · 내년 1분기</div><div class="big" style="font-size:70px">추가 80조</div><div style="font-size:26px;color:#666">자사주 매입·소각 중심 예상</div></div>
+  </div>
+  <svg width="920" height="220" style="position:absolute;left:80px;top:620px" font-family="Noto Sans KR">
+    <text x="0" y="30" font-size="30" font-weight="900">종전 최대(2020년)와 비교</text>
+    <text x="0" y="100" font-size="28" fill="#666">2020년</text><rect x="150" y="70" width="120" height="44" rx="8" fill="#ccc"/><text x="285" y="102" font-size="30" font-weight="900">20.3조</text>
+    <text x="0" y="180" font-size="28" fill="#666">이번</text><rect x="150" y="150" width="650" height="44" rx="8" fill="#1f4fbf"/><text x="815" y="184" font-size="34" font-weight="900" fill="#1f4fbf">5배+</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:860px;font-size:28px;font-weight:700;color:#1f4fbf">올해 FCF 263조 추산 · 'FCF 50% 이상' 환원 가능성</div>
+  <div class="src">출처: 한국경제(2026.10.27) · 증권가 추산</div>
+</div>
+
+<!-- 4. 주가 -->
+<div class="fig" data-out="fig4_price.png" style="background:#111;color:#fff">
+  <div class="t">실적은 사상 최대,<br><span style="color:#ff5a5f">주가는 반대로</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:340px;display:grid;gap:26px">
+    <div class="card" style="background:#1f1f1f"><div style="font-size:32px;font-weight:900">SK하이닉스</div>
+      <div style="display:flex;align-items:center;gap:20px;margin-top:10px"><div class="big" style="font-size:56px;color:#aaa">298만</div><div style="font-size:40px;color:#ff5a5f">→</div><div class="big" style="font-size:72px;color:#ff5a5f">110만원대</div></div>
+      <div style="font-size:24px;color:#999;margin-top:4px">6월 고점 → 최근 · 솔리다임 논란·메모리 정점론</div></div>
+    <div class="card" style="background:#1f1f1f"><div style="font-size:32px;font-weight:900">삼성전자</div>
+      <div style="display:flex;align-items:center;gap:20px;margin-top:10px"><div class="big" style="font-size:56px;color:#aaa">32만</div><div style="font-size:40px;color:#ff5a5f">→</div><div class="big" style="font-size:72px;color:#ff5a5f">20만원대</div></div>
+      <div style="font-size:24px;color:#999;margin-top:4px">7월 고점 → 최근</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:850px;font-size:30px;font-weight:700;color:#ffd43b">올해 양사 합산 영업이익 약 650조 전망</div>
+  <div class="src" style="color:#777;border-color:#333">출처: 한국경제(2026.10.27) · 주가는 기사 표기 기준 대략치</div>
+</div>
+
+<!-- 5. 배당 vs 소각 -->
+<div class="fig" data-out="fig5_compare.png">
+  <div class="t">배당 vs 자사주 소각,<br><span class="red">뭐가 다를까</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:flex;gap:20px">
+    <div class="card" style="flex:1;background:#eef4ff">
+      <div style="font-size:40px;font-weight:900" class="blue">💵 현금배당</div>
+      <div style="font-size:30px;line-height:1.6;margin-top:16px">계좌에 현금 입금<br>체감이 바로 온다<br>배당소득세 15.4%<br><b>→ 현금흐름 원하면</b></div>
+    </div>
+    <div class="card" style="flex:1;background:#fff0f2">
+      <div style="font-size:40px;font-weight:900" class="red">🔥 자사주 소각</div>
+      <div style="font-size:30px;line-height:1.6;margin-top:16px">주식 수가 줄어듦<br>내 한 주의 몫 ↑<br>EPS 상승 · 세금 없음<br><b>→ 장기 보유라면</b></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:800px;text-align:center"><span class="tag" style="background:#111;color:#fff;font-size:34px">삼성전자는 배당 먼저 · SK하이닉스는 소각 먼저</span></div>
+  <div class="src">개념 설명 · 실제 효과는 소각 여부·규모에 따라 다름</div>
+</div>
+
+<!-- 6. 일정 -->
+<div class="fig" data-out="fig6_schedule.png" style="background:#fff8e6">
+  <div class="t">이번 주, 분수령<br><span style="color:#e67700">확인할 날짜</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:340px;display:grid;gap:22px">
+    <div class="card" style="background:#fff;border:4px solid #111;display:flex;align-items:center;gap:30px"><div class="big" style="font-size:64px;width:220px;color:#ea002c">10.28</div><div><div class="e">SK하이닉스 3분기 실적</div><div class="m">추가 주주환원책 공개 예정</div></div></div>
+    <div class="card" style="background:#fff;border:4px solid #111;display:flex;align-items:center;gap:30px"><div class="big" style="font-size:64px;width:220px;color:#1f4fbf">10.29</div><div><div class="e">삼성전자 확정 실적</div><div class="m">현금배당 30조 이사회 의결 예정</div></div></div>
+    <div class="card" style="background:#111;color:#fff;display:flex;align-items:center;gap:30px"><div class="big" style="font-size:52px;width:220px;color:#ffd43b">내년 1Q</div><div><div class="e">삼성전자 추가 80조</div><div class="m" style="color:#ccc">자사주 매입·소각 방안 공개</div></div></div>
+  </div>
+  <div class="src">출처: 한국경제(2026.10.27) · 일정은 회사 사정에 따라 변경 가능</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>

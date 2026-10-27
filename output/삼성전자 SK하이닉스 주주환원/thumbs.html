@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs>
+    <radialGradient id="g1" cx=".72" cy=".7" r=".8"><stop offset="0" stop-color="#1d2b55"/><stop offset="1" stop-color="#0a0f22"/></radialGradient>
+    <linearGradient id="coin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe58a"/><stop offset="1" stop-color="#d9a400"/></linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <g stroke="#a37800" stroke-width="5">
+    <g transform="translate(700,960)"><ellipse rx="130" ry="40" fill="url(#coin)"/><ellipse cy="-40" rx="130" ry="40" fill="url(#coin)"/><ellipse cy="-80" rx="130" ry="40" fill="url(#coin)"/><ellipse cy="-120" rx="130" ry="40" fill="url(#coin)"/><ellipse cy="-160" rx="130" ry="40" fill="url(#coin)"/></g>
+    <g transform="translate(920,960)"><ellipse rx="120" ry="38" fill="url(#coin)"/><ellipse cy="-38" rx="120" ry="38" fill="url(#coin)"/><ellipse cy="-76" rx="120" ry="38" fill="url(#coin)"/><ellipse cy="-114" rx="120" ry="38" fill="url(#coin)"/><ellipse cy="-152" rx="120" ry="38" fill="url(#coin)"/><ellipse cy="-190" rx="120" ry="38" fill="url(#coin)"/><ellipse cy="-228" rx="120" ry="38" fill="url(#coin)"/></g>
+  </g>
+  <g fill="#ffe58a"><circle cx="560" cy="580" r="34"/><circle cx="1000" cy="540" r="26"/><circle cx="820" cy="460" r="20"/></g>
+  <rect x="0" y="0" width="1080" height="10" fill="#1f4fbf"/><rect x="0" y="10" width="1080" height="10" fill="#ea002c"/>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f4f6fb"/>
+  <g stroke="#dde3f0" stroke-width="3"><line x1="0" y1="700" x2="1080" y2="700"/><line x1="0" y1="860" x2="1080" y2="860"/></g>
+  <polyline points="540,560 620,640 700,720 780,800 860,760 940,600 1010,420" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="1030,360 1050,450 975,430" fill="#111"/>
+  <g transform="translate(780,800)"><circle r="40" fill="#fff" stroke="#ea002c" stroke-width="10"/></g>
+  <g fill="#ffd43b"><circle cx="980" cy="300" r="18"/><circle cx="900" cy="380" r="10"/></g>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="540" height="1080" fill="#1f4fbf"/><rect x="540" width="540" height="1080" fill="#ea002c"/>
+  <g transform="translate(270,820)" fill="#fff" fill-opacity=".9"><rect x="-110" y="-60" width="220" height="120" rx="14"/><circle r="36" fill="#1f4fbf"/></g>
+  <g transform="translate(810,820)" fill="#fff" fill-opacity=".9"><rect x="-100" y="-100" width="200" height="200" rx="16"/><g stroke="#ea002c" stroke-width="18" stroke-linecap="round"><line x1="-50" y1="-50" x2="50" y2="50"/><line x1="50" y1="-50" x2="-50" y2="50"/></g></g>
+  <circle cx="540" cy="540" r="90" fill="#111"/>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:130px;right:340px;color:#fff">
+    <div class="sub" style="font-size:50px;color:#9db4ff;white-space:nowrap">삼성전자·SK하이닉스</div>
+    <div class="headline" style="font-size:160px;margin-top:10px;white-space:nowrap"><span style="color:#ffd43b">210조</span><br>푼다</div>
+  </div>
+  <div class="copy" style="top:620px;right:auto"><span class="tag" style="background:#fff;color:#0a0f22;font-size:48px">역대급 주주환원 +α</span></div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:140px;right:420px;color:#111">
+    <span class="tag" style="background:#111;color:#fff;white-space:nowrap">삼전닉스 주주환원</span>
+    <div class="headline" style="font-size:140px;margin-top:30px;white-space:nowrap">반등<br><span class="hl" style="background:#ea002c;color:#fff">신호일까?</span></div>
+  </div>
+  <div class="copy" style="bottom:100px;right:auto"><span class="tag" style="background:#1f4fbf;color:#fff">28·29일 실적 발표 전 체크</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:120px;left:0;right:0;text-align:center;color:#fff">
+    <div class="sub" style="font-size:50px">주주환원 맞대결</div>
+    <div class="headline" style="font-size:100px;margin-top:20px;white-space:nowrap;display:flex;justify-content:center;gap:120px"><span>배당 먼저</span><span>소각 먼저</span></div>
+    <div class="headline" style="font-size:80px;margin-top:20px;white-space:nowrap;display:flex;justify-content:center;gap:150px"><span>삼성 110</span><span>닉스 100</span></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;top:500px;text-align:center;font-family:'Black Han Sans';font-size:72px;color:#fff">VS</div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
