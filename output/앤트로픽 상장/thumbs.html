@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f5f1ea"/>
+  <circle cx="860" cy="760" r="300" fill="#ecdcc8"/>
+  <!-- 연결망 -->
+  <g stroke="#c9a88f" stroke-width="6"><line x1="860" y1="760" x2="700" y2="620"/><line x1="860" y1="760" x2="1010" y2="590"/><line x1="860" y1="760" x2="660" y2="900"/><line x1="860" y1="760" x2="1000" y2="960"/><line x1="860" y1="760" x2="860" y2="520"/></g>
+  <circle cx="860" cy="760" r="90" fill="#c96442"/>
+  <g fill="#191919"><circle cx="700" cy="620" r="34"/><circle cx="1010" cy="590" r="30"/><circle cx="660" cy="900" r="32"/><circle cx="1000" cy="960" r="28"/><circle cx="860" cy="520" r="30"/></g>
+  <g fill="#e2231a"><circle cx="700" cy="620" r="14"/></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#1a0f0e"/>
+  <g stroke="#fff" stroke-opacity=".06" stroke-width="2"><line x1="0" y1="700" x2="1080" y2="700"/><line x1="0" y1="860" x2="1080" y2="860"/></g>
+  <rect x="600" y="840" width="110" height="140" rx="10" fill="#5c3a34"/>
+  <rect x="750" y="660" width="110" height="320" rx="10" fill="#c96442"/>
+  <rect x="900" y="420" width="110" height="560" rx="10" fill="#e2231a"/>
+  <polyline points="640,800 800,620 950,380" fill="none" stroke="#ffd43b" stroke-width="10" stroke-linecap="round" stroke-dasharray="20 14"/>
+  <polygon points="975,340 980,420 915,395" fill="#ffd43b"/>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0b14"/><stop offset="1" stop-color="#3a1d14"/></linearGradient></defs>
+  <rect width="1080" height="1080" fill="url(#sky)"/>
+  <g fill="#fff"><circle cx="120" cy="120" r="3"/><circle cx="320" cy="80" r="2"/><circle cx="980" cy="140" r="3"/><circle cx="600" cy="60" r="2"/><circle cx="860" cy="320" r="2"/></g>
+  <!-- 로켓 -->
+  <g transform="translate(820,560) rotate(20)">
+    <path d="M0 -260 Q70 -160 70 40 L-70 40 Q-70 -160 0 -260Z" fill="#f5f1ea"/>
+    <circle cx="0" cy="-110" r="34" fill="#c96442"/>
+    <path d="M-70 -20 L-130 80 L-70 60Z" fill="#c96442"/><path d="M70 -20 L130 80 L70 60Z" fill="#c96442"/>
+    <path d="M-45 40 Q0 220 45 40Z" fill="#ffb347"/><path d="M-25 40 Q0 150 25 40Z" fill="#fff3b0"/>
+  </g>
+  <g fill="#c96442" fill-opacity=".35"><circle cx="700" cy="960" r="90"/><circle cx="820" cy="1000" r="110"/><circle cx="560" cy="1010" r="70"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<div class="canvas" data-out="thumb1.png" id="t1" data-wm="dark">
+  <div class="copy" style="top:130px;right:380px;color:#191919">
+    <span class="tag" style="background:#c96442;color:#fff">앤트로픽 상장</span>
+    <div class="headline" style="font-size:140px;margin-top:30px;white-space:nowrap">한국은<br><span class="hl" style="background:#191919;color:#fff">누가 웃나?</span></div>
+  </div>
+  <div class="copy" style="top:650px;right:auto"><span class="tag" style="background:#fff;color:#191919;border:4px solid #191919">연결된 국내 기업 5곳</span></div>
+</div>
+
+<div class="canvas" data-out="thumb2.png" id="t2">
+  <div class="copy" style="top:130px;right:440px;color:#fff">
+    <div class="sub" style="font-size:50px;color:#ffb3a0;white-space:nowrap">앤트로픽 상장하면</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap">SKT 지분<br><span style="color:#ffd43b">7조?</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#fff;color:#1a0f0e;font-size:46px">3.5조 → 단순계산 7조</span></div>
+</div>
+
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:140px;right:420px;color:#fff">
+    <div class="sub" style="font-size:50px;color:#e8b8a3;white-space:nowrap">나스닥 'ANT'</div>
+    <div class="headline" style="font-size:150px;margin-top:10px;white-space:nowrap">역대 최대<br><span style="color:#ff8a65">IPO?</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#f5f1ea;color:#0b0b14;font-size:46px">그런데 위험요인만 94쪽</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
