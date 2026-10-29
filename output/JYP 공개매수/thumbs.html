@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><radialGradient id="g1" cx=".75" cy=".75" r=".9"><stop offset="0" stop-color="#3b1f73"/><stop offset="1" stop-color="#0e0a1a"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <!-- 지분 파이: 50% 조각이 떨어져 나감 -->
+  <g transform="translate(780,800)">
+    <path d="M0 0 L0 -230 A230 230 0 0 0 0 230 Z" fill="#5f3dc4"/>
+    <path d="M0 -230 A230 230 0 0 0 -199 -115 L0 0 Z" fill="#9775fa" opacity=".9"/>
+    <g transform="translate(60,-20)"><path d="M0 -230 A230 230 0 0 1 0 230 L0 0 Z" fill="#f06595"/></g>
+  </g>
+  <g fill="#fff" opacity=".07" font-family="Black Han Sans"><circle cx="160" cy="980" r="8"/><circle cx="260" cy="940" r="6"/></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f1f3f5"/>
+  <!-- 편지봉투 + 차단 표시 -->
+  <g transform="translate(560,620) rotate(-6)">
+    <rect x="0" y="0" width="420" height="280" rx="24" fill="#fff" stroke="#ced4da" stroke-width="6"/>
+    <polyline points="0,0 210,160 420,0" fill="none" stroke="#ced4da" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(930,640)"><circle r="110" fill="#e03131"/><circle r="72" fill="none" stroke="#fff" stroke-width="22"/><line x1="-52" y1="52" x2="52" y2="-52" stroke="#fff" stroke-width="22" stroke-linecap="round"/></g>
+  <g transform="translate(150,830)" fill="none" stroke="#adb5bd" stroke-width="6" stroke-dasharray="16 14"><path d="M0 0 Q200 -120 400 -40"/></g>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#0b1d33"/>
+  <!-- 서류 + 돋보기 + 경고 -->
+  <g transform="translate(640,560) rotate(4)">
+    <rect width="380" height="480" rx="20" fill="#e9ecef"/>
+    <g fill="#adb5bd"><rect x="40" y="60" width="300" height="20" rx="6"/><rect x="40" y="110" width="240" height="20" rx="6"/><rect x="40" y="160" width="280" height="20" rx="6"/><rect x="40" y="210" width="200" height="20" rx="6"/><rect x="40" y="260" width="260" height="20" rx="6"/></g>
+  </g>
+  <g transform="translate(790,770)"><circle r="120" fill="#74c0fc" fill-opacity=".25" stroke="#fff" stroke-width="22"/><line x1="92" y1="92" x2="210" y2="210" stroke="#fff" stroke-width="40" stroke-linecap="round"/></g>
+  <g transform="translate(900,330)"><polygon points="0,-110 105,75 -105,75" fill="#ffd43b" stroke="#ffd43b" stroke-width="16" stroke-linejoin="round"/><rect x="-11" y="-50" width="22" height="70" rx="8" fill="#0b1d33"/><circle cy="48" r="13" fill="#0b1d33"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<!-- 숫자형 -->
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:110px;color:#fff">
+    <div class="sub" style="font-size:54px;color:#d0bfff;white-space:nowrap">JYP 공개매수 팩트체크</div>
+    <div class="headline" style="font-size:160px;margin-top:14px;white-space:nowrap;line-height:1.08">최대 50%<br><span style="color:#f06595">웃돈 30%</span></div>
+  </div>
+  <div class="copy" style="top:620px;right:auto"><span class="tag" style="background:#fff;color:#3b1f73;font-size:46px">확정된 건 0개</span></div>
+</div>
+
+<!-- 질문·반전형 -->
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:110px;color:#111">
+    <span class="tag" style="background:#5f3dc4;color:#fff">JYP 공개매수</span>
+    <div class="headline" style="font-size:132px;margin-top:30px;white-space:nowrap;line-height:1.12">인수 제안이<br><span class="hl" style="background:#e03131;color:#fff">스팸 메일?</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#111;color:#fff;font-size:42px">넥스록 vs JYP 진실공방</span></div>
+</div>
+
+<!-- 감정·상황형 -->
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:130px;right:auto;color:#fff">
+    <div class="sub" style="font-size:52px;color:#ffd43b;white-space:nowrap">금감원도 "매우 이례적"</div>
+    <div class="headline" style="font-size:140px;margin-top:16px;white-space:nowrap;line-height:1.1">JYP 주주<br><span style="color:#74c0fc">지금 볼 것</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#ffd43b;color:#0b1d33;font-size:44px">공개매수신고서 나왔나?</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>

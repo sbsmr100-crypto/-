@@ -1,0 +1,99 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#1b1b1b;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:74px;line-height:1.15}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:23px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.red{color:#d6336c}.pur{color:#5f3dc4}.gry{color:#868e96}
+.card{border-radius:20px;padding:20px 26px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+.tl{position:relative;padding-left:70px;margin-bottom:22px}
+.tl:before{content:'';position:absolute;left:18px;top:12px;width:24px;height:24px;border-radius:50%;background:#5f3dc4}
+.tl.d:before{background:#fff;border:4px dashed #adb5bd;width:16px;height:16px}
+.tl b{font-size:32px;display:inline-block;width:150px}.tl span{font-size:30px}
+</style></head><body>
+
+<!-- 1. 타임라인 -->
+<div class="fig" data-out="fig1_timeline.png">
+  <div class="t">JYP 공개매수,<br><span class="pur">열흘간의 일지</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:310px">
+    <div style="position:absolute;left:29px;top:20px;bottom:40px;border-left:4px solid #d0bfff"></div>
+    <div class="tl"><b>10.20</b><span>NEXROC SVCV, 미국 SEC에 Form D 제출</span></div>
+    <div class="tl"><b>10.21</b><span>넥스록 "JYP에 이메일로 통보" <span class="gry">(주장)</span></span></div>
+    <div class="tl"><b>10.26</b><span><b style="width:auto;font-size:30px">보도자료</b> 25~50% 공개매수 검토 발표</span></div>
+    <div class="tl"><b>10.27</b><span>JYP 공시 "제안 없다" · 금감원 유의사항</span></div>
+    <div class="tl"><b>10.29</b><span>넥스록 해명 ↔ JYP "스팸 차단 메일"</span></div>
+    <div class="tl d"><b class="gry">11.20</b><span class="gry">공개매수 개시 '목표일' (미확정)</span></div>
+  </div>
+  <div class="src">출처: 헤럴드경제·한국경제·코리아헤럴드·법률방송뉴스(2026.10.26~29)</div>
+</div>
+
+<!-- 2. 발표 내용 -->
+<div class="fig" data-out="fig2_plan.png" style="background:#f3f0ff">
+  <div class="t">넥스록이 발표한 것,<br><span class="red">확정된 건 없다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">매수 규모</div><div class="big" style="font-size:66px">25~50%</div><div style="font-size:24px;font-weight:900" class="red">검토 단계</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">매수 가격</div><div class="big" style="font-size:66px">+30%</div><div style="font-size:24px;font-weight:900" class="red">기준 주가 미정</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">개시 목표일</div><div class="big" style="font-size:66px">11월 20일</div><div style="font-size:24px;font-weight:900" class="red">일정 미정</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">사전 절차</div><div style="font-size:36px;font-weight:900;margin-top:8px;line-height:1.3">LOI 전달 후<br>30일 협상</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:820px;font-size:30px;font-weight:900;color:#5f3dc4">공개매수신고서: 아직 제출 안 됨 (10/29 기준)</div>
+  <div class="src">출처: 넥스록·SVCV 보도자료(10.26), 헤럴드경제 보도</div>
+</div>
+
+<!-- 3. 주가 -->
+<div class="fig" data-out="fig3_price.png" style="background:#16141f;color:#fff">
+  <div class="t">발표 직후 주가,<br><span style="color:#ff8fab">크게 출렁였다</span></div>
+  <svg width="920" height="480" style="position:absolute;left:80px;top:300px" font-family="Noto Sans KR">
+    <line x1="0" y1="420" x2="920" y2="420" stroke="#444" stroke-width="3"/>
+    <!-- 스케일: 30,000원=420, 1,000원=24px -->
+    <rect x="40" y="276" width="170" height="144" rx="10" fill="#6c6a7a"/><text x="125" y="258" text-anchor="middle" font-size="38" font-weight="900" fill="#fff">36,000</text><text x="125" y="458" text-anchor="middle" font-size="24" fill="#aaa">26일 정규장</text>
+    <rect x="270" y="132" width="170" height="288" rx="10" fill="#ff8fab"/><text x="355" y="114" text-anchor="middle" font-size="38" font-weight="900" fill="#ff8fab">44,000</text><text x="355" y="458" text-anchor="middle" font-size="24" fill="#aaa">애프터 고점</text>
+    <rect x="500" y="180" width="170" height="240" rx="10" fill="#f06595"/><text x="585" y="162" text-anchor="middle" font-size="38" font-weight="900" fill="#fff">42,150</text><text x="585" y="458" text-anchor="middle" font-size="24" fill="#aaa">애프터 마감</text>
+    <rect x="730" y="217" width="170" height="203" rx="10" fill="#b197fc"/><text x="815" y="199" text-anchor="middle" font-size="38" font-weight="900" fill="#fff">38,450</text><text x="815" y="458" text-anchor="middle" font-size="24" fill="#aaa">27일 정규장</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:820px;font-size:28px;font-weight:700;color:#ccc">애프터 마감 +17.08% · 27일 종가 +6.81% · 28일 장중 4% 넘는 변동</div>
+  <div class="src" style="color:#777;border-color:#333">단위 원 · 막대는 3만 원부터 표시 · 출처: 한국경제·뉴스웨이·헤럴드경제</div>
+</div>
+
+<!-- 4. 입장 비교 -->
+<div class="fig" data-out="fig4_claims.png">
+  <div class="t">세 곳의 말이<br><span class="pur">서로 다르다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:300px;display:grid;gap:18px">
+    <div class="card" style="background:#fff4e6;display:flex;gap:24px;align-items:center"><div style="width:150px;font-size:32px;font-weight:900;color:#e8590c">넥스록</div><div style="flex:1;font-size:30px;font-weight:700;line-height:1.4">"21일 이메일로 JYP에<br>협상 계획을 알렸다"</div></div>
+    <div class="card" style="background:#f3f0ff;display:flex;gap:24px;align-items:center"><div style="width:150px;font-size:32px;font-weight:900;color:#5f3dc4">JYP</div><div style="flex:1;font-size:30px;font-weight:700;line-height:1.4">"유효한 제안서 받은 적 없다"<br><span style="color:#666;font-size:26px">메일은 스팸 분류·강제 차단</span></div></div>
+    <div class="card" style="background:#e7f5ff;display:flex;gap:24px;align-items:center"><div style="width:150px;font-size:32px;font-weight:900;color:#1971c2">금감원</div><div style="flex:1;font-size:30px;font-weight:700;line-height:1.4">"신고서 제출 전 의사 표명<br>매우 이례적" · "접촉한 사실 없다"</div></div>
+  </div>
+  <div class="src">출처: 한국경제(10.27·10.29), 코리아헤럴드(10.29)</div>
+</div>
+
+<!-- 5. 공시 체크 -->
+<div class="fig" data-out="fig5_company.png" style="background:#f8f9fa">
+  <div class="t">넥스록,<br><span class="pur">공시로 확인된 것</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:300px;display:grid;gap:12px;font-size:29px">
+    <div class="card" style="background:#fff;display:flex;justify-content:space-between"><span>SEC 신고 연 매출</span><b>100만~500만$ (13억~66억 원)</b></div>
+    <div class="card" style="background:#fff;display:flex;justify-content:space-between"><span>Form D 조달 예정 / 투자자</span><b>5,000만$ / <span class="red">0명</span></b></div>
+    <div class="card" style="background:#fff;display:flex;justify-content:space-between"><span>넥스록 · SVCV 관계</span><b>미국 공시상 같은 법인</b></div>
+    <div class="card" style="background:#fff;display:flex;justify-content:space-between"><span>델라웨어 SVCV GROUP</span><b class="red">법인 자격 몰수</b></div>
+    <div class="card" style="background:#fff;display:flex;justify-content:space-between"><span>일본 법인번호·금융청</span><b class="red">확인 안 됨</b></div>
+    <div class="card" style="background:#fff;display:flex;justify-content:space-between"><span>30억$ 금융 프로그램</span><b>회사 스스로 "예시적 규모"</b></div>
+  </div>
+  <div class="src">출처: 법률방송뉴스(10.28) 보도 · SEC는 Form D 내용을 보증하지 않음</div>
+</div>
+
+<!-- 6. 자금·지분 -->
+<div class="fig" data-out="fig6_money.png">
+  <div class="t">필요한 돈<br><span class="red">최대 8,315억 원</span></div>
+  <svg width="920" height="330" style="position:absolute;left:80px;top:300px" font-family="Noto Sans KR">
+    <text x="0" y="36" font-size="28" font-weight="900">50% 매수</text><rect x="200" y="8" width="560" height="44" rx="8" fill="#d6336c"/><text x="772" y="42" font-size="32" font-weight="900" fill="#d6336c">8,315억</text>
+    <text x="0" y="116" font-size="28" font-weight="900">25% 매수</text><rect x="200" y="88" width="280" height="44" rx="8" fill="#f783ac"/><text x="492" y="122" font-size="32" font-weight="900">4,157억</text>
+    <text x="0" y="196" font-size="28" font-weight="900" fill="#868e96">신고 매출 상단</text><rect x="200" y="168" width="5" height="44" fill="#868e96"/><text x="216" y="202" font-size="32" font-weight="900" fill="#868e96">66억</text>
+    <text x="0" y="280" font-size="25" fill="#666">주당 46,800원(26일 종가 36,000원 × 1.3) · 발행주식 3,553만 주 기준</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:650px;display:flex;gap:18px">
+    <div class="card" style="flex:1;background:#f3f0ff"><div style="font-size:26px;color:#666">박진영 CCO</div><div class="big" style="font-size:58px">15.37%</div></div>
+    <div class="card" style="flex:1;background:#f3f0ff"><div style="font-size:26px;color:#666">특수관계인 합산</div><div class="big pur" style="font-size:58px">15.82%</div></div>
+  </div>
+  <div class="src">출처: 법률방송뉴스(10.28) 계산 · 매수가는 미확정, 가정에 따른 추산</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
