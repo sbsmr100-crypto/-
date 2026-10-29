@@ -1,0 +1,104 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#1b1b1b;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.red{color:#d13438}.grn{color:#107c10}.blu{color:#0067b8}
+.card{border-radius:22px;padding:22px 28px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+.row{display:flex;align-items:center;padding:9px 26px;border-radius:14px;background:#f3f6f9;font-size:29px}
+</style></head><body>
+
+<!-- 1. 성적표 -->
+<div class="fig" data-out="fig1_score.png">
+  <div class="t">1분기 성적표,<br><span class="grn">9개 중 7개 '상회'</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:285px;display:grid;gap:7px">
+    <div class="row"><b style="width:300px">매출</b><span style="flex:1;color:#666">923억 / 예상 906.9억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:300px">영업이익</b><span style="flex:1;color:#666">459억 / 예상 440.6억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:300px">조정 EPS</b><span style="flex:1;color:#666">4.89$ / 예상 4.73$</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:300px">조정 순이익</b><span style="flex:1;color:#666">364억 / 예상 351.3억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:300px">Azure</b><span style="flex:1;color:#666">332억 / 예상 323.2억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:300px">에이전트·인프라</b><span style="flex:1;color:#666">768억 / 예상 756억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:300px">디바이스·소비자</b><span style="flex:1;color:#666">155억 / 예상 150억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row" style="background:#fdecec"><b style="width:300px">상업용 RPO</b><span style="flex:1;color:#666">6,770억 / 예상 7,056억</span><span class="red" style="font-weight:900">✕ 하회</span></div>
+    <div class="row" style="background:#fdecec"><b style="width:300px">산업별 솔루션</b><span style="flex:1;color:#666">53억 / 예상 54억</span><span class="red" style="font-weight:900">✕ 하회</span></div>
+  </div>
+  <div class="src">단위 달러 · 출처: 마이크로소프트 2027 회계연도 1분기 실적(제공 자료)</div>
+</div>
+
+<!-- 2. Azure 추이 -->
+<div class="fig" data-out="fig2_azure.png" style="background:#eaf3fc">
+  <div class="t">Azure 성장률,<br><span class="blu">가이던스도 넘었다</span></div>
+  <svg width="920" height="500" style="position:absolute;left:80px;top:310px" font-family="Noto Sans KR">
+    <line x1="0" y1="440" x2="920" y2="440" stroke="#b7cde3" stroke-width="3"/>
+    <line x1="0" y1="170" x2="920" y2="170" stroke="#ff8c00" stroke-width="4" stroke-dasharray="14 10"/>
+    <text x="0" y="150" font-size="26" font-weight="900" fill="#ff8c00">회사 가이던스 44~45%</text>
+    <rect x="60" y="260" width="190" height="180" rx="12" fill="#9cc3e8"/><text x="155" y="315" text-anchor="middle" font-size="44" font-weight="900" fill="#fff">40%</text><text x="155" y="482" text-anchor="middle" font-size="26" fill="#555">FY26 3분기</text>
+    <rect x="365" y="206" width="190" height="234" rx="12" fill="#4a90d9"/><text x="460" y="261" text-anchor="middle" font-size="44" font-weight="900" fill="#fff">43%</text><text x="460" y="482" text-anchor="middle" font-size="26" fill="#555">FY26 4분기</text>
+    <rect x="670" y="116" width="190" height="324" rx="12" fill="#0067b8"/><text x="765" y="180" text-anchor="middle" font-size="54" font-weight="900" fill="#fff">48%</text><text x="765" y="482" text-anchor="middle" font-size="28" font-weight="900" fill="#0067b8">FY27 1분기</text>
+  </svg>
+  <div class="src" style="border-color:#cfe0f1">전년 대비 성장률 · 막대 높이는 30%부터 표시 · 출처: 실적 자료, 한국경제(2026.7.30)</div>
+</div>
+
+<!-- 3. 사업부 구성 -->
+<div class="fig" data-out="fig3_segment.png">
+  <div class="t">매출 923억 달러,<br><span class="blu">83%가 AI·클라우드</span></div>
+  <svg width="420" height="420" style="position:absolute;left:80px;top:320px" viewBox="-210 -210 420 420">
+    <circle r="160" fill="none" stroke="#e1e6eb" stroke-width="80"/>
+    <circle r="160" fill="none" stroke="#0067b8" stroke-width="80" stroke-dasharray="834.4 1005.3" transform="rotate(-90)"/>
+    <circle r="160" fill="none" stroke="#ffb900" stroke-width="80" stroke-dasharray="168.8 1005.3" stroke-dashoffset="-836.5" transform="rotate(-90)"/>
+    <text y="-6" text-anchor="middle" font-family="Black Han Sans" font-size="64">923억$</text><text y="40" text-anchor="middle" font-size="26" fill="#666" font-family="Noto Sans KR">전년 대비 +19%</text>
+  </svg>
+  <div style="position:absolute;left:560px;right:80px;top:340px;display:grid;gap:22px">
+    <div class="card" style="background:#eaf3fc"><div style="font-size:28px;font-weight:900" class="blu">■ 에이전트·인프라</div><div class="big" style="font-size:60px">768억$</div><div style="font-size:26px;color:#555">영업이익 406억$</div></div>
+    <div class="card" style="background:#fff6dd"><div style="font-size:28px;font-weight:900;color:#c48a00">■ 디바이스·소비자</div><div class="big" style="font-size:60px">155억$</div><div style="font-size:26px;color:#555">영업이익 54억$</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:800px;font-size:28px;font-weight:700;color:#555">마이크로소프트 클라우드 매출 639억$ (+30%)</div>
+  <div class="src">출처: 마이크로소프트 2027 회계연도 1분기 실적(제공 자료)</div>
+</div>
+
+<!-- 4. 소비자 -->
+<div class="fig" data-out="fig4_consumer.png" style="background:#fffaf0">
+  <div class="t">소비자 사업도<br><span style="color:#c48a00">예상보다 잘 팔렸다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:grid;gap:20px">
+    <div class="card" style="background:#fff;display:flex;align-items:center"><div style="flex:1"><div style="font-size:34px;font-weight:900">검색·광고</div><div style="font-size:26px;color:#777">예상 64억$</div></div><div class="big" style="font-size:64px">66억$</div></div>
+    <div class="card" style="background:#fff;display:flex;align-items:center"><div style="flex:1"><div style="font-size:34px;font-weight:900">Xbox</div><div style="font-size:26px;color:#777">예상 50억$ · <span class="red" style="font-weight:900">전년 대비 -2%</span></div></div><div class="big" style="font-size:64px">54억$</div></div>
+    <div class="card" style="background:#fff;display:flex;align-items:center"><div style="flex:1"><div style="font-size:34px;font-weight:900">Windows OEM·디바이스</div><div style="font-size:26px;color:#777">예상 35억$</div></div><div class="big" style="font-size:64px">36억$</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:820px;font-size:28px;font-weight:700;color:#666">세 항목 모두 예상 상회, Xbox만 1년 전보다 줄었다</div>
+  <div class="src">출처: 마이크로소프트 2027 회계연도 1분기 실적(제공 자료)</div>
+</div>
+
+<!-- 5. 설비투자 -->
+<div class="fig" data-out="fig5_capex.png">
+  <div class="t">설비투자,<br><span class="blu">예상보다 72억$ 덜 썼다</span></div>
+  <svg width="920" height="400" style="position:absolute;left:80px;top:310px" font-family="Noto Sans KR">
+    <text x="0" y="40" font-size="30" font-weight="900">시장 예상 (현금 기준)</text>
+    <rect x="0" y="60" width="680" height="64" rx="10" fill="#dfe3e8"/><text x="695" y="104" font-size="36" font-weight="900" fill="#666">465.9억$</text>
+    <text x="0" y="190" font-size="30" font-weight="900" fill="#0067b8">실제 (현금 기준)</text>
+    <rect x="0" y="210" width="575" height="64" rx="10" fill="#0067b8"/><text x="590" y="254" font-size="40" font-weight="900" fill="#0067b8">394억$</text>
+    <text x="0" y="350" font-size="28" fill="#555">매출 대비 설비투자 비율 약 <tspan font-weight="900" fill="#1b1b1b">42.7%</tspan></text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:740px;display:flex;gap:16px">
+    <div class="card" style="flex:1;background:#f3f6f9"><div style="font-size:24px;color:#666">금융리스 포함 시</div><div style="font-size:36px;font-weight:900">452억$</div></div>
+    <div class="card" style="flex:1;background:#0067b8;color:#fff"><div style="font-size:24px;color:#cfe5ff">다음 전망</div><div style="font-size:30px;font-weight:900">2분기 500억$+<br>2027년 약 1,700억$</div></div>
+  </div>
+  <div class="src">출처: 실적 자료(제공), CNBC·실적 컨퍼런스콜(2026.10.28)</div>
+</div>
+
+<!-- 6. RPO -->
+<div class="fig" data-out="fig6_rpo.png" style="background:#1b1b1b;color:#fff">
+  <div class="t">다 좋았는데,<br><span style="color:#ff7a7a">수주잔고만 아쉬웠다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;text-align:center">
+    <div class="card" style="background:#2b2b2b"><div style="font-size:26px;color:#aaa">직전 분기</div><div class="big" style="font-size:54px">6,780억$</div></div>
+    <div class="card" style="background:#3a1d1d;outline:4px solid #ff7a7a"><div style="font-size:26px;color:#ff9b9b">이번 분기</div><div class="big" style="font-size:54px;color:#ff7a7a">6,770억$</div></div>
+    <div class="card" style="background:#2b2b2b"><div style="font-size:26px;color:#aaa">시장 예상</div><div class="big" style="font-size:54px">7,056억$</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:560px;font-size:34px;line-height:1.6;font-weight:700">
+    상업용 RPO = 이미 계약했지만<br>아직 매출로 잡히지 않은 <span style="color:#ffb900">앞으로 받을 돈</span><br>
+    <span style="color:#aaa;font-size:30px">→ 한 분기 동안 사실상 제자리</span>
+  </div>
+  <div class="src" style="color:#888;border-color:#333">출처: 실적 자료(제공), 직전 분기는 2026회계연도 4분기 발표치</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
