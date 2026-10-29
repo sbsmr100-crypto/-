@@ -29,12 +29,74 @@
 
 <!-- ───────── 클립 커버 3종 (세로) ───────── -->
 
-<!-- cover1: 질문·반전형 = 영상 첫 장면 -->
-<div class="v" data-out="cover1.png" data-wm="dark" style="background:#eef4fb">
-  <img class="bgimg" src="bg2.png" style="top:840px">
-  <div class="abs" style="left:90px;top:330px">
-    <div class="tagb" style="background:#0067b8;color:#fff">마이크로소프트 실적</div>
-    <div class="bh" style="font-size:148px;line-height:1.2;color:#0b2545;margin-top:40px">다 넘었는데<br><span class="red">딱 하나</span><br>놓쳤다?</div>
+<!-- 애저 배경(글자 없음): 클라우드 + 상승 막대 + 데이터센터 랙 -->
+<template id="azsvg">
+<svg viewBox="0 0 1080 1920" style="position:absolute;inset:0;width:100%;height:100%">
+  <defs>
+    <linearGradient id="azsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#021632"/><stop offset=".5" stop-color="#05306a"/><stop offset="1" stop-color="#0a56b8"/></linearGradient>
+    <radialGradient id="azglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#50e6ff" stop-opacity=".45"/><stop offset="1" stop-color="#50e6ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="azcloud" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".30"/><stop offset="1" stop-color="#ffffff" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="azbar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cf0ff"/><stop offset="1" stop-color="#0078d4"/></linearGradient>
+    <filter id="azblur"><feGaussianBlur stdDeviation="14"/></filter>
+    <pattern id="azdots" width="54" height="54" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#7fb8ff" fill-opacity=".16"/></pattern>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#azsky)"/>
+  <rect width="1080" height="1920" fill="url(#azdots)"/>
+  <!-- 네트워크 노드 -->
+  <g stroke="#50e6ff" stroke-opacity=".22" stroke-width="3" fill="none">
+    <polyline points="40,1080 180,1010 330,1060 470,990"/><polyline points="610,1000 760,1060 900,980 1060,1040"/>
+  </g>
+  <g fill="#50e6ff" fill-opacity=".5"><circle cx="180" cy="1010" r="9"/><circle cx="330" cy="1060" r="9"/><circle cx="760" cy="1060" r="9"/><circle cx="900" cy="980" r="9"/></g>
+  <ellipse cx="540" cy="1420" rx="560" ry="380" fill="url(#azglow)"/>
+  <!-- 클라우드 -->
+  <g filter="url(#azblur)" fill="#50e6ff" fill-opacity=".55">
+    <circle cx="330" cy="1440" r="140"/><circle cx="530" cy="1340" r="200"/><circle cx="760" cy="1420" r="160"/>
+    <circle cx="270" cy="1520" r="90"/><circle cx="830" cy="1520" r="90"/><rect x="270" y="1430" width="560" height="180"/>
+  </g>
+  <g fill="#0b4a9e">
+    <circle cx="330" cy="1440" r="130"/><circle cx="530" cy="1340" r="190"/><circle cx="760" cy="1420" r="150"/>
+    <circle cx="275" cy="1520" r="80"/><circle cx="825" cy="1520" r="80"/><rect x="275" y="1430" width="550" height="170"/>
+  </g>
+  <g fill="#ffffff" opacity=".16">
+    <circle cx="330" cy="1440" r="130"/><circle cx="530" cy="1340" r="190"/><circle cx="760" cy="1420" r="150"/>
+    <circle cx="275" cy="1520" r="80"/><circle cx="825" cy="1520" r="80"/><rect x="275" y="1430" width="550" height="170"/>
+  </g>
+  <!-- 상승 막대 + 화살표 -->
+  <g fill="url(#azbar)">
+    <rect x="360" y="1470" width="70" height="100" rx="10"/><rect x="460" y="1420" width="70" height="150" rx="10"/>
+    <rect x="560" y="1350" width="70" height="220" rx="10"/><rect x="660" y="1260" width="70" height="310" rx="10"/>
+  </g>
+  <polyline points="350,1420 460,1360 560,1300 690,1180 790,1090" fill="none" stroke="#ffc53d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="830,1050 765,1070 810,1115" fill="#ffc53d"/>
+  <!-- 연결선 + 데이터센터 랙 -->
+  <g stroke="#50e6ff" stroke-width="4" stroke-dasharray="10 10" stroke-opacity=".7">
+    <line x1="320" y1="1600" x2="320" y2="1660"/><line x1="540" y1="1600" x2="540" y2="1660"/><line x1="760" y1="1600" x2="760" y2="1660"/>
+  </g>
+  <g>
+    <rect x="240" y="1660" width="160" height="200" rx="14" fill="#03214a" stroke="#2f86e8" stroke-width="4"/>
+    <rect x="460" y="1660" width="160" height="200" rx="14" fill="#03214a" stroke="#2f86e8" stroke-width="4"/>
+    <rect x="680" y="1660" width="160" height="200" rx="14" fill="#03214a" stroke="#2f86e8" stroke-width="4"/>
+  </g>
+  <g fill="#0f3d7a">
+    <rect x="262" y="1690" width="116" height="26" rx="5"/><rect x="262" y="1735" width="116" height="26" rx="5"/><rect x="262" y="1780" width="116" height="26" rx="5"/>
+    <rect x="482" y="1690" width="116" height="26" rx="5"/><rect x="482" y="1735" width="116" height="26" rx="5"/><rect x="482" y="1780" width="116" height="26" rx="5"/>
+    <rect x="702" y="1690" width="116" height="26" rx="5"/><rect x="702" y="1735" width="116" height="26" rx="5"/><rect x="702" y="1780" width="116" height="26" rx="5"/>
+  </g>
+  <g fill="#4ade80"><circle cx="360" cy="1703" r="6"/><circle cx="360" cy="1748" r="6"/><circle cx="580" cy="1703" r="6"/><circle cx="580" cy="1793" r="6"/><circle cx="800" cy="1748" r="6"/><circle cx="800" cy="1793" r="6"/></g>
+  <g fill="#50e6ff"><circle cx="340" cy="1793" r="6"/><circle cx="560" cy="1748" r="6"/><circle cx="780" cy="1703" r="6"/></g>
+  <rect y="1880" width="1080" height="40" fill="#021632" fill-opacity=".5"/>
+</svg>
+</template>
+
+<!-- 애저 배경 단독(bg) -->
+<div class="v azbg" data-out="bg_azure.png"></div>
+
+<!-- cover1: 질문·반전형 = 영상 첫 장면 (마이크로소프트 실적발표 강조 + 애저 배경) -->
+<div class="v azbg" data-out="cover1.png">
+  <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
+    <div style="font:700 46px 'Noto Sans KR';color:#9fd0ff">10.28 발표 · 2027 회계연도 1분기</div>
+    <div class="bh" style="font-size:138px;line-height:1.12;margin-top:18px">마이크로소프트<br><span style="color:#50e6ff">실적발표</span></div>
+    <div class="bh" style="font-size:110px;line-height:1.25;margin-top:56px">다 넘었는데<br><span class="red">딱 하나</span> 놓쳤다?</div>
   </div>
 </div>
 
@@ -67,16 +129,16 @@
   <div id="bar"></div>
 
   <!-- S0 훅 (cover1과 같은 구도) -->
-  <div class="layer" id="hook" style="background:#eef4fb">
-    <img class="bgimg" src="bg2.png" style="top:840px">
-    <div class="abs" style="left:90px;top:330px">
-      <div class="tagb" style="background:#0067b8;color:#fff">마이크로소프트 실적</div>
-      <div class="bh" style="font-size:148px;line-height:1.2;color:#0b2545;margin-top:40px">
+  <div class="layer azbg" id="hook">
+    <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
+    <div style="font:700 46px 'Noto Sans KR';color:#9fd0ff">10.28 발표 · 2027 회계연도 1분기</div>
+    <div class="bh" style="font-size:138px;line-height:1.12;margin-top:18px">마이크로소프트<br><span style="color:#50e6ff">실적발표</span></div>
+      <div class="bh" style="font-size:110px;line-height:1.25;margin-top:56px">
         <div id="h1">다 넘었는데</div>
-        <div id="h2" style="transform-origin:0 50%"><span class="red">딱 하나</span><br>놓쳤다?</div>
+        <div id="h2" style="transform-origin:0 50%"><span class="red">딱 하나</span> 놓쳤다?</div>
       </div>
     </div>
-    <div class="wmv" style="color:rgba(17,17,17,.75)">@NTL</div>
+    <div class="wmv" style="color:rgba(255,255,255,.85)">@NTL</div>
   </div>
 
   <!-- 그림 장면 공통 -->
@@ -168,7 +230,7 @@ window.renderAt = function(t){
 
   // S0 훅 0~3
   $('hook').style.opacity = 1-fin(t,2.75,.25);
-  $('h1').style.opacity = fin(t,0,.01);
+  $('h1').style.opacity = fin(t,.35,.25);
   const s2 = cl((t-1.1)/.35);
   $('h2').style.opacity = s2>0?1:0;
   $('h2').style.transform = `scale(${s2>0 ? 1+0.25*(1-ez(s2)) : 1})`;
@@ -214,10 +276,11 @@ window.renderAt = function(t){
   $('o2').style.opacity = o2; $('o2').style.transform = `translateY(${(1-o2)*40}px) scale(${1+0.04*Math.sin(Math.max(0,t-35)*4)})`;
   if (t>=33) sub = '';
 
-  $('sub').parentNode.style.top = t<3 ? '1130px' : '1470px';
+  $('sub').parentNode.style.top = t<3 ? '930px' : '1470px';
   $('sub').innerHTML = sub; $('sub').style.display = sub?'inline-block':'none';
 };
 window.renderAt(0);
 </script>
+<script>document.querySelectorAll('.azbg').forEach(el=>el.insertAdjacentHTML('afterbegin',document.getElementById('azsvg').innerHTML));</script>
 <script src="../../tools/watermark.js"></script>
 </body></html>
