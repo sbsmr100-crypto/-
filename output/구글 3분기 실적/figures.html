@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#202124;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:76px;line-height:1.15}
+.s{font-size:32px;color:#666;font-weight:500;margin-top:14px}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:24px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.red{color:#d93025}.grn{color:#188038}.blu{color:#1a73e8}
+.card{border-radius:22px;padding:22px 28px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+.row{display:flex;align-items:center;padding:14px 26px;border-radius:16px;background:#f8f9fa;font-size:32px}
+</style></head><body>
+
+<!-- 1. 성적표 -->
+<div class="fig" data-out="fig1_score.png">
+  <div class="t">3분기 성적표,<br><span class="red">7개 중 6개 미달</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:310px;display:grid;gap:10px">
+    <div class="row"><b style="width:260px">매출</b><span style="flex:1;color:#666">1,275.8억 / 예상 1,279.3억</span><span class="red" style="font-weight:900">✕ 미달</span></div>
+    <div class="row"><b style="width:260px">영업이익</b><span style="flex:1;color:#666">405.8억 / 예상 431.6억</span><span class="red" style="font-weight:900">✕ 미달</span></div>
+    <div class="row"><b style="width:260px">구글 서비스</b><span style="flex:1;color:#666">963억 / 예상 984억</span><span class="red" style="font-weight:900">✕ 미달</span></div>
+    <div class="row"><b style="width:260px">검색</b><span style="flex:1;color:#666">633.5억 / 예상 648.5억</span><span class="red" style="font-weight:900">✕ 미달</span></div>
+    <div class="row"><b style="width:260px">유튜브 광고</b><span style="flex:1;color:#666">112.1억 / 예상 114.3억</span><span class="red" style="font-weight:900">✕ 미달</span></div>
+    <div class="row"><b style="width:260px">EPS</b><span style="flex:1;color:#666">2.12$ / 예상 3.02$</span><span class="red" style="font-weight:900">✕ 미달</span></div>
+    <div class="row" style="background:#e6f4ea"><b style="width:260px">구글 클라우드</b><span style="flex:1;color:#666">307.1억 / 예상 291억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+  </div>
+  <div class="src">단위 달러 · 출처: 알파벳 3분기 실적(제공 자료·언론 보도)</div>
+</div>
+
+<!-- 2. 주가 -->
+<div class="fig" data-out="fig2_price.png" style="background:#1a1a1a;color:#fff">
+  <div class="t">실적 발표 직후,<br><span style="color:#ff6b6b">주가 -10%</span></div>
+  <svg width="920" height="480" style="position:absolute;left:80px;top:330px" font-family="Noto Sans KR">
+    <polyline points="20,120 160,100 300,110 440,90 560,100" fill="none" stroke="#8ab4f8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="560" y1="100" x2="560" y2="420" stroke="#555" stroke-width="3" stroke-dasharray="10 8"/>
+    <text x="560" y="455" text-anchor="middle" font-size="26" fill="#aaa">실적 발표</text>
+    <polyline points="560,100 640,300 720,340 820,360" fill="none" stroke="#ff6b6b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="440" cy="90" r="0"/>
+    <text x="300" y="60" font-size="44" font-weight="900" fill="#8ab4f8">322.22$</text><text x="300" y="170" font-size="24" fill="#aaa">정규장 종가</text>
+    <text x="900" y="425" text-anchor="end" font-size="44" font-weight="900" fill="#ff6b6b">288.35$</text><text x="900" y="462" text-anchor="end" font-size="24" fill="#aaa">시간외 저점</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:840px"><span class="tag" style="background:#ff6b6b;color:#1a1a1a;font-size:40px">약 -10.5% · 4월 수준으로 후퇴</span></div>
+  <div class="src" style="color:#777;border-color:#333">출처: 머니투데이·뉴데일리(2026.10.29) · 시간외 수치는 시점별 차이</div>
+</div>
+
+<!-- 3. EPS -->
+<div class="fig" data-out="fig3_eps.png">
+  <div class="t">주당순이익,<br><span class="red">예상의 70% 수준</span></div>
+  <svg width="920" height="460" style="position:absolute;left:80px;top:320px" font-family="Noto Sans KR">
+    <line x1="0" y1="400" x2="920" y2="400" stroke="#ddd" stroke-width="3"/>
+    <rect x="60" y="80" width="180" height="320" rx="10" fill="#dadce0"/><text x="150" y="60" text-anchor="middle" font-size="40" font-weight="900">3.02$</text><text x="150" y="445" text-anchor="middle" font-size="26" fill="#666">시장 예상</text>
+    <rect x="300" y="96" width="180" height="304" rx="10" fill="#9aa0a6"/><text x="390" y="76" text-anchor="middle" font-size="40" font-weight="900">2.87$</text><text x="390" y="445" text-anchor="middle" font-size="26" fill="#666">작년 3분기</text>
+    <rect x="540" y="117" width="180" height="283" rx="10" fill="#fbbc04" fill-opacity=".6"/><text x="630" y="97" text-anchor="middle" font-size="40" font-weight="900">2.67$</text><text x="630" y="445" text-anchor="middle" font-size="22" fill="#666">평가손실 제외</text>
+    <rect x="780" y="175" width="140" height="225" rx="10" fill="#d93025"/><text x="850" y="155" text-anchor="middle" font-size="44" font-weight="900" fill="#d93025">2.12$</text><text x="850" y="445" text-anchor="middle" font-size="26" font-weight="900" fill="#d93025">실제</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:820px;font-size:28px;font-weight:700;color:#666">스페이스X·앤트로픽 지분 평가손실을 빼도 예상 미달</div>
+  <div class="src">출처: 뉴데일리·EBN 등(2026.10.29)</div>
+</div>
+
+<!-- 4. 현금흐름 -->
+<div class="fig" data-out="fig4_cash.png" style="background:#fef7e0">
+  <div class="t">버는 것보다<br><span class="red">쓰는 게 더 많다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666">3분기 설비투자</div><div class="big" style="font-size:66px">513.6억$</div><div style="font-size:28px;font-weight:900" class="red">전년 대비 +114%</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666">잉여현금흐름</div><div class="big red" style="font-size:66px">-90.7억$</div><div style="font-size:28px;font-weight:900;color:#666">2분기 연속 적자</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:28px;color:#666">외부 조달 (3분기)</div><div style="font-size:34px;font-weight:900;margin-top:6px">주식 124억$<br>회사채 287억$</div></div>
+    <div class="card" style="background:#202124;color:#fff"><div style="font-size:28px;color:#fbbc04">내년 전망</div><div style="font-size:34px;font-weight:900;margin-top:6px">설비투자<br>큰 폭 증가</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:830px;font-size:28px;font-weight:700;color:#666">2026년 연간 설비투자 전망 1,950억~2,050억$ 유지</div>
+  <div class="src">출처: 머니투데이·뉴데일리·EBN(2026.10.29)</div>
+</div>
+
+<!-- 5. 광고 -->
+<div class="fig" data-out="fig5_ads.png">
+  <div class="t">본업 광고,<br><span class="red">예상에 못 미쳤다</span></div>
+  <svg width="920" height="460" style="position:absolute;left:80px;top:330px" font-family="Noto Sans KR">
+    <text x="0" y="40" font-size="34" font-weight="900">검색</text>
+    <rect x="0" y="60" width="700" height="40" rx="8" fill="#dadce0"/><text x="712" y="92" font-size="26" fill="#666">예상 648.5억</text>
+    <rect x="0" y="110" width="684" height="40" rx="8" fill="#d93025"/><text x="696" y="142" font-size="28" font-weight="900" fill="#d93025">633.5억</text>
+    <text x="0" y="240" font-size="34" font-weight="900">유튜브 광고</text>
+    <rect x="0" y="260" width="600" height="40" rx="8" fill="#dadce0"/><text x="610" y="292" font-size="26" fill="#666">예상 114.3억</text>
+    <rect x="0" y="310" width="588" height="40" rx="8" fill="#d93025"/><text x="598" y="342" font-size="28" font-weight="900" fill="#d93025">112.1억</text>
+    <text x="0" y="430" font-size="26" fill="#888">※ 막대 길이는 항목 내 비교용 (검색·유튜브 축 다름)</text>
+  </svg>
+  <div class="src">출처: 알파벳 3분기 실적(제공 자료) · 검색 매출은 전년 대비 +12%</div>
+</div>
+
+<!-- 6. 클라우드 -->
+<div class="fig" data-out="fig6_cloud.png" style="background:#e8f0fe">
+  <div class="t">그래도 빛난<br><span class="blu">구글 클라우드</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:flex;gap:18px">
+    <div class="card" style="flex:1;background:#fff;text-align:center"><div style="font-size:28px;color:#666">3분기 매출</div><div class="big blu" style="font-size:72px">307.1억$</div><div style="font-size:28px;font-weight:900" class="grn">+103% · 예상 상회</div></div>
+  </div>
+  <svg width="920" height="300" style="position:absolute;left:80px;top:560px" font-family="Noto Sans KR">
+    <text x="0" y="36" font-size="30" font-weight="900">클라우드 영업이익률</text>
+    <text x="0" y="110" font-size="28" fill="#666">작년</text><rect x="110" y="80" width="355" height="44" rx="8" fill="#aecbfa"/><text x="480" y="114" font-size="32" font-weight="900">23.7%</text>
+    <text x="0" y="190" font-size="28" fill="#666">올해</text><rect x="110" y="160" width="543" height="44" rx="8" fill="#1a73e8"/><text x="668" y="194" font-size="36" font-weight="900" fill="#1a73e8">36.2%</text>
+    <text x="0" y="270" font-size="26" fill="#666">자체 AI 칩(TPU) 판매도 성장 기여</text>
+  </svg>
+  <div class="src">출처: 알파벳 3분기 실적·EBN(2026.10.29)</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
