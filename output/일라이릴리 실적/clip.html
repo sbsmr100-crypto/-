@@ -1,0 +1,262 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+/* 네이버 클립 세로 1080×1920. UI가 덮는 하단 ~350px·우측 버튼 영역은 비워 둔다. */
+.v { width:1080px; height:1920px; position:relative; overflow:hidden; box-sizing:border-box;
+  font-family:'Noto Sans KR',sans-serif; letter-spacing:-0.03em; }
+.bh { font-family:'Black Han Sans','Noto Sans KR',sans-serif; letter-spacing:-0.01em; }
+.abs { position:absolute; }
+.bgimg { position:absolute; left:0; width:1080px; height:1080px; }
+.redb { background:#e5322d; color:#fff; padding:0 .14em; }
+.wmv { position:absolute; right:40px; top:120px; font:900 36px 'Noto Sans KR'; letter-spacing:0; color:rgba(255,255,255,.85); }
+
+/* ── 영상 스테이지 ── */
+#stage { background:linear-gradient(180deg,#160d0b 0%,#1f1412 60%,#160d0b 100%); }
+#stage .layer { position:absolute; inset:0; opacity:0; }
+.cap { position:absolute; left:80px; right:80px; top:250px; color:#fff; font-size:92px; line-height:1.18; }
+.cap .k { color:#5fa0ff; } .cap .g { color:#4ade80; } .cap .r { color:#ff6b6b; } .cap .y { color:#ffc53d; } .cap .o { color:#ff9a3d; }
+.figbox { position:absolute; left:90px; top:520px; width:900px; height:900px; overflow:hidden; border-radius:26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6); }
+.figbox img, .figbox .ring { position:absolute; left:0; top:0; transform-origin:0 0; }
+.figbox img { width:1080px; height:1080px; }
+.ring { border:10px solid #ffc53d; border-radius:22px; box-sizing:border-box; box-shadow:0 0 0 9999px rgba(0,0,0,.28); }
+.sub { position:absolute; left:60px; right:60px; top:1470px; text-align:center; }
+.sub span { display:inline-block; background:rgba(0,0,0,.75); color:#fff; font:700 50px/1.35 'Noto Sans KR';
+  padding:14px 30px; border-radius:16px; }
+.sub b { color:#ffc53d; }
+#bar { position:absolute; left:0; top:0; height:10px; background:#ff5a3d; z-index:5; }
+</style></head><body>
+
+<!-- 훅 배경(글자 없음): 왼쪽 가격표 하락 vs 오른쪽 매출 막대 상승, 주사펜·알약 -->
+<template id="lsvg">
+<svg viewBox="0 0 1080 1920" style="position:absolute;inset:0;width:100%;height:100%">
+  <defs>
+    <linearGradient id="lsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14090a"/><stop offset=".55" stop-color="#2a0f0e"/><stop offset="1" stop-color="#4a1410"/></linearGradient>
+    <radialGradient id="lglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff5a3d" stop-opacity=".45"/><stop offset="1" stop-color="#ff5a3d" stop-opacity="0"/></radialGradient>
+    <linearGradient id="lbar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a5c"/><stop offset="1" stop-color="#d7261e"/></linearGradient>
+    <filter id="lblur"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#lsky)"/>
+  <g stroke="#ffffff" stroke-opacity=".06" stroke-width="2">
+    <line x1="0" y1="1180" x2="1080" y2="1180"/><line x1="0" y1="1360" x2="1080" y2="1360"/><line x1="0" y1="1540" x2="1080" y2="1540"/><line x1="0" y1="1720" x2="1080" y2="1720"/>
+  </g>
+  <ellipse cx="780" cy="1520" rx="380" ry="380" fill="url(#lglow)"/>
+  <!-- 가격표 + 하락 화살표 -->
+  <g transform="translate(110,1240) rotate(-12)">
+    <path d="M0 40 Q0 0 40 0 L230 0 L320 90 L230 180 L40 180 Q0 180 0 140 Z" fill="#f2e6d8"/>
+    <circle cx="250" cy="90" r="18" fill="#2a0f0e"/>
+    <rect x="40" y="62" width="130" height="18" rx="9" fill="#c9b8a6"/><rect x="40" y="100" width="90" height="18" rx="9" fill="#c9b8a6"/>
+  </g>
+  <path d="M260 1470 L260 1650" stroke="#5fa0ff" stroke-width="22" stroke-linecap="round"/>
+  <polygon points="215,1640 305,1640 260,1720" fill="#5fa0ff"/>
+  <!-- 알약 -->
+  <g transform="translate(120,1790) rotate(-30)"><rect width="120" height="50" rx="25" fill="#ffffff"/><rect width="60" height="50" rx="25" fill="#ff5a3d"/><rect x="35" width="25" height="50" fill="#ff5a3d"/></g>
+  <g transform="translate(330,1800) rotate(20)"><rect width="100" height="42" rx="21" fill="#ffffff"/><rect width="50" height="42" rx="21" fill="#ffc53d"/><rect x="29" width="21" height="42" fill="#ffc53d"/></g>
+  <line x1="480" y1="1200" x2="480" y2="1840" stroke="#ffffff" stroke-opacity=".22" stroke-width="4" stroke-dasharray="14 14"/>
+  <!-- 매출 막대 상승 -->
+  <g fill="url(#lbar)">
+    <rect x="560" y="1650" width="90" height="170" rx="12" opacity=".55"/><rect x="680" y="1550" width="90" height="270" rx="12" opacity=".75"/>
+    <rect x="800" y="1420" width="90" height="400" rx="12"/><rect x="920" y="1260" width="90" height="560" rx="12"/>
+  </g>
+  <polyline points="560,1560 700,1470 820,1330 960,1170" fill="none" stroke="#ffc53d" stroke-width="30" stroke-opacity=".35" filter="url(#lblur)"/>
+  <polyline points="560,1560 700,1470 820,1330 950,1180" fill="none" stroke="#ffc53d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="990,1135 925,1160 970,1205" fill="#ffc53d"/>
+  <!-- 주사펜 -->
+  <g transform="translate(640,1260) rotate(-35)">
+    <rect width="240" height="56" rx="28" fill="#f4f4f4"/><rect x="150" width="90" height="56" rx="28" fill="#d7261e"/><rect x="150" width="40" height="56" fill="#d7261e"/>
+    <rect x="40" y="16" width="70" height="24" rx="8" fill="#ffd27a"/><rect x="-26" y="22" width="30" height="12" rx="4" fill="#999"/>
+  </g>
+  <rect y="1850" width="1080" height="70" fill="#000" fill-opacity=".35"/>
+</svg>
+</template>
+
+<!-- 배경 단독(bg) -->
+<div class="v lbg" data-out="bg_clip.png"></div>
+
+<!-- cover1: 질문·반전형 = 영상 첫 장면 -->
+<div class="v lbg" data-out="cover1.png">
+  <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
+    <div style="font:700 46px 'Noto Sans KR';color:#e8b9ad">10.29 발표 · 3분기 실적</div>
+    <div class="bh" style="font-size:132px;line-height:1.15;margin-top:18px">일라이릴리<br><span style="color:#ff7a4d">실적발표</span></div>
+    <div class="bh" style="font-size:112px;line-height:1.28;margin-top:50px">약값 <span style="color:#5fa0ff">내렸는데</span><br>매출 <span class="redb">+39%</span>?</div>
+  </div>
+</div>
+
+<!-- cover2: 숫자형 -->
+<div class="v" data-out="cover2.png" style="background:#1a0707">
+  <img class="bgimg" src="bg1.png" style="top:840px">
+  <div class="abs" style="left:0;right:0;top:840px;height:240px;background:linear-gradient(#1a0707,rgba(26,7,7,0))"></div>
+  <div class="abs" style="left:90px;top:300px;color:#fff">
+    <div class="bh" style="font-size:120px;line-height:1.15">일라이릴리 실적발표</div>
+    <div style="font:700 60px 'Noto Sans KR';color:#ffb39b;margin-top:40px">마운자로 1년 새</div>
+    <div class="bh" style="font-size:250px;line-height:1.05;color:#ffc53d">+65%</div>
+    <div style="display:inline-block;margin-top:24px;background:#e5322d;font:900 58px 'Noto Sans KR';padding:12px 30px;border-radius:16px">한 분기 107억 달러</div>
+  </div>
+</div>
+
+<!-- cover3: 감정·상황형 -->
+<div class="v" data-out="cover3.png" style="background:#1a1410">
+  <img class="bgimg" src="bg3.png" style="top:840px">
+  <div class="abs" style="left:0;right:0;top:840px;height:200px;background:linear-gradient(#1a1410,rgba(26,20,16,0))"></div>
+  <div class="abs" style="left:90px;top:300px;color:#fff">
+    <div style="font:700 62px 'Noto Sans KR';color:#ffc53d">일라이릴리, 석 달 만에</div>
+    <div class="bh" style="font-size:160px;line-height:1.15;margin-top:20px">마운자로로<br><span style="color:#ffc53d">14조 원</span></div>
+    <div style="display:inline-block;margin-top:40px;background:#e5322d;font:900 58px 'Noto Sans KR';padding:12px 30px;border-radius:16px">비만약이 다 했다</div>
+  </div>
+</div>
+
+<!-- ───────── 영상 스테이지 (renderAt(t)로 프레임 구성) ───────── -->
+<div class="v" id="stage">
+  <div id="bar"></div>
+
+  <!-- 훅 (cover1과 같은 구도) -->
+  <div class="layer lbg" id="hook">
+    <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
+      <div style="font:700 46px 'Noto Sans KR';color:#e8b9ad">10.29 발표 · 3분기 실적</div>
+      <div class="bh" style="font-size:132px;line-height:1.15;margin-top:18px">일라이릴리<br><span style="color:#ff7a4d">실적발표</span></div>
+      <div class="bh" style="font-size:112px;line-height:1.28;margin-top:50px">
+        <div id="h1">약값 <span style="color:#5fa0ff">내렸는데</span></div>
+        <div id="h2" style="transform-origin:0 50%">매출 <span class="redb">+39%</span>?</div>
+      </div>
+    </div>
+    <div class="wmv">@NTL</div>
+  </div>
+
+  <!-- 그림 장면 공통 -->
+  <div class="layer" id="figs">
+    <div class="cap bh" id="cap"></div>
+    <div class="figbox"><img id="fig"><div class="ring" id="ring"></div></div>
+  </div>
+
+  <!-- 반전 질문 -->
+  <div class="layer" id="ask" style="background:#151515">
+    <div class="bh abs" style="left:0;right:0;top:700px;text-align:center;color:#fff;font-size:140px;line-height:1.25">
+      그런데<br>아쉬운 <span style="color:#ff9a3d">하나</span><span id="q" style="display:inline-block;color:#ffc53d">?</span></div>
+    <div class="wmv">@NTL</div>
+  </div>
+
+  <!-- 마무리 -->
+  <div class="layer" id="outro" style="background:#14090a">
+    <div class="abs" style="left:90px;right:90px;top:330px;color:#fff">
+      <div style="font:700 56px 'Noto Sans KR';color:#e8b9ad">다음 체크포인트</div>
+      <div class="bh" id="o1" style="font-size:124px;line-height:1.22;margin-top:24px">비만약 1등,<br><span style="color:#ff9a3d">계속 갈까?</span></div>
+      <div id="o2" style="margin-top:56px;display:inline-block;background:#ffc53d;color:#111;font:900 58px 'Noto Sans KR';padding:18px 36px;border-radius:18px">👉 다음 무기는 블로그에서</div>
+      <div style="margin-top:50px;color:#a08a86;font:500 34px/1.5 'Noto Sans KR'">출처: 일라이릴리 3분기 실적 보도자료(SEC, 2026.10.29)<br>투자 권유가 아닌 정보 정리입니다</div>
+    </div>
+    <div class="wmv">@NTL</div>
+  </div>
+
+  <div class="sub"><span id="sub"></span></div>
+</div>
+
+<script>
+const T = 38;              // 전체 길이(초)
+const ASK = [29.5, 31];    // 반전 질문 구간
+const OUT = 35;            // 마무리 시작
+const K = 900 / 1080;      // 그림 표시 배율
+const cl = (x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ez = x=>{ x=cl(x); return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; };
+const fin = (t,a,d=.3)=>ez((t-a)/d);
+const win = (t,a,b,d=.3)=>Math.min(fin(t,a,d), 1-fin(t,b-d,d));
+
+// 그림 장면: caps=[[시작,문구]], kf=[[초,배율,초점x,초점y]], rings=[[시작,끝,x,y,w,h]] (1080 그림 좌표), subs=[[시작,끝,자막]]
+const FIGS = [
+  { a:3, b:7.5, src:'fig1_score.png',
+    caps:[[3,'성적표는<br><span class="g">거의 다 상회</span>']],
+    kf:[[3,1,540,540],[4,1,540,540],[5.1,1.12,540,520],[7.5,1.14,540,520]],
+    rings:[[4.9,7.5,80,308,920,158]],
+    subs:[[3,7.5,'매출 244억 달러, 주당순이익도<br><b>예상을 훌쩍</b> 넘었습니다']] },
+  { a:7.5, b:13, src:'fig2_mounjaro.png',
+    caps:[[7.5,'일등공신 마운자로<br><span class="r">1년 새 +65%</span>']],
+    kf:[[7.5,1,540,540],[8.5,1,540,540],[9.8,1.3,780,520],[13,1.34,780,520]],
+    rings:[[9.6,13,732,330,240,410]],
+    subs:[[7.5,10.2,'일등공신은 비만·당뇨약 <b>마운자로</b>'],[10.2,13,'한 분기 107억 달러<br>1년 새 <b>65%</b> 늘었습니다']] },
+  { a:13, b:18, src:'fig3_region.png',
+    caps:[[13,'이제는<br><span class="r">해외가 더 판다</span>']],
+    kf:[[13,1,540,540],[13.9,1,540,540],[15,1.15,540,500],[18,1.18,540,500]],
+    rings:[[14.8,18,70,495,800,145]],
+    subs:[[13,15.4,'이젠 미국보다 <b>해외</b>에서 더 팔립니다'],[15.4,18,'해외 매출이 <b>93% 급증</b>했죠']] },
+  { a:18, b:23.5, src:'fig4_price.png',
+    caps:[[18,'약값 -15%인데<br><span class="r">매출 +39%</span>']],
+    kf:[[18,1,540,540],[18.9,1,540,540],[20,1.15,540,420],[23.5,1.18,540,420]],
+    rings:[[19.8,21.4,80,330,256,180],[21.4,22.5,412,330,256,180],[22.5,23.5,744,330,256,180]],
+    subs:[[18,20.7,'비결은 <b>판매량</b>'],[20.7,23.5,'값을 15% 내리고<br><b>53% 더</b> 팔았습니다']] },
+  { a:23.5, b:29.5, src:'fig5_guidance.png',
+    caps:[[23.5,'매출 전망은 <span class="g">↑</span><br><span class="r">EPS 전망은 ↓</span>'],[26.6,'이유는<br><span class="y">신약 회사 인수</span>']],
+    kf:[[23.5,1,540,540],[24.4,1,540,540],[25.5,1.12,540,420],[26.6,1.12,540,420],[27.6,1.15,540,640],[29.5,1.17,540,640]],
+    rings:[[25.3,26.6,80,320,920,185],[27.4,29.5,390,658,610,148]],
+    subs:[[23.5,26.6,'연간 매출 전망은 올렸지만<br><b>EPS 전망은 낮췄습니다</b>'],[26.6,29.5,'<b>신약 회사 인수 비용</b><br>때문입니다']] },
+  { a:31, b:35, src:'fig6_foundayo.png',
+    caps:[[31,'먹는 비만약 파운데이오<br><span class="o">예상엔 미달</span>']],
+    kf:[[31,1,540,540],[31.8,1,540,540],[32.8,1.2,620,500],[35,1.22,620,500]],
+    rings:[[32.6,35,430,315,525,345]],
+    subs:[[31,33,'먹는 비만약은 <b>예상에 미달</b>'],[33,35,'그래도 전 분기보다<br><b>88% 늘었습니다</b>']] },
+];
+FIGS.forEach(f=>{ const i=new Image(); i.src=f.src; });
+
+function camAt(kf,t){
+  let i=0; while(i<kf.length-1 && t>kf[i+1][0]) i++;
+  const A=kf[i], B=kf[Math.min(i+1,kf.length-1)];
+  const p = B[0]>A[0] ? ez((t-A[0])/(B[0]-A[0])) : 0;
+  return [1,2,3].map(j=>A[j]+(B[j]-A[j])*p);
+}
+function place(s,cx,cy){
+  const k=K*s, size=1080*k;
+  return {k, tx:cl(450-cx*k,900-size,0), ty:cl(450-cy*k,900-size,0)};
+}
+const $=id=>document.getElementById(id);
+
+window.renderAt = function(t){
+  $('bar').style.width = (cl(t/T)*1080)+'px';
+  let sub='';
+
+  // 훅 0~3
+  $('hook').style.opacity = 1-fin(t,2.75,.25);
+  $('h1').style.opacity = fin(t,.3,.25);
+  const s2 = cl((t-1.3)/.35);
+  $('h2').style.opacity = s2>0?1:0;
+  $('h2').style.transform = `scale(${s2>0 ? 1+0.25*(1-ez(s2)) : 1})`;
+  if (t<3) sub = t<1.3 ? '약값은 <b>15% 내렸는데</b>' : '매출은 <b>39% 늘었습니다</b>';
+
+  // 그림 장면 (이어지는 장면끼리는 레이어를 유지하고 그림만 새로 올린다)
+  const f = FIGS.find(f=>t>=f.a && t<f.b) || FIGS.find(f=>t>=f.a-.3 && t<f.b+.3);
+  if (f){
+    const adjIn = FIGS.some(g=>g.b===f.a), adjOut = FIGS.some(g=>g.a===f.b);
+    $('figs').style.opacity = Math.min(adjIn?1:fin(t,f.a), adjOut?1:1-fin(t,f.b-.3));
+    if ($('fig').getAttribute('src')!==f.src) $('fig').setAttribute('src',f.src);
+    const c = [...f.caps].reverse().find(c=>t>=c[0]) || f.caps[0];
+    if ($('cap').innerHTML!==c[1]) $('cap').innerHTML=c[1];
+    const cp = fin(t,c[0],.35);
+    $('cap').style.opacity = cp; $('cap').style.transform = `translateY(${(1-cp)*40}px)`;
+    const fp = fin(t,f.a,.45);
+    $('fig').style.opacity = fp;
+    const [s,cx,cy] = camAt(f.kf,t);
+    const {k,tx,ty} = place(s,cx,cy);
+    $('fig').style.transform = `translate(${tx}px,${ty+(1-fp)*120}px) scale(${k})`;
+    const r = f.rings.find(r=>t>=r[0]-.25 && t<r[1]);
+    const R = $('ring');
+    R.style.opacity = r ? win(t,r[0],r[1],.25)*(0.75+0.25*Math.abs(Math.cos((t-r[0])*3))) : 0;
+    if (r){ R.style.width=r[4]+'px'; R.style.height=r[5]+'px';
+      R.style.transform = `translate(${tx+r[2]*k}px,${ty+r[3]*k+(1-fp)*120}px) scale(${k})`; }
+    const sb = f.subs.find(x=>t>=x[0]&&t<x[1]); if (sb) sub=sb[2];
+  } else $('figs').style.opacity = 0;
+
+  // 반전 질문
+  $('ask').style.opacity = win(t,ASK[0],ASK[1],.2);
+  const qp = cl((t-ASK[0]-.3)/.4);
+  $('q').style.transform = `scale(${1+0.7*Math.sin(qp*Math.PI)}) rotate(${12*Math.sin(qp*Math.PI*3)}deg)`;
+  if (t>=ASK[0] && t<ASK[1]) sub = '';
+
+  // 마무리
+  $('outro').style.opacity = fin(t,OUT,.35);
+  $('o1').style.opacity = fin(t,OUT+.2,.4);
+  const o2 = fin(t,OUT+1.2,.35);
+  $('o2').style.opacity = o2; $('o2').style.transform = `translateY(${(1-o2)*40}px) scale(${1+0.04*Math.sin(Math.max(0,t-OUT-1.6)*4)})`;
+  if (t>=OUT) sub = '';
+
+  $('sub').parentNode.style.top = t<3 ? '930px' : '1470px';
+  $('sub').innerHTML = sub; $('sub').style.display = sub?'inline-block':'none';
+};
+</script>
+<script>document.querySelectorAll('.lbg').forEach(el=>el.insertAdjacentHTML('afterbegin',document.getElementById('lsvg').innerHTML));renderAt(0);</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
