@@ -1,0 +1,85 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<!-- 일반 주사 펜 일러스트 (특정 제품 디자인 아님) -->
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><radialGradient id="g1" cx=".75" cy=".7" r=".9"><stop offset="0" stop-color="#5a0d0d"/><stop offset="1" stop-color="#120707"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <g stroke="#fff" stroke-opacity=".06" stroke-width="2"><line x1="0" y1="620" x2="1080" y2="620"/><line x1="0" y1="780" x2="1080" y2="780"/><line x1="0" y1="940" x2="1080" y2="940"/></g>
+  <!-- 급성장 막대 -->
+  <rect x="560" y="860" width="90" height="140" rx="10" fill="#7a2a2a"/>
+  <rect x="680" y="760" width="90" height="240" rx="10" fill="#a33"/>
+  <rect x="800" y="610" width="90" height="390" rx="10" fill="#d52b1e"/>
+  <rect x="920" y="430" width="90" height="570" rx="10" fill="#ff4b3e"/>
+  <polyline points="560,820 700,720 820,560 965,360" fill="none" stroke="#ffd43b" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="990,320 1000,400 935,370" fill="#ffd43b"/>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#fff5f4"/>
+  <!-- 지구 점 지도 느낌 -->
+  <g transform="translate(800,760)"><circle r="250" fill="#ffe3e0"/><g fill="none" stroke="#f1b0aa" stroke-width="5"><ellipse rx="250" ry="90"/><ellipse rx="110" ry="250"/><line x1="-250" y1="0" x2="250" y2="0"/><line x1="0" y1="-250" x2="0" y2="250"/></g></g>
+  <!-- 주사 펜 -->
+  <g transform="translate(560,980) rotate(-35)">
+    <rect x="0" y="-40" width="460" height="80" rx="38" fill="#ffffff" stroke="#d0d0d0" stroke-width="4"/>
+    <rect x="300" y="-40" width="160" height="80" rx="38" fill="#d52b1e"/>
+    <rect x="120" y="-22" width="120" height="44" rx="10" fill="#ffe8a3"/>
+    <rect x="-40" y="-14" width="44" height="28" rx="8" fill="#9aa0a6"/>
+  </g>
+  <g fill="#d52b1e"><circle cx="700" cy="640" r="12"/><circle cx="880" cy="700" r="12"/><circle cx="790" cy="820" r="12"/><circle cx="950" cy="600" r="10"/></g>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1410"/><stop offset="1" stop-color="#3a2410"/></linearGradient></defs>
+  <rect width="1080" height="1080" fill="url(#g3)"/>
+  <!-- 동전 탑 -->
+  <g fill="#ffd43b" stroke="#c99a0b" stroke-width="4">
+    <g transform="translate(640,0)"><ellipse cx="80" cy="1000" rx="80" ry="22"/><ellipse cx="80" cy="970" rx="80" ry="22"/><ellipse cx="80" cy="940" rx="80" ry="22"/></g>
+    <g transform="translate(780,0)"><ellipse cx="80" cy="1000" rx="80" ry="22"/><ellipse cx="80" cy="970" rx="80" ry="22"/><ellipse cx="80" cy="940" rx="80" ry="22"/><ellipse cx="80" cy="910" rx="80" ry="22"/><ellipse cx="80" cy="880" rx="80" ry="22"/><ellipse cx="80" cy="850" rx="80" ry="22"/></g>
+    <g transform="translate(920,0)"><ellipse cx="80" cy="1000" rx="80" ry="22"/><ellipse cx="80" cy="970" rx="80" ry="22"/><ellipse cx="80" cy="940" rx="80" ry="22"/><ellipse cx="80" cy="910" rx="80" ry="22"/><ellipse cx="80" cy="880" rx="80" ry="22"/><ellipse cx="80" cy="850" rx="80" ry="22"/><ellipse cx="80" cy="820" rx="80" ry="22"/><ellipse cx="80" cy="790" rx="80" ry="22"/><ellipse cx="80" cy="760" rx="80" ry="22"/><ellipse cx="80" cy="730" rx="80" ry="22"/></g>
+  </g>
+  <!-- 줄자(체중 감량) -->
+  <path d="M600 560 Q760 470 1060 540" fill="none" stroke="#ff8787" stroke-width="40" stroke-linecap="round"/>
+  <g stroke="#1a1410" stroke-width="5"><line x1="660" y1="520" x2="664" y2="545"/><line x1="720" y1="500" x2="723" y2="525"/><line x1="780" y1="490" x2="782" y2="515"/><line x1="840" y1="488" x2="841" y2="513"/><line x1="900" y1="495" x2="900" y2="520"/><line x1="960" y1="508" x2="959" y2="533"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<!-- 숫자형 -->
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:110px;right:auto;color:#fff">
+    <div class="sub" style="font-size:54px;color:#ffb3ad;white-space:nowrap">일라이릴리 3분기 실적</div>
+    <div class="headline" style="font-size:160px;margin-top:14px;white-space:nowrap;line-height:1.08">마운자로<br><span style="color:#ffd43b">+65%</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#ff4b3e;color:#fff;font-size:46px">한 분기 107억 달러</span></div>
+</div>
+
+<!-- 질문·반전형 -->
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:110px;right:auto;color:#1b1b1b">
+    <span class="tag" style="background:#d52b1e;color:#fff">마운자로 3분기</span>
+    <div class="headline" style="font-size:120px;margin-top:30px;white-space:nowrap;line-height:1.12">미국보다<br><span class="hl" style="background:#1b1b1b;color:#fff">해외</span>서 더<br>팔렸다?</div>
+  </div>
+  <div class="copy" style="top:860px;right:auto"><span class="tag" style="background:#fff;color:#d52b1e;border:4px solid #d52b1e;font-size:42px">해외 매출 +93%</span></div>
+</div>
+
+<!-- 감정·상황형 -->
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:120px;right:auto;color:#fff">
+    <div class="sub" style="font-size:52px;color:#ffd43b;white-space:nowrap">석 달 만에 마운자로 하나로</div>
+    <div class="headline" style="font-size:150px;margin-top:16px;white-space:nowrap;line-height:1.1"><span style="color:#ffd43b">14조</span> 원<br>벌었다</div>
+  </div>
+  <div class="copy" style="top:660px;right:auto"><span class="tag" style="background:#ff8787;color:#1a1410;font-size:44px">작년보다 42억 달러 더</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>

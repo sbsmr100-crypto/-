@@ -1,0 +1,107 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#1b1b1b;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:74px;line-height:1.15}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:23px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.red{color:#d52b1e}.grn{color:#2b8a3e}.blu{color:#1c7ed6}
+.card{border-radius:20px;padding:20px 26px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+.row{display:flex;align-items:center;padding:13px 26px;border-radius:14px;background:#f5f5f5;font-size:31px}
+</style></head><body>
+
+<!-- 1. 성적표 -->
+<div class="fig" data-out="fig1_score.png">
+  <div class="t">3분기 성적표,<br><span style="color:#e67700">파운데이오만 '미달'</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:310px;display:grid;gap:12px">
+    <div class="row"><b style="width:260px">매출</b><span style="flex:1;color:#666">244억 / 예상 225.2억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:260px">조정 EPS</b><span style="flex:1;color:#666">7.48$ / 예상 5.59$</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row" style="background:#fdecea"><b style="width:260px" class="red">마운자로</b><span style="flex:1;color:#666">107억 / 예상 99.5억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:260px">젭바운드</b><span style="flex:1;color:#666">53.5억 / 예상 50.1억</span><span class="grn" style="font-weight:900">✓ 상회</span></div>
+    <div class="row"><b style="width:260px">연구개발비</b><span style="flex:1;color:#666">42억 / 예상 41.9억</span><span style="font-weight:900;color:#666">= 예상 수준</span></div>
+    <div class="row" style="background:#fff3bf"><b style="width:260px">파운데이오</b><span style="flex:1;color:#666">1.84억 / 예상 2.31억</span><span style="font-weight:900;color:#e67700">✕ 미달</span></div>
+  </div>
+  <div class="src">단위 달러 · 출처: 일라이릴리 3분기 실적(2026.10.29, 제공 자료)</div>
+</div>
+
+<!-- 2. 마운자로 추이 -->
+<div class="fig" data-out="fig2_mounjaro.png">
+  <div class="t">마운자로 매출,<br><span class="red">작년과 같은 분기 비교</span></div>
+  <svg width="920" height="500" style="position:absolute;left:80px;top:300px" font-family="Noto Sans KR">
+    <line x1="0" y1="430" x2="920" y2="430" stroke="#ddd" stroke-width="3"/>
+    <!-- 스케일 1억$ = 3.4px -->
+    <g font-size="28" font-weight="900" text-anchor="middle">
+      <rect x="40" y="299" width="110" height="131" rx="8" fill="#f1b0aa"/><text x="95" y="285" fill="#888">38</text>
+      <rect x="160" y="136" width="110" height="294" rx="8" fill="#d52b1e"/><text x="215" y="122">87</text>
+      <rect x="350" y="253" width="110" height="177" rx="8" fill="#f1b0aa"/><text x="405" y="239" fill="#888">52</text>
+      <rect x="470" y="92" width="110" height="338" rx="8" fill="#d52b1e"/><text x="525" y="78">99</text>
+      <rect x="660" y="208" width="110" height="222" rx="8" fill="#f1b0aa"/><text x="715" y="194" fill="#888">65</text>
+      <rect x="780" y="66" width="110" height="364" rx="8" fill="#d52b1e"/><text x="835" y="52" font-size="34" fill="#d52b1e">107</text>
+    </g>
+    <g font-size="28" fill="#555" text-anchor="middle"><text x="155" y="470">1분기 <tspan fill="#d52b1e" font-weight="900">+125%</tspan></text><text x="465" y="470">2분기 <tspan fill="#d52b1e" font-weight="900">+91%</tspan></text><text x="775" y="470">3분기 <tspan fill="#d52b1e" font-weight="900">+65%</tspan></text></g>
+  </svg>
+  <div style="position:absolute;right:80px;top:250px;font-size:26px;font-weight:700"><span style="color:#f1b0aa">■</span> 2025년 &nbsp;<span class="red">■</span> 2026년</div>
+  <div class="src">단위 억 달러 · 출처: 일라이릴리 2026년 1~3분기 실적 보도자료(SEC)</div>
+</div>
+
+<!-- 3. 지역 -->
+<div class="fig" data-out="fig3_region.png" style="background:#fff5f4">
+  <div class="t">마운자로,<br><span class="red">해외가 미국을 넘었다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:grid;gap:30px">
+    <div><div style="font-size:32px;font-weight:900;margin-bottom:10px">미국</div>
+      <div style="display:flex;align-items:center;gap:20px"><div style="width:438px;height:84px;border-radius:12px;background:#adb5bd"></div><div class="big" style="font-size:52px">50억$</div><div style="font-size:32px;font-weight:900;color:#666">+41%</div></div></div>
+    <div><div style="font-size:32px;font-weight:900;margin-bottom:10px" class="red">미국 밖</div>
+      <div style="display:flex;align-items:center;gap:20px"><div style="width:500px;height:84px;border-radius:12px;background:#d52b1e"></div><div class="big red" style="font-size:52px">57억$</div><div style="font-size:32px;font-weight:900" class="red">+93%</div></div></div>
+  </div>
+  <div class="card" style="position:absolute;left:80px;right:80px;top:700px;background:#fff;font-size:28px;font-weight:700;line-height:1.5">비교: 젭바운드는 53.5억$ 중 <b>53억$가 미국</b><br><span style="color:#666">같은 성분이지만 해외 확장은 마운자로가 맡는다</span></div>
+  <div class="src">출처: 일라이릴리 3분기 실적 보도자료(SEC, 2026.10.29)</div>
+</div>
+
+<!-- 4. 가격·물량 -->
+<div class="fig" data-out="fig4_price.png">
+  <div class="t">값은 내렸는데<br><span class="red">더 많이 팔았다</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:330px;display:flex;align-items:center;gap:20px;text-align:center">
+    <div class="card" style="flex:1;background:#e7f5ff"><div style="font-size:28px;color:#555">판매량</div><div class="big blu" style="font-size:80px">+53%</div></div>
+    <div style="font-size:60px;font-weight:900;color:#aaa">+</div>
+    <div class="card" style="flex:1;background:#f1f3f5"><div style="font-size:28px;color:#555">가격</div><div class="big" style="font-size:80px;color:#495057">-15%</div></div>
+    <div style="font-size:60px;font-weight:900;color:#aaa">=</div>
+    <div class="card" style="flex:1;background:#fdecea"><div style="font-size:28px;color:#555">매출</div><div class="big red" style="font-size:80px">+39%</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:600px;display:flex;gap:18px">
+    <div class="card" style="flex:1;background:#f8f9fa"><div style="font-size:26px;color:#666">가격 변화</div><div style="font-size:32px;font-weight:900;line-height:1.5">미국 -7%<br>미국 밖 -29%</div></div>
+    <div class="card" style="flex:1;background:#f8f9fa"><div style="font-size:26px;color:#666">매출총이익률</div><div style="font-size:32px;font-weight:900;line-height:1.5">82.9% → <span class="red">83.9%</span></div></div>
+  </div>
+  <div class="src">전년 동기 대비, 전체 매출 기준 · 출처: 일라이릴리 3분기 실적 보도자료(SEC)</div>
+</div>
+
+<!-- 5. 가이던스 -->
+<div class="fig" data-out="fig5_guidance.png" style="background:#f8f9fa">
+  <div class="t">매출 전망은 ↑<br><span class="red">EPS 전망은 ↓</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">2026 매출 전망</div><div style="font-size:28px;color:#999;text-decoration:line-through">850억~870억$</div><div class="big grn" style="font-size:54px">910억~920억$</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">2026 조정 EPS 전망</div><div style="font-size:28px;color:#999;text-decoration:line-through">35.50~36.50$</div><div class="big red" style="font-size:54px">35~36$</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:600px">
+    <div style="font-size:30px;font-weight:900;margin-bottom:14px">EPS 전망이 내려간 이유 (주당)</div>
+    <div style="display:flex;gap:14px;align-items:center;font-size:30px;font-weight:900">
+      <div class="card" style="background:#ebfbee;flex:1;text-align:center">본업 개선<br><span class="grn" style="font-size:44px">+4.07$</span></div>
+      <div class="card" style="background:#fdecea;flex:1;text-align:center">인수 R&amp;D 비용<br><span class="red" style="font-size:44px">-4.57$</span></div>
+      <div class="card" style="background:#212529;color:#fff;flex:1;text-align:center">전망 중간값<br><span style="font-size:44px">-0.50$</span></div>
+    </div>
+  </div>
+  <div class="src">출처: 일라이릴리 3분기 실적 보도자료(SEC, 2026.10.29)</div>
+</div>
+
+<!-- 6. 파운데이오 -->
+<div class="fig" data-out="fig6_foundayo.png" style="background:#fff9db">
+  <div class="t">먹는 비만약 파운데이오,<br><span style="color:#e67700">예상엔 못 미쳤지만</span></div>
+  <svg width="920" height="380" style="position:absolute;left:80px;top:320px" font-family="Noto Sans KR">
+    <line x1="0" y1="330" x2="920" y2="330" stroke="#e9dca0" stroke-width="3"/>
+    <rect x="60" y="183" width="200" height="147" rx="10" fill="#ffd8a8"/><text x="160" y="165" text-anchor="middle" font-size="38" font-weight="900">0.98억</text><text x="160" y="368" text-anchor="middle" font-size="26" fill="#666">2분기</text>
+    <rect x="360" y="54" width="200" height="276" rx="10" fill="#f76707"/><text x="460" y="36" text-anchor="middle" font-size="40" font-weight="900" fill="#e67700">1.84억</text><text x="460" y="368" text-anchor="middle" font-size="26" font-weight="900">3분기</text>
+    <rect x="660" y="-17" width="200" height="347" rx="10" fill="none" stroke="#adb5bd" stroke-width="4" stroke-dasharray="12 8"/><text x="760" y="200" text-anchor="middle" font-size="30" font-weight="900" fill="#868e96">예상 2.31억</text><text x="760" y="368" text-anchor="middle" font-size="26" fill="#666">3분기 예상</text>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:740px;font-size:30px;font-weight:900">전 분기 대비 약 <span style="color:#e67700">+88%</span> · 4월 미국 승인</div>
+  <div class="src">단위 달러 · 출처: 일라이릴리 2·3분기 실적 보도자료(SEC), 제공 자료</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>
