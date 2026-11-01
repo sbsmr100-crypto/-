@@ -95,7 +95,7 @@
   <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
     <div style="font:700 46px 'Noto Sans KR';color:#9fd8c0">미성년 자녀 증여 · 매달 20만 원</div>
     <div class="bh" style="font-size:168px;line-height:1.12;margin-top:18px;color:#4ade80">유기정기금</div>
-    <div class="bh" style="font-size:108px;line-height:1.28;margin-top:44px"><span style="color:#ffc53d">2,400만 원</span> 줬는데<br>세금 <span class="redb">4만 원대</span>?</div>
+    <div class="bh" style="font-size:108px;line-height:1.28;margin-top:44px">한도는 <span style="color:#ffc53d">2,000만</span><br>그보다 <span class="redb">더</span> 준다?</div>
   </div>
 </div>
 
@@ -105,7 +105,7 @@
     <div class="bh" style="font-size:120px;line-height:1.15">유기정기금 증여</div>
     <div style="font:700 62px 'Noto Sans KR';color:#9fd8c0;margin-top:40px">매달 20만 원 × 120회</div>
     <div class="bh" style="font-size:230px;line-height:1.05;color:#ffc53d">2,400만</div>
-    <div style="display:inline-block;margin-top:24px;background:#e5322d;font:900 58px 'Noto Sans KR';padding:12px 30px;border-radius:16px">한도 2,000만 넘겨도 OK?</div>
+    <div style="display:inline-block;margin-top:24px;background:#e5322d;font:900 58px 'Noto Sans KR';padding:12px 30px;border-radius:16px">할인율 덕분에 2,000만 원 +α</div>
   </div>
 </div>
 
@@ -127,8 +127,8 @@
       <div style="font:700 46px 'Noto Sans KR';color:#9fd8c0">미성년 자녀 증여 · 매달 20만 원</div>
       <div class="bh" style="font-size:168px;line-height:1.12;margin-top:18px;color:#4ade80">유기정기금</div>
       <div class="bh" style="font-size:108px;line-height:1.28;margin-top:44px">
-        <div id="h1"><span style="color:#ffc53d">2,400만 원</span> 줬는데</div>
-        <div id="h2" style="transform-origin:0 50%">세금 <span class="redb">4만 원대</span>?</div>
+        <div id="h1">한도는 <span style="color:#ffc53d">2,000만</span></div>
+        <div id="h2" style="transform-origin:0 50%">그보다 <span class="redb">더</span> 준다?</div>
       </div>
     </div>
     <div class="wmv">@NTL</div>
@@ -188,16 +188,16 @@ const FIGS = [
     kf:[[21.8,1,540,540],[22.6,1,540,540],[23.6,1.12,540,640],[28,1.14,540,640]],
     rings:[[23.4,25.6,70,620,940,150],[25.6,28,70,770,940,150]],
     subs:[[21.8,23.4,'바로 <b>유기정기금</b>입니다'],[23.4,25.6,'10년간 <b>매달 20만 원씩</b><br>주기로 약속하고'],[25.6,28,'처음에 <b>한 번만</b> 신고합니다']] },
-  { a:28, b:34, src:'fig5_value.png',
-    caps:[[28,'2,400만 원이<br><span class="g">2,047만 원으로</span>']],
-    kf:[[28,1,540,540],[28.8,1,540,540],[29.9,1.12,620,560],[34,1.15,620,560]],
-    rings:[[29.7,31.4,70,850,940,100],[31.4,34,610,345,280,440]],
-    subs:[[28,31.2,'미래에 줄 돈은<br><b>연 3%로 할인</b>해 평가해요'],[31.2,34,'실제 2,400만 원이<br><b>2,047만 원</b>이 됩니다']] },
-  { a:34, b:40, src:'fig6_tax.png',
-    caps:[[34,'세금은 고작<br><span class="r">약 4만 6천 원</span>']],
-    kf:[[34,1,540,540],[34.8,1,540,540],[35.9,1.12,540,640],[40,1.14,540,640]],
-    rings:[[35.7,37.8,70,650,940,170],[37.8,40,70,820,940,110]],
-    subs:[[34,37.8,'공제를 넘는 <b>47만 원</b>에만 세금<br>약 <b>4만 6천 원</b>'],[37.8,40,'월 19만 5천 원이면<br><b>0원</b>입니다']] },
+  { a:28, b:34, src:'fig5_discount.png',
+    caps:[[28,'현금 가치는<br><span class="o">시간이 갈수록 ↓</span>']],
+    kf:[[28,1,540,540],[28.8,1,540,540],[29.9,1.1,540,640],[34,1.12,540,640]],
+    rings:[[29.7,31.6,70,670,940,120],[31.6,34,70,810,940,120]],
+    subs:[[28,31.4,'현금은 시간이 지날수록<br><b>가치가 떨어지죠</b>'],[31.4,34,'그래서 미래에 줄 돈은<br><b>연 3%씩 할인</b>해 평가합니다']] },
+  { a:34, b:40, src:'fig6_value.png',
+    caps:[[34,'그래서<br><span class="g">2,000만 원 넘게</span>']],
+    kf:[[34,1,540,540],[34.8,1,540,540],[35.9,1.12,620,560],[40,1.15,620,560]],
+    rings:[[35.7,37.6,180,350,300,440],[37.6,40,610,345,280,440]],
+    subs:[[34,37.6,'10년간 <b>2,400만 원</b>을 줘도'],[37.6,40,'세법상 가치는 약 <b>2,047만 원</b><br>2,000만 원보다 더 줄 수 있는 셈입니다']] },
   { a:40, b:46.5, src:'fig7_how.png',
     caps:[[40,'하는 법은<br><span class="k">딱 3단계</span>']],
     kf:[[40,1,540,540],[40.7,1,540,540],[41.7,1.1,540,610],[46.5,1.12,540,610]],
@@ -228,7 +228,7 @@ window.renderAt = function(t){
   const s2 = cl((t-1.6)/.35);
   $('h2').style.opacity = s2>0?1:0;
   $('h2').style.transform = `scale(${s2>0 ? 1+0.25*(1-ez(s2)) : 1})`;
-  if (t<3.5) sub = t<1.6 ? '자녀에게 <b>2,400만 원</b>을 줬는데' : '세금은 <b>4만 원대</b>?';
+  if (t<3.5) sub = t<1.6 ? '비과세 한도는 <b>2,000만 원</b>인데' : '그보다 <b>더</b> 줄 수 있다면?';
 
   // 그림 장면 (이어지는 장면끼리는 레이어를 유지하고 그림만 새로 올린다)
   const f = FIGS.find(f=>t>=f.a && t<f.b) || FIGS.find(f=>t>=f.a-.3 && t<f.b+.3);

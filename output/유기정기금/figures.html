@@ -86,8 +86,8 @@
   <div class="src">출처: 상속세 및 증여세법 시행령 제62조(정기금 평가) · 2026.11 기준</div>
 </div>
 
-<!-- 5. 평가액 -->
-<div class="fig" data-out="fig5_value.png">
+<!-- 6. 평가액 -->
+<div class="fig" data-out="fig6_value.png">
   <div class="t">2,400만 원을 줘도<br><span class="g">세법상 가치는 2,047만 원</span></div>
   <svg class="a" style="top:300px;height:540px;border-radius:0" viewBox="0 0 920 540" font-family="Noto Sans KR">
     <line x1="0" y1="470" x2="920" y2="470" stroke="#ddd" stroke-width="3"/>
@@ -106,20 +106,34 @@
   <div class="src">240만 원 × 연금현가계수(3%, 10년) 8.5302 ≈ 2,047만 원 · 상증세법 시행령 제62조, 2026.11</div>
 </div>
 
-<!-- 6. 세금 -->
-<div class="fig" data-out="fig6_tax.png">
-  <div class="t">그래서 세금은?<br><span class="r">4만 6천 원 정도</span></div>
-  <div class="a step" style="top:300px;height:76px;font-size:36px;justify-content:space-between"><span>평가액</span><b>2,047만 원</b></div>
-  <div class="a step" style="top:386px;height:76px;font-size:36px;justify-content:space-between"><span>− 미성년 공제</span><b>2,000만 원</b></div>
-  <div class="a step" style="top:472px;height:76px;font-size:36px;justify-content:space-between;background:#fff4e6"><span>= 과세표준</span><b class="o">약 47만 원</b></div>
-  <div class="a step" style="top:558px;height:76px;font-size:36px;justify-content:space-between"><span>× 세율 10% − 신고세액공제 3%</span><b></b></div>
-  <div class="a" style="top:660px;height:150px;background:#d52b1e;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 44px">
-    <span style="font:700 40px 'Noto Sans KR'">증여세</span><span class="big" style="font-size:96px">약 4.6만 원</span>
+<!-- 5. 할인 이유 -->
+<div class="fig" data-out="fig5_discount.png">
+  <div class="t">같은 20만 원도<br><span class="o">시간이 갈수록 가치 ↓</span></div>
+  <div class="a step" style="top:320px;height:100px;">
+    <div class="lab" style="flex:none;width:170px;color:#555">오늘</div>
+    <div style="width:520px;height:46px;border-radius:10px;background:#2b8a3e"></div>
+    <div class="big" style="font-size:46px;margin-left:24px;">20.0만 원</div>
   </div>
-  <div class="a" style="top:830px;height:90px;border:3px dashed #2b8a3e;display:flex;align-items:center;justify-content:center;font:700 34px 'Noto Sans KR'">
-    월 <b class="g" style="margin:0 8px">19만 5천 원</b>이면 평가액 1,996만 원 → <b class="g" style="margin-left:8px">세금 0원</b>
+  <div class="a step" style="top:440px;height:100px;">
+    <div class="lab" style="flex:none;width:170px;color:#555">1년 뒤</div>
+    <div style="width:505px;height:46px;border-radius:10px;background:#ffc078"></div>
+    <div class="big" style="font-size:46px;margin-left:24px;">19.4만 원</div>
   </div>
-  <div class="src">2,047.2만 원 기준 계산 · 실제 세액은 이체일·기간 계산에 따라 달라질 수 있어 세무사 확인 권장</div>
+  <div class="a step" style="top:560px;height:100px;">
+    <div class="lab" style="flex:none;width:170px;color:#555">5년 뒤</div>
+    <div style="width:449px;height:46px;border-radius:10px;background:#ffc078"></div>
+    <div class="big" style="font-size:46px;margin-left:24px;">17.3만 원</div>
+  </div>
+  <div class="a step" style="top:680px;height:100px;background:#fff4e6">
+    <div class="lab" style="flex:none;width:170px;color:#e67700">10년 뒤</div>
+    <div style="width:387px;height:46px;border-radius:10px;background:#e67700"></div>
+    <div class="big" style="font-size:46px;margin-left:24px;color:#e67700">14.9만 원</div>
+  </div>
+  
+  <div class="a" style="top:820px;height:100px;background:#1b1b1b;color:#fff;display:flex;align-items:center;justify-content:center;font:900 40px 'Noto Sans KR'">
+    → 그래서 미래에 줄 돈은 <span style="color:#ffc53d;margin:0 10px">연 3% 할인</span>해 평가
+  </div>
+  <div class="src">20만 원 ÷ (1.03)^n 으로 계산 · 상속세 및 증여세법 시행령 제62조 · 2026.11 기준</div>
 </div>
 
 <!-- 7. 하는 방법 -->
