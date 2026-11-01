@@ -1,0 +1,284 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+/* 네이버 클립 세로 1080×1920. UI가 덮는 하단 ~350px·우측 버튼 영역은 비워 둔다. */
+.v { width:1080px; height:1920px; position:relative; overflow:hidden; box-sizing:border-box;
+  font-family:'Noto Sans KR',sans-serif; letter-spacing:-0.03em; }
+.bh { font-family:'Black Han Sans','Noto Sans KR',sans-serif; letter-spacing:-0.01em; }
+.abs { position:absolute; }
+.bgimg { position:absolute; left:0; width:1080px; height:1080px; }
+.redb { background:#e5322d; color:#fff; padding:0 .14em; }
+.wmv { position:absolute; right:40px; top:120px; font:900 36px 'Noto Sans KR'; letter-spacing:0; color:rgba(255,255,255,.85); }
+
+/* ── 영상 스테이지 ── */
+#stage { background:linear-gradient(180deg,#0b1622 0%,#10202f 60%,#0b1622 100%); }
+#stage .layer { position:absolute; inset:0; opacity:0; }
+.cap { position:absolute; left:80px; right:80px; top:250px; color:#fff; font-size:92px; line-height:1.18; }
+.cap .k { color:#5fa0ff; } .cap .g { color:#4ade80; } .cap .r { color:#ff6b6b; } .cap .y { color:#ffc53d; } .cap .o { color:#ff9a3d; }
+.figbox { position:absolute; left:90px; top:520px; width:900px; height:900px; overflow:hidden; border-radius:26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6); }
+.figbox img, .figbox .ring { position:absolute; left:0; top:0; transform-origin:0 0; }
+.figbox img { width:1080px; height:1080px; }
+.ring { border:10px solid #ffc53d; border-radius:22px; box-sizing:border-box; box-shadow:0 0 0 9999px rgba(0,0,0,.28); }
+.sub { position:absolute; left:60px; right:60px; top:1470px; text-align:center; }
+.sub span { display:inline-block; background:rgba(0,0,0,.75); color:#fff; font:700 50px/1.35 'Noto Sans KR';
+  padding:14px 30px; border-radius:16px; }
+.sub b { color:#ffc53d; }
+#bar { position:absolute; left:0; top:0; height:10px; background:#4ade80; z-index:5; }
+</style></head><body>
+
+
+<template id="lsvg">
+<svg viewBox="0 0 1080 1920" style="position:absolute;inset:0;width:100%;height:100%">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08131e"/><stop offset=".55" stop-color="#0e2433"/><stop offset="1" stop-color="#123a3a"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4ade80" stop-opacity=".35"/><stop offset="1" stop-color="#4ade80" stop-opacity="0"/></radialGradient>
+    <linearGradient id="coin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#f0a92b"/></linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#sky)"/>
+  <ellipse cx="760" cy="1560" rx="400" ry="330" fill="url(#glow)"/>
+  <!-- 달력: 12칸 체크 -->
+  <g transform="translate(90,1230) rotate(-6)">
+    <rect width="420" height="400" rx="28" fill="#f4f1ea"/>
+    <rect width="420" height="86" rx="28" fill="#3b82f6"/><rect y="50" width="420" height="36" fill="#3b82f6"/>
+    <circle cx="110" cy="0" r="16" fill="#cfd8e3"/><circle cx="310" cy="0" r="16" fill="#cfd8e3"/>
+    <g id="cal"></g>
+  </g>
+  <!-- 점선 흐름 -->
+  <path d="M520 1420 C 600 1360, 640 1380, 690 1450" fill="none" stroke="#ffc53d" stroke-width="8" stroke-dasharray="4 18" stroke-linecap="round"/>
+  <!-- 떨어지는 동전 -->
+  <g fill="url(#coin)" stroke="#c98a12" stroke-width="5">
+    <ellipse cx="760" cy="1270" rx="44" ry="44"/><ellipse cx="860" cy="1180" rx="34" ry="34"/><ellipse cx="700" cy="1150" rx="26" ry="26"/>
+  </g>
+  <!-- 저금통 -->
+  <g transform="translate(530,1380)">
+    <ellipse cx="200" cy="200" rx="230" ry="180" fill="#ff9fb6"/>
+    <ellipse cx="200" cy="200" rx="230" ry="180" fill="none" stroke="#e46e8c" stroke-width="8"/>
+    <rect x="150" y="40" width="110" height="18" rx="9" fill="#b84a66"/>
+    <circle cx="380" cy="160" r="14" fill="#2b1a22"/>
+    <ellipse cx="440" cy="215" rx="42" ry="34" fill="#ffb8c8" stroke="#e46e8c" stroke-width="6"/>
+    <circle cx="430" cy="212" r="6" fill="#b84a66"/><circle cx="452" cy="212" r="6" fill="#b84a66"/>
+    <path d="M300 40 L340 -10 L360 60 Z" fill="#ff8fa9"/>
+    <rect x="70" y="340" width="56" height="60" rx="14" fill="#e46e8c"/><rect x="270" y="340" width="56" height="60" rx="14" fill="#e46e8c"/>
+  </g>
+  <rect y="1850" width="1080" height="70" fill="#000" fill-opacity=".35"/>
+</svg>
+</template>
+<template id="svg2">
+<svg viewBox="0 0 1080 1920" style="position:absolute;inset:0;width:100%;height:100%">
+  <defs><linearGradient id="s2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071a12"/><stop offset="1" stop-color="#0f3a28"/></linearGradient>
+  <linearGradient id="cn2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f0a92b"/><stop offset=".5" stop-color="#ffe08a"/><stop offset="1" stop-color="#f0a92b"/></linearGradient></defs>
+  <rect width="1080" height="1920" fill="url(#s2)"/>
+  <g id="stacks"></g>
+  <line x1="60" y1="1790" x2="1020" y2="1790" stroke="#fff" stroke-opacity=".25" stroke-width="4"/>
+</svg>
+</template>
+<template id="svg3">
+<svg viewBox="0 0 1080 1920" style="position:absolute;inset:0;width:100%;height:100%">
+  <defs><linearGradient id="s3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1530"/><stop offset="1" stop-color="#3a2a55"/></linearGradient></defs>
+  <rect width="1080" height="1920" fill="url(#s3)"/>
+  <circle cx="860" cy="1180" r="70" fill="#ffd27a" opacity=".9"/>
+  <!-- 작은 집 → 큰 집 -->
+  <g transform="translate(110,1480)"><rect width="230" height="200" fill="#8a7bb8"/><polygon points="-20,0 115,-110 250,0" fill="#c9a6ff"/><rect x="90" y="110" width="50" height="90" fill="#3a2a55"/></g>
+  <path d="M380 1560 L560 1560" stroke="#ffc53d" stroke-width="14" stroke-linecap="round"/><polygon points="560,1530 610,1560 560,1590" fill="#ffc53d"/>
+  <g transform="translate(650,1340)"><rect width="320" height="340" fill="#f4f1ea"/><polygon points="-30,0 160,-150 350,0" fill="#ff8a5c"/>
+    <rect x="40" y="50" width="80" height="80" fill="#9cc8ff"/><rect x="200" y="50" width="80" height="80" fill="#9cc8ff"/><rect x="40" y="170" width="80" height="80" fill="#9cc8ff"/><rect x="200" y="200" width="80" height="140" fill="#6b4f3a"/></g>
+  <rect x="0" y="1680" width="1080" height="240" fill="#120e22"/>
+  <!-- 동전 줄 -->
+  <g fill="#ffc53d"><circle cx="160" cy="1760" r="22"/><circle cx="230" cy="1760" r="22"/><circle cx="300" cy="1760" r="22"/><circle cx="370" cy="1760" r="22"/><circle cx="440" cy="1760" r="22"/></g>
+</svg>
+</template>
+
+<div class="v lbg" data-out="bg_clip.png"></div>
+
+<!-- cover1: 질문·반전형 = 영상 첫 장면 -->
+<div class="v lbg" data-out="cover1.png">
+  <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
+    <div style="font:700 46px 'Noto Sans KR';color:#9fd8c0">미성년 자녀 증여 · 매달 20만 원</div>
+    <div class="bh" style="font-size:168px;line-height:1.12;margin-top:18px;color:#4ade80">유기정기금</div>
+    <div class="bh" style="font-size:108px;line-height:1.28;margin-top:44px"><span style="color:#ffc53d">2,400만 원</span> 줬는데<br>세금 <span class="redb">4만 원대</span>?</div>
+  </div>
+</div>
+
+<!-- cover2: 숫자형 -->
+<div class="v s2" data-out="cover2.png">
+  <div class="abs" style="left:90px;top:260px;color:#fff">
+    <div class="bh" style="font-size:120px;line-height:1.15">유기정기금 증여</div>
+    <div style="font:700 62px 'Noto Sans KR';color:#9fd8c0;margin-top:40px">매달 20만 원 × 120회</div>
+    <div class="bh" style="font-size:230px;line-height:1.05;color:#ffc53d">2,400만</div>
+    <div style="display:inline-block;margin-top:24px;background:#e5322d;font:900 58px 'Noto Sans KR';padding:12px 30px;border-radius:16px">한도 2,000만 넘겨도 OK?</div>
+  </div>
+</div>
+
+<!-- cover3: 감정·상황형 -->
+<div class="v s3" data-out="cover3.png">
+  <div class="abs" style="left:90px;top:260px;color:#fff">
+    <div style="font:700 62px 'Noto Sans KR';color:#ffc53d">목돈은 집 갈아타기에</div>
+    <div class="bh" style="font-size:150px;line-height:1.15;margin-top:20px">아이 증여는<br><span style="color:#c9a6ff">매달 20만 원</span></div>
+    <div style="display:inline-block;margin-top:40px;background:#e5322d;font:900 58px 'Noto Sans KR';padding:12px 30px;border-radius:16px">유기정기금으로 해결</div>
+  </div>
+</div>
+
+<!-- ───────── 영상 스테이지 ───────── -->
+<div class="v" id="stage">
+  <div id="bar"></div>
+
+  <div class="layer lbg" id="hook">
+    <div class="abs" style="left:90px;right:90px;top:210px;color:#fff">
+      <div style="font:700 46px 'Noto Sans KR';color:#9fd8c0">미성년 자녀 증여 · 매달 20만 원</div>
+      <div class="bh" style="font-size:168px;line-height:1.12;margin-top:18px;color:#4ade80">유기정기금</div>
+      <div class="bh" style="font-size:108px;line-height:1.28;margin-top:44px">
+        <div id="h1"><span style="color:#ffc53d">2,400만 원</span> 줬는데</div>
+        <div id="h2" style="transform-origin:0 50%">세금 <span class="redb">4만 원대</span>?</div>
+      </div>
+    </div>
+    <div class="wmv">@NTL</div>
+  </div>
+
+  <div class="layer" id="figs">
+    <div class="cap bh" id="cap"></div>
+    <div class="figbox"><img id="fig"><div class="ring" id="ring"></div></div>
+  </div>
+
+  <div class="layer" id="ask" style="background:#0b1622">
+    <div class="bh abs" style="left:0;right:0;top:700px;text-align:center;color:#fff;font-size:140px;line-height:1.25">
+      그래서<br>고른 <span style="color:#4ade80">방법</span><span id="q" style="display:inline-block;color:#ffc53d">?</span></div>
+    <div class="wmv">@NTL</div>
+  </div>
+
+  <div class="layer" id="outro" style="background:#08131e">
+    <div class="abs" style="left:90px;right:90px;top:330px;color:#fff">
+      <div style="font:700 56px 'Noto Sans KR';color:#9fd8c0">꼭 알아둘 것</div>
+      <div class="bh" id="o1" style="font-size:124px;line-height:1.22;margin-top:24px">중간에<br><span style="color:#ff9a3d">멈추면?</span></div>
+      <div id="o2" style="margin-top:56px;display:inline-block;background:#ffc53d;color:#111;font:900 58px 'Noto Sans KR';padding:18px 36px;border-radius:18px">👉 주의점은 블로그에서</div>
+      <div style="margin-top:50px;color:#8aa0b0;font:500 34px/1.5 'Noto Sans KR'">출처: 상속세 및 증여세법 제53조·시행령 제62조(2026.11 기준)<br>정보 정리이며 세무 판단은 전문가와 확인하세요</div>
+    </div>
+    <div class="wmv">@NTL</div>
+  </div>
+
+  <div class="sub"><span id="sub"></span></div>
+</div>
+<script>
+const T = 51;
+const ASK = [20, 21.8];
+const OUT = 46.5;
+const K = 900 / 1080;
+const cl = (x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ez = x=>{ x=cl(x); return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; };
+const fin = (t,a,d=.3)=>ez((t-a)/d);
+const win = (t,a,b,d=.3)=>Math.min(fin(t,a,d), 1-fin(t,b-d,d));
+
+const FIGS = [
+  { a:3.5, b:8.5, src:'fig1_limit.png',
+    caps:[[3.5,'미성년 자녀<br><span class="g">10년 2,000만 원</span>']],
+    kf:[[3.5,1,540,540],[4.4,1,540,540],[5.5,1.15,540,450],[8.5,1.18,540,450]],
+    rings:[[5.3,8.5,70,310,940,250]],
+    subs:[[3.5,8.5,'미성년 자녀는 10년 동안<br><b>2,000만 원</b>까지 세금 없이 줄 수 있습니다']] },
+  { a:8.5, b:14, src:'fig2_ways.png',
+    caps:[[8.5,'방법은 여러 가지<br><span class="g">일시 증여가 깔끔</span>']],
+    kf:[[8.5,1,540,540],[9.3,1,540,540],[10.4,1.15,540,450],[14,1.18,540,450]],
+    rings:[[10.2,14,70,310,940,200]],
+    subs:[[8.5,10.6,'방법은 여러 가지'],[10.6,14,'가장 깔끔한 건<br><b>2,000만 원을 한 번에</b> 주는 겁니다']] },
+  { a:14, b:20, src:'fig3_dilemma.png',
+    caps:[[14,'그런데 목돈은<br><span class="o">집에 먼저</span>']],
+    kf:[[14,1,540,540],[14.8,1,540,540],[15.8,1.12,540,540],[20,1.14,540,540]],
+    rings:[[15.6,17.4,70,310,460,480],[17.4,20,550,310,460,480]],
+    subs:[[14,17.4,'하지만 <b>목돈이 부담</b>되거나'],[17.4,20,'그 돈을 <b>상급지 갈아타기</b>에<br>보태는 게 나을 수도 있죠']] },
+  { a:21.8, b:28, src:'fig4_concept.png',
+    caps:[[21.8,'정답은<br><span class="k">유기정기금</span>']],
+    kf:[[21.8,1,540,540],[22.6,1,540,540],[23.6,1.12,540,640],[28,1.14,540,640]],
+    rings:[[23.4,25.6,70,620,940,150],[25.6,28,70,770,940,150]],
+    subs:[[21.8,23.4,'바로 <b>유기정기금</b>입니다'],[23.4,25.6,'10년간 <b>매달 20만 원씩</b><br>주기로 약속하고'],[25.6,28,'처음에 <b>한 번만</b> 신고합니다']] },
+  { a:28, b:34, src:'fig5_value.png',
+    caps:[[28,'2,400만 원이<br><span class="g">2,047만 원으로</span>']],
+    kf:[[28,1,540,540],[28.8,1,540,540],[29.9,1.12,620,560],[34,1.15,620,560]],
+    rings:[[29.7,31.4,70,850,940,100],[31.4,34,610,345,280,440]],
+    subs:[[28,31.2,'미래에 줄 돈은<br><b>연 3%로 할인</b>해 평가해요'],[31.2,34,'실제 2,400만 원이<br><b>2,047만 원</b>이 됩니다']] },
+  { a:34, b:40, src:'fig6_tax.png',
+    caps:[[34,'세금은 고작<br><span class="r">약 4만 6천 원</span>']],
+    kf:[[34,1,540,540],[34.8,1,540,540],[35.9,1.12,540,640],[40,1.14,540,640]],
+    rings:[[35.7,37.8,70,650,940,170],[37.8,40,70,820,940,110]],
+    subs:[[34,37.8,'공제를 넘는 <b>47만 원</b>에만 세금<br>약 <b>4만 6천 원</b>'],[37.8,40,'월 19만 5천 원이면<br><b>0원</b>입니다']] },
+  { a:40, b:46.5, src:'fig7_how.png',
+    caps:[[40,'하는 법은<br><span class="k">딱 3단계</span>']],
+    kf:[[40,1,540,540],[40.7,1,540,540],[41.7,1.1,540,610],[46.5,1.12,540,610]],
+    rings:[[41.5,43.1,70,310,940,200],[43.1,44.8,70,510,940,200],[44.8,46.5,70,710,940,200]],
+    subs:[[40,43.1,'<b>증여계약서</b>를 쓰고'],[43.1,44.8,'첫 이체 후 <b>3개월 안에 신고</b>'],[44.8,46.5,'매달 <b>같은 날 같은 금액</b>']] },
+];
+FIGS.forEach(f=>{ const i=new Image(); i.src=f.src; });
+
+function camAt(kf,t){
+  let i=0; while(i<kf.length-1 && t>kf[i+1][0]) i++;
+  const A=kf[i], B=kf[Math.min(i+1,kf.length-1)];
+  const p = B[0]>A[0] ? ez((t-A[0])/(B[0]-A[0])) : 0;
+  return [1,2,3].map(j=>A[j]+(B[j]-A[j])*p);
+}
+function place(s,cx,cy){
+  const k=K*s, size=1080*k;
+  return {k, tx:cl(450-cx*k,900-size,0), ty:cl(450-cy*k,900-size,0)};
+}
+const $=id=>document.getElementById(id);
+
+window.renderAt = function(t){
+  $('bar').style.width = (cl(t/T)*1080)+'px';
+  let sub='';
+
+  // 훅 0~3
+  $('hook').style.opacity = 1-fin(t,3.25,.25);
+  $('h1').style.opacity = fin(t,.3,.25);
+  const s2 = cl((t-1.6)/.35);
+  $('h2').style.opacity = s2>0?1:0;
+  $('h2').style.transform = `scale(${s2>0 ? 1+0.25*(1-ez(s2)) : 1})`;
+  if (t<3.5) sub = t<1.6 ? '자녀에게 <b>2,400만 원</b>을 줬는데' : '세금은 <b>4만 원대</b>?';
+
+  // 그림 장면 (이어지는 장면끼리는 레이어를 유지하고 그림만 새로 올린다)
+  const f = FIGS.find(f=>t>=f.a && t<f.b) || FIGS.find(f=>t>=f.a-.3 && t<f.b+.3);
+  if (f){
+    const adjIn = FIGS.some(g=>g.b===f.a), adjOut = FIGS.some(g=>g.a===f.b);
+    $('figs').style.opacity = Math.min(adjIn?1:fin(t,f.a), adjOut?1:1-fin(t,f.b-.3));
+    if ($('fig').getAttribute('src')!==f.src) $('fig').setAttribute('src',f.src);
+    const c = [...f.caps].reverse().find(c=>t>=c[0]) || f.caps[0];
+    if ($('cap').innerHTML!==c[1]) $('cap').innerHTML=c[1];
+    const cp = fin(t,c[0],.35);
+    $('cap').style.opacity = cp; $('cap').style.transform = `translateY(${(1-cp)*40}px)`;
+    const fp = fin(t,f.a,.45);
+    $('fig').style.opacity = fp;
+    const [s,cx,cy] = camAt(f.kf,t);
+    const {k,tx,ty} = place(s,cx,cy);
+    $('fig').style.transform = `translate(${tx}px,${ty+(1-fp)*120}px) scale(${k})`;
+    const r = f.rings.find(r=>t>=r[0]-.25 && t<r[1]);
+    const R = $('ring');
+    R.style.opacity = r ? win(t,r[0],r[1],.25)*(0.75+0.25*Math.abs(Math.cos((t-r[0])*3))) : 0;
+    if (r){ R.style.width=r[4]+'px'; R.style.height=r[5]+'px';
+      R.style.transform = `translate(${tx+r[2]*k}px,${ty+r[3]*k+(1-fp)*120}px) scale(${k})`; }
+    const sb = f.subs.find(x=>t>=x[0]&&t<x[1]); if (sb) sub=sb[2];
+  } else $('figs').style.opacity = 0;
+
+  // 반전 질문
+  $('ask').style.opacity = win(t,ASK[0],ASK[1],.2);
+  const qp = cl((t-ASK[0]-.3)/.4);
+  $('q').style.transform = `scale(${1+0.7*Math.sin(qp*Math.PI)}) rotate(${12*Math.sin(qp*Math.PI*3)}deg)`;
+  if (t>=ASK[0] && t<ASK[1]) sub = '';
+
+  // 마무리
+  $('outro').style.opacity = fin(t,OUT,.35);
+  $('o1').style.opacity = fin(t,OUT+.2,.4);
+  const o2 = fin(t,OUT+1.2,.35);
+  $('o2').style.opacity = o2; $('o2').style.transform = `translateY(${(1-o2)*40}px) scale(${1+0.04*Math.sin(Math.max(0,t-OUT-1.6)*4)})`;
+  if (t>=OUT) sub = '';
+
+  $('sub').parentNode.style.top = t<3.5 ? '930px' : '1470px';
+  $('sub').innerHTML = sub; $('sub').style.display = sub?'inline-block':'none';
+};
+</script>
+<script>
+// 달력 12칸 체크, 동전 쌓기
+let c='';for(let i=0;i<12;i++){const x=40+(i%4)*92,y=120+Math.floor(i/4)*90;c+=`<rect x="${x}" y="${y}" width="74" height="70" rx="12" fill="#e2ddd2"/><path d="M${x+18} ${y+36} l14 14 l26 -28" stroke="#22a35a" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;}
+const tpl=document.getElementById('lsvg'); tpl.innerHTML=tpl.innerHTML.replace('<g id="cal"></g>','<g>'+c+'</g>');
+let s='';for(let i=0;i<10;i++){const n=3+i*2.2|0,x=80+i*94;for(let j=0;j<n;j++){const y=1760-j*26;s+=`<ellipse cx="${x+38}" cy="${y}" rx="40" ry="13" fill="url(#cn2)" stroke="#b97a0e" stroke-width="3"/>`;}}
+const t2=document.getElementById('svg2'); t2.innerHTML=t2.innerHTML.replace('<g id="stacks"></g>','<g>'+s+'</g>');
+document.querySelectorAll('.lbg').forEach(el=>el.insertAdjacentHTML('afterbegin',tpl.innerHTML));
+document.querySelectorAll('.s2').forEach(el=>el.insertAdjacentHTML('afterbegin',t2.innerHTML));
+document.querySelectorAll('.s3').forEach(el=>el.insertAdjacentHTML('afterbegin',document.getElementById('svg3').innerHTML));
+renderAt(0);</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
