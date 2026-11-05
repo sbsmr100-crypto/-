@@ -1,0 +1,139 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.vert{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em}
+.vert svg.art{position:absolute;left:0;top:840px;width:1080px;height:1080px}
+.vert svg.sky{position:absolute;inset:0;width:100%;height:100%}
+.hd{font-family:'Black Han Sans','Noto Sans KR',sans-serif;line-height:1.1}
+</style></head><body>
+
+<!-- A: 저금통 + 쌓이는 동전 (밝은 크림) -->
+<template id="artA"><svg viewBox="0 0 1080 1080" class="art bg">
+  <defs>
+    <linearGradient id="aS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff8ea"/><stop offset="1" stop-color="#ffe2b3"/></linearGradient>
+    <linearGradient id="aC" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f0a92b"/><stop offset=".5" stop-color="#ffe08a"/><stop offset="1" stop-color="#e8961a"/></linearGradient>
+    <radialGradient id="aG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#aS)"/>
+  <ellipse cx="700" cy="760" rx="460" ry="300" fill="url(#aG)"/>
+  <rect y="985" width="1080" height="95" fill="#f5c983"/>
+  <g id="aStacks"></g>
+  <path d="M440 900 C 600 860, 760 720, 960 560" fill="none" stroke="#2b8a3e" stroke-width="16" stroke-linecap="round" stroke-dasharray="2 30"/>
+  <polygon points="985,535 925,555 965,600" fill="#2b8a3e"/>
+  <!-- 저금통 -->
+  <g transform="translate(40,700)">
+    <ellipse cx="200" cy="260" rx="40" ry="12" fill="#000" opacity=".08" transform="translate(0,30) scale(1,1)"/>
+    <ellipse cx="200" cy="170" rx="200" ry="150" fill="#ff9fb6"/>
+    <ellipse cx="150" cy="110" rx="70" ry="34" fill="#ffc4d2" opacity=".8"/>
+    <rect x="150" y="30" width="100" height="16" rx="8" fill="#b84a66"/>
+    <circle cx="330" cy="140" r="13" fill="#2b1a22"/>
+    <ellipse cx="385" cy="185" rx="38" ry="31" fill="#ffb8c8" stroke="#e46e8c" stroke-width="6"/>
+    <circle cx="375" cy="183" r="6" fill="#b84a66"/><circle cx="396" cy="183" r="6" fill="#b84a66"/>
+    <path d="M255 35 L290 -12 L310 52 Z" fill="#ff8fa9"/>
+    <rect x="70" y="290" width="50" height="45" rx="12" fill="#e46e8c"/><rect x="250" y="290" width="50" height="45" rx="12" fill="#e46e8c"/>
+  </g>
+  <!-- 떨어지는 동전 -->
+  <g fill="url(#aC)" stroke="#c98a12" stroke-width="5">
+    <circle cx="240" cy="640" r="34"/><circle cx="320" cy="560" r="24"/>
+  </g>
+  <g fill="#ffd43b"><path d="M120 560 l8 22 22 8 -22 8 -8 22 -8 -22 -22 -8 22 -8z"/><path d="M900 470 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6z"/><path d="M560 600 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5z"/></g>
+</svg></template>
+
+<!-- B: 동전 열매 나무 + 새싹 (파스텔 그린) -->
+<template id="artB"><svg viewBox="0 0 1080 1080" class="art bg">
+  <defs>
+    <linearGradient id="bS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f6ff"/><stop offset="1" stop-color="#d9f3e3"/></linearGradient>
+    <radialGradient id="bC" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#fff1b0"/><stop offset=".6" stop-color="#ffc93c"/><stop offset="1" stop-color="#e39a12"/></radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bS)"/>
+  <circle cx="930" cy="520" r="70" fill="#ffe08a" opacity=".9"/>
+  <path d="M0 900 Q 270 820 540 880 T 1080 860 L1080 1080 L0 1080 Z" fill="#a7e0b8"/>
+  <path d="M0 960 Q 300 900 600 950 T 1080 940 L1080 1080 L0 1080 Z" fill="#7ccf96"/>
+  <!-- 새싹 3단계 -->
+  <g transform="translate(110,930)"><ellipse rx="60" ry="16" fill="#8b5e3c"/><path d="M0 0 C 0 -30 0 -40 0 -50" stroke="#2f9e44" stroke-width="8"/><ellipse cx="-14" cy="-52" rx="16" ry="9" fill="#51cf66" transform="rotate(-30 -14 -52)"/><ellipse cx="14" cy="-52" rx="16" ry="9" fill="#51cf66" transform="rotate(30 14 -52)"/></g>
+  <g transform="translate(290,920)"><ellipse rx="70" ry="18" fill="#8b5e3c"/><path d="M0 0 L0 -110" stroke="#2f9e44" stroke-width="10"/><ellipse cx="-30" cy="-80" rx="30" ry="14" fill="#51cf66" transform="rotate(-30 -30 -80)"/><ellipse cx="30" cy="-105" rx="30" ry="14" fill="#40c057" transform="rotate(30 30 -105)"/><circle cx="0" cy="-125" r="18" fill="url(#bC)"/></g>
+  <!-- 큰 나무 -->
+  <g transform="translate(720,960) scale(.85)">
+    <path d="M-34 0 C -30 -120 -40 -200 -20 -260 L20 -260 C 40 -200 30 -120 34 0 Z" fill="#8b5e3c"/>
+    <path d="M0 -200 C -60 -240 -90 -260 -120 -300" stroke="#8b5e3c" stroke-width="20" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="-400" r="200" fill="#40c057"/><circle cx="-150" cy="-330" r="120" fill="#51cf66"/><circle cx="150" cy="-330" r="130" fill="#37b24d"/><circle cx="-40" cy="-500" r="120" fill="#69db7c"/>
+    <g id="bCoins"></g>
+  </g>
+  <g fill="url(#bC)" stroke="#d08b0a" stroke-width="4"><circle cx="560" cy="960" r="22"/><circle cx="610" cy="975" r="18"/><circle cx="830" cy="970" r="22"/></g>
+</svg></template>
+
+<!-- C: 달력 + 동전 계단 + 상승 화살표 (네이비, 고대비) -->
+<template id="artC"><svg viewBox="0 0 1080 1080" class="art bg">
+  <defs>
+    <linearGradient id="cS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1a2c"/><stop offset="1" stop-color="#123a4a"/></linearGradient>
+    <linearGradient id="cC" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f0a92b"/><stop offset=".5" stop-color="#ffe08a"/><stop offset="1" stop-color="#e8961a"/></linearGradient>
+    <radialGradient id="cG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4ade80" stop-opacity=".35"/><stop offset="1" stop-color="#4ade80" stop-opacity="0"/></radialGradient>
+    <filter id="cB"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#cS)"/>
+  <g fill="#fff" opacity=".5"><circle cx="120" cy="120" r="3"/><circle cx="300" cy="80" r="2"/><circle cx="520" cy="160" r="3"/><circle cx="760" cy="70" r="2"/><circle cx="960" cy="180" r="3"/><circle cx="880" cy="320" r="2"/><circle cx="200" cy="300" r="2"/></g>
+  <ellipse cx="760" cy="780" rx="420" ry="320" fill="url(#cG)"/>
+  <!-- 달력 -->
+  <g transform="translate(70,560) rotate(-6)">
+    <rect width="360" height="350" rx="26" fill="#f4f1ea"/>
+    <rect width="360" height="76" rx="26" fill="#3b82f6"/><rect y="44" width="360" height="32" fill="#3b82f6"/>
+    <circle cx="95" cy="0" r="14" fill="#cfd8e3"/><circle cx="265" cy="0" r="14" fill="#cfd8e3"/>
+    <g id="cCal"></g>
+  </g>
+  <g id="cStacks"></g>
+  <polyline points="470,930 610,840 750,730 900,560" fill="none" stroke="#4ade80" stroke-width="34" stroke-opacity=".35" filter="url(#cB)"/>
+  <polyline points="470,930 610,840 750,730 890,575" fill="none" stroke="#4ade80" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="935,525 860,555 915,605" fill="#4ade80"/>
+  <rect y="1000" width="1080" height="80" fill="#000" opacity=".3"/>
+</svg></template>
+
+<!-- ── 배경 (글자 없음) ── -->
+<div class="canvas" data-out="bg1.png" data-art="A"></div>
+<div class="canvas" data-out="bg2.png" data-art="B"></div>
+<div class="canvas" data-out="bg3.png" data-art="C"></div>
+<div class="vert" data-out="bg1_v.png" data-art="A" data-sky="#fff8ea"></div>
+<div class="vert" data-out="bg2_v.png" data-art="B" data-sky="#e9f6ff"></div>
+<div class="vert" data-out="bg3_v.png" data-art="C" data-sky="#0b1a2c"></div>
+
+<!-- ── 문구 얹은 예시 (정사각) ── -->
+<div class="canvas" data-out="thumb1.png" data-art="A" data-wm="dark">
+  <div class="copy" style="top:100px;text-align:center;color:#1b1b1b">
+    <div class="headline" style="font-size:138px">자녀 <span style="color:#e8590c">목돈</span>만들기</div>
+    <div class="tag" style="margin-top:28px;background:#2b8a3e;color:#fff;font-size:58px">유기정기금</div>
+  </div>
+</div>
+<div class="canvas" data-out="thumb2.png" data-art="B" data-wm="dark">
+  <div class="copy" style="top:100px;text-align:center;color:#12341f">
+    <div class="headline" style="font-size:138px">자녀 <span style="color:#2b8a3e">목돈</span>만들기</div>
+    <div class="tag" style="margin-top:28px;background:#ffc53d;color:#111;font-size:58px">유기정기금</div>
+  </div>
+</div>
+<div class="canvas" data-out="thumb3.png" data-art="C">
+  <div class="copy" style="top:100px;text-align:center;color:#fff">
+    <div class="headline" style="font-size:138px">자녀 <span style="color:#ffc53d">목돈</span>만들기</div>
+    <div class="tag" style="margin-top:28px;background:#4ade80;color:#0b1a2c;font-size:58px">유기정기금</div>
+  </div>
+</div>
+
+<script>
+const T=id=>document.getElementById(id);
+// A: 동전 탑
+let a='';for(let i=0;i<7;i++){const n=3+i*3,x=460+i*84;for(let j=0;j<n;j++){a+=`<ellipse cx="${x}" cy="${975-j*22}" rx="36" ry="12" fill="url(#aC)" stroke="#b97a0e" stroke-width="3"/>`;}}
+T('artA').innerHTML=T('artA').innerHTML.replace('<g id="aStacks"></g>','<g>'+a+'</g>');
+// B: 나무 동전 열매
+let b='';[[-120,-360],[-20,-300],[90,-420],[160,-300],[-80,-470],[40,-540],[-180,-260],[200,-400],[0,-410]].forEach(([x,y])=>{b+=`<circle cx="${x}" cy="${y}" r="30" fill="url(#bC)" stroke="#d08b0a" stroke-width="4"/><text x="${x}" y="${y+11}" text-anchor="middle" font-size="30" font-weight="900" fill="#b8740a" font-family="Noto Sans KR">₩</text>`;});
+T('artB').innerHTML=T('artB').innerHTML.replace('<g id="bCoins"></g>','<g>'+b+'</g>');
+// C: 달력 체크 + 동전 계단
+let c='';for(let i=0;i<12;i++){const x=34+(i%4)*80,y=106+Math.floor(i/4)*78;c+=`<rect x="${x}" y="${y}" width="64" height="60" rx="10" fill="#e2ddd2"/><path d="M${x+15} ${y+31} l12 12 l22 -24" stroke="#22a35a" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;}
+T('artC').innerHTML=T('artC').innerHTML.replace('<g id="cCal"></g>','<g>'+c+'</g>');
+let s='';for(let i=0;i<6;i++){const n=3+i*4,x=490+i*95;for(let j=0;j<n;j++){s+=`<ellipse cx="${x}" cy="${990-j*20}" rx="40" ry="13" fill="url(#cC)" stroke="#b97a0e" stroke-width="3"/>`;}}
+T('artC').innerHTML=T('artC').innerHTML.replace('<g id="cStacks"></g>','<g>'+s+'</g>');
+// 배치
+document.querySelectorAll('[data-art]').forEach(el=>{
+  const art=T('art'+el.dataset.art).innerHTML;
+  if(el.classList.contains('vert')){
+    el.insertAdjacentHTML('afterbegin',`<svg class="sky" viewBox="0 0 1080 1920"><rect width="1080" height="1920" fill="${el.dataset.sky}"/></svg>`+art);
+  } else el.insertAdjacentHTML('afterbegin',art);
+});
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
