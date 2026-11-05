@@ -86,31 +86,28 @@
   <rect y="1000" width="1080" height="80" fill="#000" opacity=".3"/>
 </svg></template>
 
-<!-- ── 배경 (글자 없음) ── -->
-<div class="canvas" data-out="bg1.png" data-art="A"></div>
-<div class="canvas" data-out="bg2.png" data-art="B"></div>
-<div class="canvas" data-out="bg3.png" data-art="C"></div>
-<div class="vert" data-out="bg1_v.png" data-art="A" data-sky="#fff8ea"></div>
-<div class="vert" data-out="bg2_v.png" data-art="B" data-sky="#e9f6ff"></div>
-<div class="vert" data-out="bg3_v.png" data-art="C" data-sky="#0b1a2c"></div>
+<!-- ── 배경 (글자 없음, 1080×1920) ── -->
+<div class="vert" data-out="bg1.png" data-art="A"></div>
+<div class="vert" data-out="bg2.png" data-art="B"></div>
+<div class="vert" data-out="bg3.png" data-art="C"></div>
 
-<!-- ── 문구 얹은 예시 (정사각) ── -->
-<div class="canvas" data-out="thumb1.png" data-art="A" data-wm="dark">
-  <div class="copy" style="top:100px;text-align:center;color:#1b1b1b">
-    <div class="headline" style="font-size:138px">자녀 <span style="color:#e8590c">목돈</span>만들기</div>
-    <div class="tag" style="margin-top:28px;background:#2b8a3e;color:#fff;font-size:58px">유기정기금</div>
+<!-- ── 문구 얹은 예시 (1080×1920) ── -->
+<div class="vert" data-out="thumb1.png" data-art="A" data-wm="dark">
+  <div class="abs" style="position:absolute;left:0;right:0;top:400px;text-align:center;color:#1b1b1b">
+    <div class="hd" style="font-size:150px">자녀<br><span style="color:#e8590c">목돈</span>만들기</div>
+    <div class="tag" style="margin-top:40px;background:#2b8a3e;color:#fff;font-size:68px">유기정기금</div>
   </div>
 </div>
-<div class="canvas" data-out="thumb2.png" data-art="B" data-wm="dark">
-  <div class="copy" style="top:100px;text-align:center;color:#12341f">
-    <div class="headline" style="font-size:138px">자녀 <span style="color:#2b8a3e">목돈</span>만들기</div>
-    <div class="tag" style="margin-top:28px;background:#ffc53d;color:#111;font-size:58px">유기정기금</div>
+<div class="vert" data-out="thumb2.png" data-art="B" data-wm="dark">
+  <div class="abs" style="position:absolute;left:0;right:0;top:400px;text-align:center;color:#12341f">
+    <div class="hd" style="font-size:150px">자녀<br><span style="color:#2b8a3e">목돈</span>만들기</div>
+    <div class="tag" style="margin-top:40px;background:#ffc53d;color:#111;font-size:68px">유기정기금</div>
   </div>
 </div>
-<div class="canvas" data-out="thumb3.png" data-art="C">
-  <div class="copy" style="top:100px;text-align:center;color:#fff">
-    <div class="headline" style="font-size:138px">자녀 <span style="color:#ffc53d">목돈</span>만들기</div>
-    <div class="tag" style="margin-top:28px;background:#4ade80;color:#0b1a2c;font-size:58px">유기정기금</div>
+<div class="vert" data-out="thumb3.png" data-art="C">
+  <div class="abs" style="position:absolute;left:0;right:0;top:400px;text-align:center;color:#fff">
+    <div class="hd" style="font-size:150px">자녀<br><span style="color:#ffc53d">목돈</span>만들기</div>
+    <div class="tag" style="margin-top:40px;background:#4ade80;color:#0b1a2c;font-size:68px">유기정기금</div>
   </div>
 </div>
 
@@ -127,11 +124,25 @@ let c='';for(let i=0;i<12;i++){const x=34+(i%4)*80,y=106+Math.floor(i/4)*78;c+=`
 T('artC').innerHTML=T('artC').innerHTML.replace('<g id="cCal"></g>','<g>'+c+'</g>');
 let s='';for(let i=0;i<6;i++){const n=3+i*4,x=490+i*95;for(let j=0;j<n;j++){s+=`<ellipse cx="${x}" cy="${990-j*20}" rx="40" ry="13" fill="url(#cC)" stroke="#b97a0e" stroke-width="3"/>`;}}
 T('artC').innerHTML=T('artC').innerHTML.replace('<g id="cStacks"></g>','<g>'+s+'</g>');
+// 세로 위쪽(0~840) 배경: 그림 맨 위 색에서 이어지고, 문구 자리는 비워 둔 채 가장자리만 장식
+const SKY={
+ A:`<svg class="sky" viewBox="0 0 1080 1920"><defs><linearGradient id="vA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffefd2"/><stop offset=".45" stop-color="#fff8ea"/><stop offset="1" stop-color="#ffe2b3"/></linearGradient></defs><rect width="1080" height="1920" fill="url(#vA)"/>
+   <g fill="#ffd43b"><path d="M110 200 l9 24 24 9 -24 9 -9 24 -9 -24 -24 -9 24 -9z"/><path d="M960 300 l7 18 18 7 -18 7 -7 18 -7 -18 -18 -7 18 -7z"/><path d="M90 760 l6 15 15 6 -15 6 -6 15 -6 -15 -15 -6 15 -6z"/><path d="M990 820 l8 20 20 8 -20 8 -8 20 -8 -20 -20 -8 20 -8z"/></g>
+   <g fill="#ffe08a" stroke="#e8a63a" stroke-width="4" opacity=".55"><circle cx="160" cy="1000" r="26"/><circle cx="930" cy="120" r="34"/><circle cx="1010" cy="1080" r="22"/></g></svg>`,
+ B:`<svg class="sky" viewBox="0 0 1080 1920"><defs><linearGradient id="vB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeeff"/><stop offset=".45" stop-color="#e9f6ff"/><stop offset="1" stop-color="#d9f3e3"/></linearGradient></defs><rect width="1080" height="1920" fill="url(#vB)"/>
+   <g fill="#fff" opacity=".9"><g transform="translate(130,170)"><ellipse cx="0" cy="0" rx="90" ry="40"/><ellipse cx="60" cy="-20" rx="70" ry="45"/><ellipse cx="120" cy="5" rx="70" ry="35"/></g>
+   <g transform="translate(820,820)"><ellipse cx="0" cy="0" rx="80" ry="34"/><ellipse cx="55" cy="-18" rx="60" ry="40"/><ellipse cx="110" cy="4" rx="60" ry="30"/></g>
+   <g transform="translate(60,1060) scale(.7)"><ellipse cx="0" cy="0" rx="80" ry="34"/><ellipse cx="55" cy="-18" rx="60" ry="40"/><ellipse cx="110" cy="4" rx="60" ry="30"/></g></g>
+   <g fill="none" stroke="#5c7cfa" stroke-width="5" stroke-linecap="round" opacity=".5"><path d="M880 230 q15 -15 30 0 q15 -15 30 0"/><path d="M930 290 q10 -10 20 0 q10 -10 20 0"/></g></svg>`,
+ C:`<svg class="sky" viewBox="0 0 1080 1920"><defs><linearGradient id="vC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#060f1c"/><stop offset=".45" stop-color="#0b1a2c"/><stop offset="1" stop-color="#123a4a"/></linearGradient><radialGradient id="vCg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3b82f6" stop-opacity=".22"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></radialGradient></defs><rect width="1080" height="1920" fill="url(#vC)"/>
+   <ellipse cx="540" cy="520" rx="560" ry="420" fill="url(#vCg)"/>
+   <g fill="#fff">${Array.from({length:46},(_,i)=>{const x=(i*233)%1080,y=(i*157)%900,r=1+(i%3);return `<circle cx="${x}" cy="${y}" r="${r}" opacity="${.25+(i%4)*.15}"/>`}).join('')}</g>
+   <g fill="#ffd43b" opacity=".8"><path d="M140 240 l7 18 18 7 -18 7 -7 18 -7 -18 -18 -7 18 -7z"/><path d="M950 700 l6 15 15 6 -15 6 -6 15 -6 -15 -15 -6 15 -6z"/></g></svg>`};
 // 배치
 document.querySelectorAll('[data-art]').forEach(el=>{
   const art=T('art'+el.dataset.art).innerHTML;
   if(el.classList.contains('vert')){
-    el.insertAdjacentHTML('afterbegin',`<svg class="sky" viewBox="0 0 1080 1920"><rect width="1080" height="1920" fill="${el.dataset.sky}"/></svg>`+art);
+    el.insertAdjacentHTML('afterbegin',SKY[el.dataset.art]+art.replace(/<rect width="1080" height="1080" fill="url\(#[abc]S\)"\/>/,''));
   } else el.insertAdjacentHTML('afterbegin',art);
 });
 </script>
