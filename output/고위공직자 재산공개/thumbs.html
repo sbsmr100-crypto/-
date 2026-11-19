@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Gaegu:wght@700&display=swap" rel="stylesheet"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#f7f3ea"/>
+  <!-- 펼친 관보 문서 더미 -->
+  <g transform="translate(720,660) rotate(6) scale(.72)"><rect width="420" height="560" fill="#fffdf6" stroke="#d8d0bf" stroke-width="3"/>
+    <g fill="#d8d0bf"><rect x="40" y="60" width="340" height="16"/><rect x="40" y="100" width="300" height="12"/><rect x="40" y="130" width="320" height="12"/><rect x="40" y="160" width="260" height="12"/>
+    <rect x="40" y="220" width="340" height="2"/><rect x="40" y="260" width="340" height="2"/><rect x="40" y="300" width="340" height="2"/><rect x="40" y="340" width="340" height="2"/><rect x="40" y="380" width="340" height="2"/></g>
+    <rect x="200" y="250" width="180" height="40" fill="#1f3a5f" opacity=".85"/></g>
+  <g transform="translate(690,690) rotate(-4) scale(.72)"><rect width="420" height="560" fill="#fffdf6" stroke="#d8d0bf" stroke-width="3"/>
+    <g fill="#d8d0bf"><rect x="40" y="60" width="340" height="16"/><rect x="40" y="100" width="280" height="12"/><rect x="40" y="220" width="340" height="2"/><rect x="40" y="260" width="340" height="2"/><rect x="40" y="300" width="340" height="2"/><rect x="40" y="340" width="340" height="2"/></g>
+    <rect x="40" y="270" width="340" height="30" fill="#b7791f" opacity=".5"/></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#1f3a5f"/>
+  <!-- 두 개의 쌓인 블록: 집 열쇠 vs 통장 -->
+  <g transform="translate(600,560)">
+    <rect x="0" y="120" width="180" height="300" fill="#c0392b"/><rect x="0" y="60" width="180" height="60" fill="#e07a5f"/>
+    <polygon points="-10,60 90,-20 190,60" fill="#e07a5f"/>
+    <rect x="230" y="200" width="180" height="220" fill="#98c1d9"/><rect x="230" y="150" width="180" height="50" fill="#3d5a80"/>
+    <rect x="260" y="250" width="120" height="14" fill="#1f3a5f"/><rect x="260" y="290" width="90" height="14" fill="#1f3a5f"/>
+  </g>
+  <rect x="0" y="980" width="1080" height="100" fill="#16304f"/>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#fffdf3"/>
+  <g stroke="#cfe0f3" stroke-width="2"><line x1="0" y1="120" x2="1080" y2="120"/><line x1="0" y1="180" x2="1080" y2="180"/><line x1="0" y1="240" x2="1080" y2="240"/><line x1="0" y1="300" x2="1080" y2="300"/><line x1="0" y1="360" x2="1080" y2="360"/><line x1="0" y1="420" x2="1080" y2="420"/><line x1="0" y1="480" x2="1080" y2="480"/><line x1="0" y1="540" x2="1080" y2="540"/><line x1="0" y1="600" x2="1080" y2="600"/><line x1="0" y1="660" x2="1080" y2="660"/><line x1="0" y1="720" x2="1080" y2="720"/><line x1="0" y1="780" x2="1080" y2="780"/><line x1="0" y1="840" x2="1080" y2="840"/><line x1="0" y1="900" x2="1080" y2="900"/><line x1="0" y1="960" x2="1080" y2="960"/></g>
+  <line x1="70" y1="0" x2="70" y2="1080" stroke="#f1a7a7" stroke-width="3"/>
+  <!-- 돋보기 + 달력 3칸 -->
+  <g transform="translate(780,760)"><circle r="130" fill="#ffffff" stroke="#22303c" stroke-width="18"/><line x1="92" y1="92" x2="200" y2="200" stroke="#22303c" stroke-width="34" stroke-linecap="round"/>
+    <g fill="#c0392b"><rect x="-80" y="-30" width="40" height="40" rx="6"/><rect x="-20" y="-30" width="40" height="40" rx="6" opacity=".6"/><rect x="40" y="-30" width="40" height="40" rx="6" opacity=".3"/></g></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<!-- 숫자형 -->
+<div class="canvas" data-out="thumb1.png" id="t1" data-wm="dark">
+  <div class="copy" style="top:120px;right:auto;color:#22303c">
+    <div style="font:700 50px 'Noto Serif KR';color:#8a6d3b;border-bottom:4px double #8a6d3b;display:inline-block;padding-bottom:8px">11월 고위공직자 재산공개</div>
+    <div style="font:900 150px/1.1 'Noto Serif KR';margin-top:30px;white-space:nowrap">60명,<br><span style="color:#c0392b">관보 공개</span></div>
+  </div>
+  <div class="copy" style="top:580px;right:auto"><span class="tag" style="background:#1f3a5f;color:#fff;font-size:42px">누가 얼마 신고했나</span></div>
+</div>
+
+<!-- 질문·반전형 -->
+<div class="canvas" data-out="thumb2.png" id="t2">
+  <div class="copy" style="top:120px;right:auto;color:#fff">
+    <span class="tag" style="background:#fff;color:#1f3a5f">재산공개 2위</span>
+    <div class="headline" style="font-size:150px;margin-top:30px;white-space:nowrap;line-height:1.1">예금만<br><span style="color:#ffb4a2">41억?</span></div>
+  </div>
+  <div class="copy" style="top:600px;right:auto"><span class="tag" style="background:#c0392b;color:#fff;font-size:42px">1위와 정반대 구성</span></div>
+</div>
+
+<!-- 감정·상황형 -->
+<div class="canvas" data-out="thumb3.png" id="t3" data-wm="dark">
+  <div class="copy" style="top:110px;right:auto;left:120px;color:#22303c">
+    <div style="font:700 60px 'Gaegu';color:#c0392b;letter-spacing:-.05em">8월에 임명됐는데...</div>
+    <div class="headline" style="font-size:136px;margin-top:20px;white-space:nowrap;line-height:1.12">재산은<br>석 달 뒤<br><span class="hl" style="background:#22303c;color:#fff">공개된다</span></div>
+  </div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
