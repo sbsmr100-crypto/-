@@ -1,0 +1,98 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css">
+<style>
+.fig{width:1080px;height:1080px;background:#fff;color:#1b1b1b;position:relative;font-family:'Noto Sans KR',sans-serif;letter-spacing:-.03em;box-sizing:border-box;padding:80px}
+.t{font-family:'Black Han Sans','Noto Sans KR';font-size:74px;line-height:1.15}
+.src{position:absolute;left:80px;right:80px;bottom:72px;font-size:23px;color:#888;border-top:2px solid #eee;padding-top:16px}
+.acc{color:#0ca678}.red{color:#e03131}
+.card{border-radius:20px;padding:20px 26px}
+.big{font-family:'Black Han Sans';white-space:nowrap}
+</style></head><body>
+
+<!-- 1. 월급별 하루 금액 -->
+<div class="fig" data-out="fig1_amount.png">
+  <div class="t">월급이 달라도<br><span class="acc">하루 금액은 거의 같다</span></div>
+  <svg width="920" height="460" style="position:absolute;left:80px;top:300px" font-family="Noto Sans KR">
+    <!-- 0원=400, 1,000원=4.6px → 66,048=304px, 68,100=313px -->
+    <line x1="0" y1="400" x2="920" y2="400" stroke="#ddd" stroke-width="3"/>
+    <line x1="0" y1="87" x2="920" y2="87" stroke="#e03131" stroke-width="3" stroke-dasharray="12 8"/><text x="920" y="60" text-anchor="end" font-size="24" font-weight="900" fill="#e03131">상한 68,100원</text>
+    <line x1="0" y1="96" x2="920" y2="96" stroke="#0ca678" stroke-width="3" stroke-dasharray="12 8"/><text x="0" y="60" font-size="24" font-weight="900" fill="#0ca678">하한 66,048원</text>
+    <g font-size="30" font-weight="900" text-anchor="middle">
+      <rect x="60" y="96" width="150" height="304" rx="10" fill="#96f2d7"/><text x="135" y="440" fill="#555" font-size="27">월 200만</text>
+      <rect x="290" y="96" width="150" height="304" rx="10" fill="#63e6be"/><text x="365" y="440" fill="#555" font-size="27">월 300만</text>
+      <rect x="520" y="87" width="150" height="313" rx="10" fill="#20c997"/><text x="595" y="440" fill="#555" font-size="27">월 400만</text>
+      <rect x="750" y="87" width="150" height="313" rx="10" fill="#0ca678"/><text x="825" y="440" fill="#555" font-size="27">월 600만</text>
+      <text x="135" y="250" fill="#fff">66,048</text><text x="365" y="250" fill="#fff">66,048</text><text x="595" y="250" fill="#fff">68,100</text><text x="825" y="250" fill="#fff">68,100</text>
+    </g>
+  </svg>
+  <div style="position:absolute;left:80px;right:80px;top:790px;font-size:28px;font-weight:700;color:#555">한 달(30일) 기준 약 198만~204만 원 · 대부분 상·하한선에 걸린다</div>
+  <div class="src">단순 계산 예시(월급÷30일) · 2026년 기준 · 출처: 고용노동부·고용24</div>
+</div>
+
+<!-- 2. 조건 3가지 -->
+<div class="fig" data-out="fig2_check.png" style="background:#f1fcf8">
+  <div class="t">실업급여 조건,<br><span class="acc">이 3개면 끝</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:310px;display:grid;gap:20px">
+    <div class="card" style="background:#fff;display:flex;gap:26px;align-items:center"><div class="big acc" style="font-size:70px">1</div><div><div style="font-size:36px;font-weight:900">고용보험 180일 이상</div><div style="font-size:26px;color:#666">퇴사 전 18개월 안 · 무급 휴일은 빠짐</div></div></div>
+    <div class="card" style="background:#fff;display:flex;gap:26px;align-items:center"><div class="big acc" style="font-size:70px">2</div><div><div style="font-size:36px;font-weight:900">내 뜻이 아닌 퇴사</div><div style="font-size:26px;color:#666">계약 만료·권고사직 · 자진퇴사는 예외 사유만</div></div></div>
+    <div class="card" style="background:#fff;display:flex;gap:26px;align-items:center"><div class="big acc" style="font-size:70px">3</div><div><div style="font-size:36px;font-weight:900">재취업 활동</div><div style="font-size:26px;color:#666">일할 의사·능력 + 1~4주마다 실업인정</div></div></div>
+  </div>
+  <div class="src">출처: 고용노동부·고용24 구직급여 안내(2026.11 기준)</div>
+</div>
+
+<!-- 3. 지급일수 -->
+<div class="fig" data-out="fig3_days.png">
+  <div class="t">받는 기간,<br><span class="acc">최소 120일 ~ 최대 270일</span></div>
+  <table style="position:absolute;left:80px;right:80px;top:330px;border-collapse:separate;border-spacing:8px;font-size:30px;text-align:center;width:920px">
+    <tr style="font-size:24px;color:#666"><td></td><td>1년 미만</td><td>1~3년</td><td>3~5년</td><td>5~10년</td><td>10년 이상</td></tr>
+    <tr><td style="font-weight:900;text-align:left;font-size:27px">50세 미만</td>
+      <td style="background:#e6fcf5;border-radius:12px;padding:26px 0">120</td><td style="background:#c3fae8;border-radius:12px">150</td><td style="background:#96f2d7;border-radius:12px">180</td><td style="background:#63e6be;border-radius:12px">210</td><td style="background:#38d9a9;border-radius:12px">240</td></tr>
+    <tr><td style="font-weight:900;text-align:left;font-size:27px">50세 이상<br><span style="font-size:20px;color:#666">·장애인</span></td>
+      <td style="background:#e6fcf5;border-radius:12px;padding:26px 0">120</td><td style="background:#96f2d7;border-radius:12px">180</td><td style="background:#63e6be;border-radius:12px">210</td><td style="background:#38d9a9;border-radius:12px">240</td><td style="background:#0ca678;color:#fff;border-radius:12px;font-weight:900">270</td></tr>
+  </table>
+  <div style="position:absolute;left:80px;right:80px;top:700px;font-size:30px;font-weight:700;line-height:1.6">총액 예: 120일 × 66,048원 ≈ <b>793만 원</b><br>270일 × 68,100원 ≈ <b class="acc">1,839만 원</b></div>
+  <div class="src">단위 일 · 가입기간 = 고용보험 가입 기간 · 출처: 고용보험법 소정급여일수</div>
+</div>
+
+<!-- 4. 자진퇴사 예외 -->
+<div class="fig" data-out="fig4_reasons.png" style="background:#fff9db">
+  <div class="t">자진퇴사인데도<br><span style="color:#e67700">인정되는 대표 사유</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:310px;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:29px">
+    <div class="card" style="background:#fff"><b>💸 임금체불·최저임금 미달</b><div style="font-size:24px;color:#666;margin-top:6px">퇴사 전 1년 중 2개월 이상</div></div>
+    <div class="card" style="background:#fff"><b>🚌 통근 왕복 3시간 이상</b><div style="font-size:24px;color:#666;margin-top:6px">회사 이전·전근·이사 등</div></div>
+    <div class="card" style="background:#fff"><b>🏥 질병·부상</b><div style="font-size:24px;color:#666;margin-top:6px">휴직 요청을 회사가 거절</div></div>
+    <div class="card" style="background:#fff"><b>👶 임신·출산·육아</b><div style="font-size:24px;color:#666;margin-top:6px">휴직이 허용되지 않음</div></div>
+    <div class="card" style="background:#fff"><b>🧑‍🤝‍🧑 가족 간호</b><div style="font-size:24px;color:#666;margin-top:6px">30일 이상 간호 필요·휴가 불허</div></div>
+    <div class="card" style="background:#fff"><b>🚫 괴롭힘·성희롱·차별</b><div style="font-size:24px;color:#666;margin-top:6px">직장 내에서 발생</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:820px;font-size:27px;font-weight:700;color:#666">이 밖에 폐업 예정, 희망퇴직 등 · 최종 판단은 고용센터</div>
+  <div class="src">출처: 고용보험법 시행규칙 별표 2(정당한 이직 사유) 요약</div>
+</div>
+
+<!-- 5. 기록 -->
+<div class="fig" data-out="fig5_records.png">
+  <div class="t">사표 내기 전에<br><span class="red">남겨 둘 기록</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:310px;display:grid;gap:14px;font-size:31px">
+    <div class="card" style="background:#fff5f5;display:flex;justify-content:space-between"><b>휴직·업무 전환 요청과 거절</b><span style="color:#666">메일·문자</span></div>
+    <div class="card" style="background:#fff5f5;display:flex;justify-content:space-between"><b>급여명세서·통장 입금 내역</b><span style="color:#666">체불·미달 증빙</span></div>
+    <div class="card" style="background:#fff5f5;display:flex;justify-content:space-between"><b>진단서·소견서</b><span style="color:#666">질병·부상</span></div>
+    <div class="card" style="background:#fff5f5;display:flex;justify-content:space-between"><b>출퇴근 경로·시간</b><span style="color:#666">통근 곤란</span></div>
+    <div class="card" style="background:#212529;color:#fff;display:flex;justify-content:space-between"><b>이직확인서 퇴사 사유</b><span style="color:#ffd43b">퇴사 후 꼭 확인</span></div>
+  </div>
+  <div class="src">출처: 고용24 수급자격 안내, 고용센터 상담 시 일반적 요구 서류</div>
+</div>
+
+<!-- 6. 반복수급 -->
+<div class="fig" data-out="fig6_repeat.png" style="background:#f8f9fa">
+  <div class="t">반복수급 감액,<br><span style="color:#495057">아직 시행 전</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:320px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center">
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">3번째</div><div class="big" style="font-size:56px">-10%</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">4번째</div><div class="big" style="font-size:56px">-25%</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">5번째</div><div class="big" style="font-size:56px">-40%</div></div>
+    <div class="card" style="background:#fff"><div style="font-size:26px;color:#666">6번째~</div><div class="big red" style="font-size:56px">-50%</div></div>
+  </div>
+  <div style="position:absolute;left:80px;right:80px;top:540px;font-size:30px;font-weight:700;line-height:1.6">5년 안에 3번 이상 받으면 감액 · 대기기간 최대 4주<br><span style="color:#e03131">→ 정부 개정안, 2026년 10월 기준 국회 심사 중</span></div>
+  <div class="card" style="position:absolute;left:80px;right:80px;top:740px;background:#fff;font-size:28px;font-weight:900">지금 신청자에겐 적용 안 됨 · 신청 전 고용24에서 재확인</div>
+  <div class="src">출처: 이데일리·매일노동뉴스 보도, 정부 고용보험법 개정안</div>
+</div>
+<script src="../../tools/watermark.js"></script>
+</body></html>

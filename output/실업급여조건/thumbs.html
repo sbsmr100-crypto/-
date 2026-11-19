@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../tools/thumb_base.css"></head><body>
+
+<template id="bg1svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#0b3b2e"/>
+  <!-- 달력 -->
+  <g transform="translate(560,520) rotate(-6)">
+    <rect width="440" height="440" rx="30" fill="#e6fcf5"/>
+    <rect width="440" height="90" rx="30" fill="#20c997"/><rect y="60" width="440" height="30" fill="#20c997"/>
+    <circle cx="110" cy="0" r="18" fill="#0b3b2e"/><circle cx="330" cy="0" r="18" fill="#0b3b2e"/>
+    <g fill="#96f2d7">
+      <rect x="30" y="120" width="70" height="60" rx="10"/><rect x="115" y="120" width="70" height="60" rx="10"/><rect x="200" y="120" width="70" height="60" rx="10"/><rect x="285" y="120" width="70" height="60" rx="10"/>
+      <rect x="30" y="200" width="70" height="60" rx="10"/><rect x="115" y="200" width="70" height="60" rx="10"/><rect x="200" y="200" width="70" height="60" rx="10"/><rect x="285" y="200" width="70" height="60" rx="10"/>
+      <rect x="30" y="280" width="70" height="60" rx="10"/><rect x="115" y="280" width="70" height="60" rx="10"/><rect x="200" y="280" width="70" height="60" rx="10"/><rect x="285" y="280" width="70" height="60" rx="10" fill="#0ca678"/>
+    </g>
+  </g>
+  <g fill="#20c997" opacity=".15"><circle cx="120" cy="980" r="140"/></g>
+</svg></template>
+
+<template id="bg2svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#fff9db"/>
+  <!-- 열린 문 + 걸어 나가는 사람 실루엣 -->
+  <rect x="640" y="480" width="300" height="520" rx="12" fill="#ffe8a3"/>
+  <polygon points="640,480 760,520 760,1040 640,1000" fill="#f59f00"/>
+  <circle cx="742" cy="760" r="10" fill="#fff3bf"/>
+  <g transform="translate(870,780)" fill="#343a40"><circle cx="0" cy="-150" r="42"/><path d="M-40 -100 L40 -100 L55 40 L20 40 L10 200 L-25 200 L-20 40 L-55 40 Z"/></g>
+  <rect x="0" y="1000" width="1080" height="80" fill="#ffe066"/>
+</svg></template>
+
+<template id="bg3svg">
+<svg class="bg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#2b0f12"/>
+  <!-- 봉투 + 정지 손바닥 -->
+  <g transform="translate(560,740) rotate(-8)">
+    <rect width="420" height="280" rx="20" fill="#f8f9fa"/>
+    <polyline points="0,0 210,150 420,0" fill="none" stroke="#ced4da" stroke-width="6"/>
+  </g>
+  <g transform="translate(880,640)"><circle r="120" fill="#e03131"/>
+    <path d="M-40 70 L-40 -20 Q-40 -40 -25 -40 Q-10 -40 -10 -20 L-10 -60 Q-10 -80 5 -80 Q20 -80 20 -60 L20 -50 Q20 -70 35 -70 Q50 -70 50 -50 L50 20 Q50 80 0 90 Q-40 90 -40 70 Z" fill="#fff"/></g>
+</svg></template>
+
+<div class="canvas" data-out="bg1.png" id="b1"></div>
+<div class="canvas" data-out="bg2.png" id="b2"></div>
+<div class="canvas" data-out="bg3.png" id="b3"></div>
+
+<!-- 숫자형 -->
+<div class="canvas" data-out="thumb1.png" id="t1">
+  <div class="copy" style="top:120px;right:auto;color:#fff">
+    <div class="sub" style="font-size:54px;color:#96f2d7;white-space:nowrap">실업급여 받는 기간</div>
+    <div class="headline" style="font-size:170px;margin-top:14px;white-space:nowrap;line-height:1.05">최대<br><span style="color:#63e6be">270일</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#fff;color:#0b3b2e;font-size:42px">총액은 이걸로 갈린다</span></div>
+</div>
+
+<!-- 질문·반전형 -->
+<div class="canvas" data-out="thumb2.png" id="t2" data-wm="dark">
+  <div class="copy" style="top:120px;right:auto;color:#212529">
+    <span class="tag" style="background:#212529;color:#fff">실업급여 조건</span>
+    <div class="headline" style="font-size:132px;margin-top:30px;white-space:nowrap;line-height:1.12">자진퇴사인데<br><span class="hl" style="background:#f59f00;color:#fff">받았다?</span></div>
+  </div>
+  <div class="copy" style="top:640px;right:auto"><span class="tag" style="background:#fff;color:#e67700;border:4px solid #f59f00;font-size:40px">인정되는 사유 6가지</span></div>
+</div>
+
+<!-- 감정·상황형 -->
+<div class="canvas" data-out="thumb3.png" id="t3">
+  <div class="copy" style="top:130px;right:auto;color:#fff">
+    <div class="sub" style="font-size:52px;color:#ffa8a8;white-space:nowrap">실업급여 받고 싶다면</div>
+    <div class="headline" style="font-size:146px;margin-top:16px;white-space:nowrap;line-height:1.1">사표 내기 전<br><span style="color:#ff6b6b">멈춰!</span></div>
+  </div>
+  <div class="copy" style="top:660px;right:auto"><span class="tag" style="background:#ff6b6b;color:#fff;font-size:42px">이 기록 없으면 못 받는다</span></div>
+</div>
+
+<script>
+const put=(id,tpl)=>document.getElementById(id).insertAdjacentHTML('afterbegin',document.getElementById(tpl).innerHTML);
+put('b1','bg1svg');put('b2','bg2svg');put('b3','bg3svg');
+put('t1','bg1svg');put('t2','bg2svg');put('t3','bg3svg');
+</script>
+<script src="../../tools/watermark.js"></script>
+</body></html>
