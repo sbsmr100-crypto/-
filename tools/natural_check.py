@@ -1,6 +1,8 @@
 """post.md 자연스러움·독창성 점검: AI 티 나는 습관과 레퍼런스와 겹치는 문장을 찾아 보고한다.
 
-사용: python3 tools/natural_check.py "output/<키워드>"
+사용: python3 tools/natural_check.py "output/<키워드>" [--refs "output/<검색용 폴더>"] [--against "output/<내 다른 글 폴더>"]
+  --refs: refs.json을 다른 폴더에서 읽기(홈판용 글처럼 폴더를 따로 둘 때)
+  --against: 같은 소재로 쓴 내 글(post.md)과 문장이 겹치는지 확인
 기준은 사람이 쓴 블로그 글과 비교해 눈에 띄는 패턴이다. 점수가 아니라 고칠 곳 목록으로 본다.
 """
 
@@ -51,7 +53,7 @@ def ngrams(t: str, n: int) -> set[str]:
     return {t[i:i + n] for i in range(len(t) - n + 1)}
 
 
-def main(folder: str) -> None:
+def main(folder: str, refs_dir: str | None = None, against: str | None = None) -> None:
     f = pathlib.Path(folder)
     md = (f / "post.md").read_text()
     lines = body_lines(md)
@@ -100,7 +102,7 @@ def main(folder: str) -> None:
         issues.append(f"같은 말로 시작하는 문장 반복: {rep}")
 
     # 5) 레퍼런스와 겹침 (제목·소제목·도입부 기준, 10자 이상 연속 일치)
-    refs = f / "refs.json"
+    refs = pathlib.Path(refs_dir or folder) / "refs.json"
     if refs.exists():
         r = json.loads(refs.read_text())
         pool = []
@@ -115,10 +117,26 @@ def main(folder: str) -> None:
         else:
             print("레퍼런스와 10자 이상 겹치는 문장 없음")
 
+    # 6) 같은 소재로 쓴 내 다른 글과 겹침
+    if against:
+        other = " ".join(body_lines((pathlib.Path(against) / "post.md").read_text()))
+        mine = ngrams(other, 12)
+        dup = [s for s in sents if ngrams(s, 12) & mine]
+        if dup:
+            issues.append(f"내 다른 글과 12자 이상 겹치는 문장 {len(dup)}개: " + " / ".join(d[:30] for d in dup[:5]))
+        else:
+            print("내 다른 글과 12자 이상 겹치는 문장 없음")
+
     print("\n고칠 곳" if issues else "\n고칠 곳 없음")
     for i in issues:
         print("-", i)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("folder")
+    ap.add_argument("--refs")
+    ap.add_argument("--against")
+    a = ap.parse_args()
+    main(a.folder, a.refs, a.against)
